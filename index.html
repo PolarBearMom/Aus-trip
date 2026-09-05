@@ -685,6 +685,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     --need:#DF4B3E; --need-soft:#FDE7E4;
     --pub:#7B3FE4; --pub-soft:#EFE7FD;
     --food:#E0A800; --food-soft:#FFF7DD;
+    --home:#0E9F8E; --home-soft:#DDF4F0;
     --r:14px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -771,6 +772,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .chip.pub.on{background:var(--pub);border-color:var(--pub);color:#fff}
   .chip.food.on{background:var(--food);border-color:var(--food);color:#fff}
   .chip.route.on{background:var(--sun);border-color:var(--sun);color:#fff}
+  .chip.home.on{background:var(--home);border-color:var(--home);color:#fff}
   .map{height:300px;width:100%;background:#DCE6EE}
   .map.notile::before{content:'지도 배경은 배포된 링크에서 보여요 · 핀은 정상';position:absolute;z-index:400;left:10px;top:10px;font-size:11px;background:rgba(255,255,255,.9);padding:4px 8px;border-radius:6px;color:#4A5C6E}
   .map-hint{font-size:12px;color:var(--ink-3);padding:8px 12px;border-top:1px solid var(--line)}
@@ -785,6 +787,17 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .pin.route{background:var(--sun)}
   .pin.pub{background:var(--pub)}
   .pin.food{background:var(--food)}
+  .pin.home{background:var(--home);width:32px;height:32px;position:relative}
+  .pin.home span{font-size:15px}
+  .pin.home::after{content:'';position:absolute;inset:-7px;border-radius:50%;border:2px solid var(--home);animation:homePulse 1.8s ease-out infinite}
+  @keyframes homePulse{0%{transform:scale(.7);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+  .stay-bar{display:flex;align-items:center;gap:10px;background:var(--home-soft);border:1.5px solid var(--home);border-radius:var(--r);padding:10px 12px;margin:0 0 12px}
+  .stay-bar .ic{font-size:20px}
+  .stay-bar .tx{flex:1;min-width:0;font-size:13px;color:var(--ink);line-height:1.35}
+  .stay-bar .tx b{display:block;font-size:14px;color:var(--home)}
+  .stay-bar .acts{display:flex;flex-direction:column;gap:4px}
+  .stay-bar .acts a,.stay-bar .acts button{font-size:12px;font-weight:600;padding:5px 9px;border-radius:8px;background:var(--home);color:#fff;border:0;white-space:nowrap;text-align:center}
+  .stay-bar .acts a.sub,.stay-bar .acts button.sub{background:#fff;color:var(--home);border:1px solid var(--home)}
   .leaflet-popup-content{margin:10px 12px;font-family:inherit;font-size:13px;line-height:1.4}
   .leaflet-popup-content b{display:block;font-size:14px;margin-bottom:2px}
   .leaflet-popup-content a.go{display:inline-block;margin-top:6px;background:var(--sea);color:#fff;padding:5px 10px;border-radius:8px;font-weight:600;font-size:12px}
@@ -925,6 +938,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <button class="chip route on" data-cat="route">일정</button>
         <button class="chip pub" data-cat="pub">펍</button>
         <button class="chip food" data-cat="food">밥집</button>
+        <button class="chip home on" data-cat="home">🏠 숙소</button>
       </div>
       <div class="map" id="map-d17"></div>
       <div class="map-hint">핀을 누르면 구글맵으로 바로 열려요 · 펍/밥집은 눌렀을 때만 표시</div>
@@ -934,15 +948,15 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <div class="timeline">
       <div class="tl"><div class="time">06:20</div><div class="dot"></div><div class="body">
         <div class="t">성훈 시드니 도착 · KE401</div>
-        <div class="s">공항철도 15분 → Central · 숙소에 짐 맡기기</div>
-        <div class="row"><span class="tag ok">항공 확정</span><span class="tag wait">숙소 미정</span></div>
+        <div class="s">공항철도 15분 → Town Hall역 → 달링하버 숙소에 짐 맡기기 (체크인 전이라 호스트한테 얼리 짐 보관 미리 물어보기)</div>
+        <div class="row"><span class="tag ok">항공 확정</span><span class="tag ok">숙소 확정 · 달링하버</span></div>
       </div></div>
       <div class="tl"><div class="time">07:30</div><div class="dot"></div><div class="body">
         <div class="t">성재·종모 시드니 도착 · JQ500</div>
-        <div class="s">멜버른 T4 06:00 출발 → 시드니 국내선 T2 07:30. 성훈은 국제선 T1이라 공항철도 타고 Central에서 만나기 (T1·T2 둘 다 같은 라인)</div>
+        <div class="s">멜버른 T4 06:00 출발 → 시드니 국내선 T2 07:30. 공항철도(T1·T2 같은 라인) 15분 → Town Hall역 → 숙소 앞에서 성훈이랑 합류</div>
         <div class="row"><span class="tag ok">항공 확정</span><span class="tag need">9/15 06:00 체크인 오픈</span></div>
       </div></div>
-      <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚆 Central → Circular Quay 10분</div></div></div>
+      <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚆 Town Hall → Circular Quay 5분 · 또는 달링하버 끼고 도보 25분</div></div></div>
       <div class="tl"><div class="time">10:00</div><div class="dot"></div><div class="body">
         <div class="t">오페라하우스 (낮)</div>
         <div class="s">서큘러키에서 걸어서. 계단 위까지 올라가면 브릿지 뷰</div>
@@ -1001,6 +1015,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <button class="chip route on" data-cat="route">일정</button>
         <button class="chip pub" data-cat="pub">펍</button>
         <button class="chip food" data-cat="food">밥집</button>
+        <button class="chip home on" data-cat="home">🏠 숙소</button>
       </div>
       <div class="map" id="map-d18"></div>
       <div class="map-hint">카툼바 → 저녁·클럽은 시드니 · 펍 탭 누르면 클럽 핀</div>
@@ -1010,7 +1025,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <div class="timeline">
       <div class="tl"><div class="time">07:30</div><div class="dot"></div><div class="body">
         <div class="t">Central역 출발 · Blue Mountains Line</div>
-        <div class="s">Katoomba행. 오팔카드 찍으면 됨, 예매 필요 없음. 오른쪽 자리가 경치 좋음</div>
+        <div class="s">숙소 → Central은 라이트레일 5분 or 도보 15분. Katoomba행, 오팔카드 찍으면 됨, 예매 필요 없음. 오른쪽 자리가 경치 좋음</div>
         <div class="row"><span class="tag info">약 2시간 · 편도 $8 안팎</span></div>
       </div></div>
       <div class="tl"><div class="time">09:30</div><div class="dot"></div><div class="body">
@@ -1069,6 +1084,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <button class="chip route on" data-cat="route">일정</button>
         <button class="chip pub" data-cat="pub">펍</button>
         <button class="chip food" data-cat="food">밥집</button>
+        <button class="chip home on" data-cat="home">🏠 숙소</button>
       </div>
       <div class="map" id="map-d19"></div>
       <div class="map-hint">본다이 → 시티 순서</div>
@@ -1078,8 +1094,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <div class="timeline">
       <div class="tl"><div class="time">08:30</div><div class="dot"></div><div class="body">
         <div class="t">체크아웃 · 짐 맡기기</div>
-        <div class="s">숙소에 맡기거나 Central역 락커</div>
-        <div class="row"><span class="tag wait">숙소 미정</span></div>
+        <div class="s">달링하버 숙소 체크아웃. 짐은 호스트한테 맡길 수 있는지 물어보고, 안 되면 Central역 락커</div>
+        <div class="row"><span class="tag ok">숙소 확정</span><span class="tag wait">짐 보관 문의</span></div>
       </div></div>
       <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚆 Central → Bondi Junction 10분 + 🚌 333번 10분</div></div></div>
       <div class="tl"><div class="time">09:30</div><div class="dot"></div><div class="body">
@@ -1390,97 +1406,21 @@ svg.leaflet-image-layer.leaflet-interactive path {
     </div>
 
     <div class="info">
-      <h3>🏠 시드니 숙소 <span class="tag need">예약 필요</span></h3>
+      <h3>🏠 시드니 숙소 · 에어비앤비 달링하버 <span class="tag ok">확정</span></h3>
       <dl class="kv">
-        <dt>일정</dt><dd>9/16 or 17 → 9/19 (2~3박)</dd>
-        <dt>조건</dt><dd>4명 한 집, 우리끼리 시끄럽게 마셔도 되는 곳</dd>
+        <dt>숙소</dt><dd>2Br Apt in Heart of Sydney's City: Darling Harbour · 호스트 Milan · ★4.79 (후기 154)</dd>
+        <dt>일정</dt><dd>9/17 목 → 9/19 토 · 체크인·아웃 시간은 예약 후 추가</dd>
+        <dt>위치</dt><dd>달링하버 100m · Town Hall역 걸어서 5분 · 라이트레일 2분 · World Square Coles 300m</dd>
+        <dt>구성</dt><dd>침실 1 + 서재방(싱글 침대, 창 없음, 슬라이딩 도어) + 거실 · 침대 3 · 욕실 1 · 최대 5명. 4명이면 한 명은 소파</dd>
+        <dt>시설</dt><dd>주방 풀옵션(가스·오븐·네스프레소) · 세탁기+건조기 · 스마트TV(넷플릭스) · 수영장(비가열)·헬스장은 점검으로 닫힐 수 있음</dd>
+        <dt>규칙</dt><dd>파티 금지 · 21시 이후 소음 금지 (소음 감지기 + 24시간 경비) · 등록한 게스트만 숙박</dd>
+        <dt>주의</dt><dd>엘리베이터 공사로 1대만 운행 · 환불 불가(엄격) 정책 · 공항까지 우버 $50~60</dd>
+        <dt>예약</dt><dd>성재가 진행 중 · 예약번호·주소·입장 방법은 예약 후 여기에 추가</dd>
       </dl>
       <div class="links">
-        <a href="https://www.airbnb.co.kr/s/Sydney--Australia/homes?checkin=2026-09-16&checkout=2026-09-19&adults=4&room_types%5B%5D=Entire%20home%2Fapt" target="_blank">에어비앤비 집 전체·4인</a>
-        <a class="sub" href="https://www.airbnb.co.kr/s/Surry-Hills--Sydney--Australia/homes?checkin=2026-09-16&checkout=2026-09-19&adults=4&room_types%5B%5D=Entire%20home%2Fapt" target="_blank">서리힐스 테라스하우스</a>
-        <a class="sub" href="https://www.airbnb.co.kr/s/Newtown--Sydney--Australia/homes?checkin=2026-09-16&checkout=2026-09-19&adults=4&room_types%5B%5D=Entire%20home%2Fapt" target="_blank">뉴타운</a>
-        <a class="sub" href="https://www.booking.com/searchresults.html?ss=Haymarket%2C+Sydney&checkin=2026-09-16&checkout=2026-09-19&group_adults=4&no_rooms=1" target="_blank">부킹닷컴</a>
+        <a class="sub" href="https://www.google.com/maps/search/?api=1&query=Darling+Harbour+Cockle+Bay+Sydney" target="_blank">위치 (대략) 구글맵</a>
       </div>
-      <div class="note">펜션처럼 통째로 쓰는 건 시드니 시내엔 없고, 에어비앤비 테라스하우스(집 전체)가 그 역할. 서리힐스·뉴타운이 펍 골목이랑 붙어 있어서 술 마시기 좋음. 위 에어비앤비 2동네 + 아래 바로 예약되는 곳 13개, 싼 순</div>
-      <div class="stay">
-        <div class="sn"><b><span class="n2">1</span>Tequila Sunrise Hostel</b><span>★4.5 · 헤이마켓</span></div>
-        <p>4인 프라이빗룸. 조식+저녁 무료, 타월·샴푸까지 다 줌. 술은 방에서 조용히 정도</p>
-        <div class="price">1인 $50~65</div>
-        <a class="go2" href="https://www.tequilasunrisehostel.com.au/" target="_blank">예약</a><a class="go2" href="https://www.google.com/maps/search/?api=1&query=Tequila+Sunrise+Hostel+Sydney&query_place_id=ChIJOY3UCiqvEmsRoVP_dwB5T_Q" target="_blank">지도</a>
-      </div>
-      <div class="stay">
-        <div class="sn"><b><span class="n2">2</span>YHA Sydney Central</b><span>★4.1 · Central 앞</span></div>
-        <p>화장실 딸린 4인실, 옥상 수영장·큰 주방. 호스텔이라 밤 10시 이후 방에서 떠드는 건 눈치</p>
-        <div class="price">1인 $55~75</div>
-        <a class="go2" href="https://www.yha.com.au/hostels/nsw/sydney-surrounds/sydney-central/" target="_blank">예약</a><a class="go2" href="https://www.google.com/maps/search/?api=1&query=YHA+Sydney+Central&query_place_id=ChIJe_mCjSOuEmsR2DoRbNGZ6C0" target="_blank">지도</a>
-      </div>
-      <div class="stay">
-        <div class="sn"><b><span class="n2">3</span>Nomads Sydney</b><span>★4.0 · 켄트스트리트</span></div>
-        <p>달링하버 5분, 1층이 바라 시끄러운 거 상관없음. 프라이빗룸 작음</p>
-        <div class="price">1인 $55~70</div>
-        <a class="go2" href="https://www.nomadsworld.com/hostels/nomads-sydney/" target="_blank">예약</a><a class="go2" href="https://www.google.com/maps/search/?api=1&query=Nomads+Sydney+hostel&query_place_id=ChIJKwL_BDyuEmsROVMxBbEOOnk" target="_blank">지도</a>
-      </div>
-      <div class="stay">
-        <div class="sn"><b><span class="n2">4</span>Wake Up! Sydney</b><span>★4.5 · Central 앞</span></div>
-        <p>4인실. 제일 파티 분위기, 지하가 Side Bar. 방에서 안 마셔도 아래서 마시면 됨</p>
-        <div class="price">1인 $65~80</div>
-        <a class="go2" href="https://www.wakeup.com.au/" target="_blank">예약</a><a class="go2" href="https://www.google.com/maps/search/?api=1&query=Wake+Up+Sydney+hostel&query_place_id=ChIJ1_5Y_yOuEmsRU3ORQg0SYpg" target="_blank">지도</a>
-      </div>
-      <div class="stay">
-        <div class="sn"><b><span class="n2">5</span>YHA Sydney Harbour · 더 락스</b><span>★4.5 · 서큘러키</span></div>
-        <p>옥상 테라스에서 오페라하우스 보면서 맥주. 대신 Central 멀어서 기차 한 번 더</p>
-        <div class="price">1인 $70~90</div>
-        <a class="go2" href="https://www.yha.com.au/hostels/nsw/sydney-surrounds/sydney-harbour/" target="_blank">예약</a><a class="go2" href="https://www.google.com/maps/search/?api=1&query=YHA+Sydney+Harbour+The+Rocks&query_place_id=ChIJ7ROWBUOuEmsRxVKXiTS-KSo" target="_blank">지도</a>
-      </div>
-      <div class="stay">
-        <div class="sn"><b><span class="n2">6</span>APX World Square</b><span>★3.3 · 헤이마켓</span></div>
-        <p>2베드 아파트 + 발코니·세탁기. 아파트 중 최저가, 대신 서비스 평 나쁨. 보증금 있음</p>
-        <div class="price">1인 $65~80</div>
-        <a class="go2" href="https://www.apxhotelsapartments.com/" target="_blank">예약</a><a class="go2" href="https://www.google.com/maps/search/?api=1&query=APX+World+Square+Sydney&query_place_id=ChIJo6O60jyuEmsRzN68CwMxgvI" target="_blank">지도</a>
-      </div>
-      <div class="stay">
-        <div class="sn"><b><span class="n2">7</span>Sydney Central Hotel</b><span>★4.0 · 헤이마켓</span></div>
-        <p>성인 4명 패밀리룸 + 조식 뷔페, 수영장. 방 하나에 4명이라 술은 로비바</p>
-        <div class="price">1인 $75~95</div>
-        <a class="go2" href="https://www.sydneycentralhotel.com/" target="_blank">예약</a><a class="go2" href="https://www.google.com/maps/search/?api=1&query=Sydney+Central+Hotel+Thomas+Street&query_place_id=ChIJF4MApjKvEmsRpfviii-AEGQ" target="_blank">지도</a>
-      </div>
-      <div class="stay">
-        <div class="sn"><b><span class="n2">8</span>Oaks Goldsbrough Suites</b><span>★3.6 · 달링하버</span></div>
-        <p>2베드 2화장실, 창고 개조 건물이라 방 넓음. 수영장·사우나. 피쉬마켓·달링하버 걸어서</p>
-        <div class="price">1인 $75~95</div>
-        <a class="go2" href="https://www.oakshotels.com/en/oaks-sydney-goldsbrough-suites" target="_blank">예약</a><a class="go2" href="https://www.google.com/maps/search/?api=1&query=Oaks+Sydney+Goldsbrough+Suites&query_place_id=ChIJLfFKZjCuEmsRmrYDhBV-XCc" target="_blank">지도</a>
-      </div>
-      <div class="stay">
-        <div class="sn"><b><span class="n2">9</span>Mantra Sydney Central</b><span>★3.6 · 차이나타운</span></div>
-        <p>2베드 아파트 + 발코니. 좀 낡음. 위치는 최고</p>
-        <div class="price">1인 $85~100</div>
-        <a class="go2" href="https://www.mantrahotels.com/mantra-sydney-central" target="_blank">예약</a><a class="go2" href="https://www.google.com/maps/search/?api=1&query=Mantra+Sydney+Central&query_place_id=ChIJK7YzQyOuEmsRwAxIacG2RMg" target="_blank">지도</a>
-      </div>
-      <div class="stay">
-        <div class="sn"><b><span class="n2">10</span>Meriton Suites Campbell St</b><span>★4.3 · 헤이마켓</span></div>
-        <p>2베드, 주방·세탁기, 깔끔. 거실 넓어서 4명 술판 가능. Central 5분</p>
-        <div class="price">1인 $90~110</div>
-        <a class="go2" href="https://www.meritonsuites.com.au/our-hotels/nsw/sydney/campbell-street/" target="_blank">예약</a><a class="go2" href="https://www.google.com/maps/search/?api=1&query=Meriton+Suites+Campbell+Street+Sydney&query_place_id=ChIJ-5ND5TyuEmsR5Q6C27gV14g" target="_blank">지도</a>
-      </div>
-      <div class="stay">
-        <div class="sn"><b><span class="n2">11</span>Meriton Suites Pitt St</b><span>★4.0 · 타운홀</span></div>
-        <p>2·3베드 있음. 고층 시티뷰 발코니. QVB 바로 옆</p>
-        <div class="price">1인 $95~115</div>
-        <a class="go2" href="https://www.meritonsuites.com.au/our-hotels/nsw/sydney/pitt-street/" target="_blank">예약</a><a class="go2" href="https://www.google.com/maps/search/?api=1&query=Meriton+Suites+Pitt+Street+Sydney&query_place_id=ChIJxQy6zz2uEmsRuzk3gZ7Ey-I" target="_blank">지도</a>
-      </div>
-      <div class="stay">
-        <div class="sn"><b><span class="n2">12</span>Adina Surry Hills</b><span>★4.2 · 서리힐스</span></div>
-        <p>2베드 2화장실 + 세탁기. 크라운스트리트 펍·밥집 골목 한가운데. 좀 오래됨</p>
-        <div class="price">1인 $95~115</div>
-        <a class="go2" href="https://www.adinahotels.com/en/apartments/sydney-surry-hills/" target="_blank">예약</a><a class="go2" href="https://www.google.com/maps/search/?api=1&query=Adina+Surry+Hills+Sydney&query_place_id=ChIJdzgwPBmuEmsRwzrUnNBjdxU" target="_blank">지도</a>
-      </div>
-      <div class="stay">
-        <div class="sn"><b><span class="n2">13</span>Zara Tower</b><span>★4.5 · 서리힐스 쪽</span></div>
-        <p>창고 개조 2베드 스위트. 15개 중 제일 평 좋음. 주방·세탁기</p>
-        <div class="price">1인 $95~110</div>
-        <a class="go2" href="https://www.zaratower.com.au/" target="_blank">예약</a><a class="go2" href="https://www.google.com/maps/search/?api=1&query=Zara+Tower+Hotel+Sydney&query_place_id=ChIJK7C_Uj2uEmsRmfWA8BUPL0s" target="_blank">지도</a>
-      </div>
-      <div class="note">호스텔 4인실은 방에서 조용히 마시는 정도. 진짜 시끄럽게 하려면 6번 이후 아파트나 에어비앤비 집 전체</div>
+      <div class="note">집에서 마시는 건 21시 전까지. 그 뒤에 시끄러우면 환불 없이 바로 퇴실당할 수 있는 곳이라, 밤엔 달링하버·시티 펍으로 나가기</div>
     </div>
 
     <div class="info">
@@ -1598,7 +1538,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <div class="section-title">할 일</div>
     <div class="todo">
       <label><input type="checkbox"><span>[시드니] 성재·종모 젯스타 체크인<small>9/15 06:00 오픈 · JQ500 · 좌석 선택</small></span></label>
-      <label><input type="checkbox"><span>[시드니] 숙소 예약<small>위 15개 중 골라서</small></span></label>
+      <label><input type="checkbox"><span>[시드니] 달링하버 에어비앤비 예약<small>성재 · 예약 후 예약번호·체크인 방법 공유</small></span></label>
       <label><input type="checkbox"><span>[시드니] 시닉월드 18일 예약<small>4명</small></span></label>
       <label><input type="checkbox"><span>[시드니] 셋 다 19일 멜버른행 예매<small>20일 08:00 렌트카라 19일 이동 필수</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 종모·성훈 숙소<small>2명</small></span></label>
@@ -1627,7 +1567,7 @@ const gmap = (name, pid) => `https://www.google.com/maps/search/?api=1&query=${e
 const DATA = {
   d17: {
     route: [
-      {n:'Central역', lat:-33.8832, lng:151.2066, s:'공항철도 도착 · 짐'},
+      {n:'Town Hall역', lat:-33.8733, lng:151.2069, s:'공항철도 도착 · 숙소에 짐'},
       {n:'오페라하우스', lat:-33.8568, lng:151.2153, s:'낮에 방문', pid:'ChIJ3S-JXmauEmsRUcIaWtf4MzE'},
       {n:'로열 보타닉가든', lat:-33.8642, lng:151.2166, s:'미세스 맥쿼리 포인트까지'},
       {n:'Circular Quay 페리', lat:-33.8610, lng:151.2107, s:'Wharf 3 · F1 Manly'},
@@ -1772,10 +1712,42 @@ const DATA = {
   }
 };
 
+/* ---------- stay (시드니 숙소) ---------- */
+const STAY = {
+  n:'에어비앤비 · 달링하버 아파트', lat:-33.8757, lng:151.2046,
+  s:'Town Hall역 5분 · 달링하버 100m · 9/17→19. 차이니스 가든과 George St 사이 (대략) · 정확한 주소는 예약 후',
+  q:'Darling Harbour Cockle Bay Sydney'
+};
+const SYD_DAYS = ['d17','d18','d19'];
+function stayBar(dayId){
+  const head = document.querySelector(`#${dayId} .panel-head`);
+  if(!head || head.nextElementSibling.classList.contains('stay-bar')) return;
+  const bar = document.createElement('div');
+  bar.className = 'stay-bar';
+  bar.innerHTML = `<div class="ic">🏠</div>
+    <div class="tx"><b>${STAY.n}</b>${STAY.s}</div>
+    <div class="acts"><a href="${gmap(STAY.q)}" target="_blank">구글맵</a><button class="sub" data-stay="${dayId}">지도에서</button></div>`;
+  head.after(bar);
+  bar.querySelector('button').addEventListener('click',()=>{
+    if(!maps[dayId]) buildMap(dayId);
+    const {map,layers}=maps[dayId];
+    const chip=document.querySelector(`#${dayId} .map-filter .chip.home`);
+    if(chip && !chip.classList.contains('on')){ chip.classList.add('on'); layers.home.addTo(map); }
+    document.querySelector(`#${dayId} .map-wrap`).scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(()=>{ map.setView([STAY.lat,STAY.lng],16); layers.home.eachLayer(m=>m.openPopup && m.openPopup()); },350);
+  });
+}
+
 /* ---------- map ---------- */
 const maps = {};
 function makePin(cls, label){
   return L.divIcon({className:'', html:`<div class="pin ${cls}"><span>${label}</span></div>`, iconSize:[28,28], iconAnchor:[14,28], popupAnchor:[0,-26]});
+}
+function fitPts(dayId, pts){
+  if(!SYD_DAYS.includes(dayId)) return pts;
+  const m = maps[dayId];
+  if(m && !m.map.hasLayer(m.layers.home)) return pts;
+  return pts.concat([[STAY.lat,STAY.lng]]);
 }
 function buildMap(dayId){
   const d = DATA[dayId];
@@ -1788,6 +1760,13 @@ function buildMap(dayId){
   setTimeout(()=>{ if(!tileOk) document.getElementById('map-'+dayId).classList.add('notile'); },4000);
 
   const layers = {route:L.layerGroup(), pub:L.layerGroup(), food:L.layerGroup()};
+  const hasStay = SYD_DAYS.includes(dayId);
+  if(hasStay){
+    layers.home = L.layerGroup();
+    L.marker([STAY.lat,STAY.lng],{icon:makePin('home','🏠'), zIndexOffset:1000})
+      .bindPopup(`<b>🏠 ${STAY.n}</b>${STAY.s}<br><a class="go" href="${gmap(STAY.q)}" target="_blank">구글맵 열기</a>`)
+      .addTo(layers.home);
+  }
   d.route.forEach((p,i)=>{
     L.marker([p.lat,p.lng],{icon:makePin('route', i+1)})
       .bindPopup(`<b>${p.n}</b>${p.s||''}<br><a class="go" href="${gmap(p.n+(dayId.startsWith('m')?' Melbourne':' Sydney'), p.pid)}" target="_blank">구글맵 열기</a>`)
@@ -1803,7 +1782,8 @@ function buildMap(dayId){
   const line = L.polyline(d.route.map(p=>[p.lat,p.lng]),{color:'#FF7A1A',weight:3,opacity:.55,dashArray:'6 8'});
   layers.route.addLayer(line);
   layers.route.addTo(map);
-  map.fitBounds(d.route.filter(p=>!p.far).map(p=>[p.lat,p.lng]),{padding:[28,28]});
+  if(hasStay) layers.home.addTo(map);
+  map.fitBounds(fitPts(dayId, d.route.filter(p=>!p.far).map(p=>[p.lat,p.lng])),{padding:[28,28]});
   maps[dayId] = {map, layers};
 
   document.querySelectorAll(`#${dayId} .map-filter .chip`).forEach(btn=>{
@@ -1813,7 +1793,7 @@ function buildMap(dayId){
       if(btn.classList.contains('on')) layers[cat].addTo(map); else map.removeLayer(layers[cat]);
       // refit to visible
       const pts=[];
-      Object.keys(layers).forEach(k=>{ if(map.hasLayer(layers[k])) (k==='route'?d.route:d[k]).forEach(p=>{ if(!p.far) pts.push([p.lat,p.lng]); }); });
+      Object.keys(layers).forEach(k=>{ if(map.hasLayer(layers[k])) (k==='route'?d.route:(k==='home'?[STAY]:d[k])).forEach(p=>{ if(!p.far) pts.push([p.lat,p.lng]); }); });
       if(pts.length) map.fitBounds(pts,{padding:[28,28]});
     });
   });
@@ -1885,11 +1865,12 @@ document.querySelectorAll('#sydDays button').forEach(b=>{
     document.querySelectorAll('#city-syd .panel').forEach(p=>p.classList.toggle('on', p.id===b.dataset.day));
     const id=b.dataset.day;
     if(!maps[id]) buildMap(id);
-    setTimeout(()=>{ const m=maps[id]; m.map.invalidateSize(); m.map.fitBounds(DATA[id].route.filter(p=>!p.far).map(p=>[p.lat,p.lng]),{padding:[28,28]}); },60);
+    setTimeout(()=>{ const m=maps[id]; m.map.invalidateSize(); m.map.fitBounds(fitPts(id, DATA[id].route.filter(p=>!p.far).map(p=>[p.lat,p.lng])),{padding:[28,28]}); },60);
   });
 });
 
 ['d17','d18','d19','m20','m24'].forEach(id=>{ buildCards(id); });
+SYD_DAYS.forEach(stayBar);
 document.querySelectorAll('#melDays button').forEach(b=>{
   b.addEventListener('click',()=>{
     document.querySelectorAll('#melDays button').forEach(x=>x.classList.remove('on'));
@@ -1900,7 +1881,7 @@ document.querySelectorAll('#melDays button').forEach(b=>{
   });
 });
 buildMap('d17');
-window.addEventListener('load',()=>{ setTimeout(()=>{ maps.d17.map.invalidateSize(); maps.d17.map.fitBounds(DATA.d17.route.map(p=>[p.lat,p.lng]),{padding:[28,28]}); },100); });
+window.addEventListener('load',()=>{ setTimeout(()=>{ maps.d17.map.invalidateSize(); maps.d17.map.fitBounds(fitPts('d17', DATA.d17.route.map(p=>[p.lat,p.lng])),{padding:[28,28]}); },100); });
 </script>
 </body>
 </html>
