@@ -1117,8 +1117,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
       </div></div>
       <div class="tl"><div class="time">저녁</div><div class="dot"></div><div class="body">
         <div class="t">멜버른으로? 하루 더?</div>
-        <div class="s">성재는 19일 멜버른 복귀 예정. 종모·성훈은 같이 갈지 하루 더 놀지 정해야 함</div>
-        <div class="row"><span class="tag wait">미정</span></div>
+        <div class="s">셋 다 19일 저녁 멜버른행. 20일 08:00 렌트카 픽업이라 이날 넘어가야 함</div>
+        <div class="row"><span class="tag need">항공 예매 필요</span></div>
       </div></div>
     </div>
 
@@ -1135,23 +1135,134 @@ svg.leaflet-image-layer.leaflet-interactive path {
 <!-- ================= MELBOURNE ================= -->
 <div id="city-mel" style="display:none">
   <nav class="day-tabs" id="melDays">
-    <button data-day="m20"><div class="d">일~수</div><div class="n">20-23</div><div class="t">미정</div></button>
-    <button class="on" data-day="m24"><div class="d">목</div><div class="n">24</div><div class="t">엘우드·성훈 귀국</div></button>
+    <button class="on" data-day="m20"><div class="d">일</div><div class="n">20</div><div class="t">그레이트오션</div></button>
+    <button data-day="m21"><div class="d">월</div><div class="n">21</div><div class="t">필립아일랜드</div></button>
+    <button data-day="m22"><div class="d">화~수</div><div class="n">22-23</div><div class="t">미정</div></button>
+    <button data-day="m24"><div class="d">목</div><div class="n">24</div><div class="t">엘우드·성훈 귀국</div></button>
   </nav>
 
-  <section class="panel" id="m20">
+  <section class="panel on" id="m20">
     <div class="panel-head">
-      <h2>멜버른 20~23일</h2>
+      <h2>그레이트 오션 로드 · 렌트카 당일치기</h2>
+      <p>08:00 SIXT 픽업 → 벨스비치 → 해안도로 → 아폴로베이 피시앤칩스 → 12사도 → 내륙으로 복귀 19시</p>
+      <div class="who"><span>성재 (운전)</span><span>종모</span><span>성훈</span></div>
+    </div>
+
+    <div class="map-wrap">
+      <div class="map-filter">
+        <span class="lbl">지도</span>
+        <button class="chip route on" data-cat="route">일정</button>
+        <button class="chip pub" data-cat="pub">펍</button>
+        <button class="chip food" data-cat="food">밥집</button>
+      </div>
+      <div class="map" id="map-m20"></div>
+      <div class="map-hint">약 600km · 운전 8시간 · 돌아올 땐 해안도로 말고 내륙 A1</div>
+    </div>
+
+    <div class="section-title">일정</div>
+    <div class="timeline">
+      <div class="tl"><div class="time">07:45</div><div class="dot"></div><div class="body">
+        <div class="t">SIXT 사우스멜버른 도착 · 08:00 픽업</div>
+        <div class="s">101-109 Thistlethwaite St. Subaru Crosstrek 또는 동급 SUV. 면허증 확인 + 보증금 A$300 카드 홀드. 차 긁힌 곳 사진·영상 찍어두기</div>
+        <div class="row"><span class="tag ok">예약 9738967878</span><span class="tag need">성재 면허증 · 결제 카드</span></div>
+      </div></div>
+      <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚗 M1 West Gate Fwy → Geelong Ring Rd → Surf Coast Hwy · 1시간 15분 · 톨 없음</div></div></div>
+      <div class="tl"><div class="time">09:45</div><div class="dot"></div><div class="body">
+        <div class="t">벨스비치 전망대</div>
+        <div class="s">서핑 성지. 절벽 위 전망대에서 사진만 10분. 토키 지나서 Bells Beach Rd로</div>
+      </div></div>
+      <div class="tl"><div class="time">10:05</div><div class="dot"></div><div class="body">
+        <div class="t">그레이트오션로드 초콜라티에 · 아침 커피</div>
+        <div class="s">벨브레(Bellbrae). 초콜릿 무료 시식대 + 핫초코·아이스크림. 20분. 아래 밥집 1번</div>
+        <div class="row"><span class="tag info">09:00–17:00</span></div>
+      </div></div>
+      <div class="tl"><div class="time">10:50</div><div class="dot"></div><div class="body">
+        <div class="t">메모리얼 아치 (Eastern View)</div>
+        <div class="s">GREAT OCEAN ROAD 나무 아치 표지판 사진. 갓길 주차 10분. 여기부터 진짜 해안 절벽길</div>
+      </div></div>
+      <div class="tl"><div class="time">11:30</div><div class="dot"></div><div class="body">
+        <div class="t">론 (Lorne) · 잠깐 정차</div>
+        <div class="s">해변 앞 화장실·산책 10분. 시간 여유 있으면 Teddy's Lookout(차로 5분) 15분. 밀리면 스킵</div>
+      </div></div>
+      <div class="tl"><div class="time">12:05</div><div class="dot"></div><div class="body">
+        <div class="t">케넷리버 · 야생 코알라</div>
+        <div class="s">Grey River Rd 입구 유칼립투스 나무 위 코알라 + 손에 앉는 앵무새. 15분. 먹이 주지 말기</div>
+      </div></div>
+      <div class="tl"><div class="time">12:50</div><div class="dot"></div><div class="body">
+        <div class="t">아폴로베이 점심 · 피시앤칩스</div>
+        <div class="s">항구 Fishermen's Co-op에서 피시앤칩스 + 크레이피시(바닷가재). 후식은 Bakery 스캘럽 파이. 45분. 아래 밥집 2·3번</div>
+        <div class="row"><span class="tag need">여기서 주유</span><span class="tag info">다음 마을까지 90km</span></div>
+      </div></div>
+      <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚗 오트웨이 숲길 (Lavers Hill) → 12사도 · 1시간 20분 · 커브 많아서 멀미 주의 · 신호 약함</div></div></div>
+      <div class="tl"><div class="time">15:00</div><div class="dot"></div><div class="body">
+        <div class="t">깁슨 스텝스</div>
+        <div class="s">절벽 계단 86개 내려가면 해변에서 12사도를 올려다보는 자리. 20분. 파도 높으면 폐쇄됨</div>
+      </div></div>
+      <div class="tl"><div class="time">15:25</div><div class="dot"></div><div class="body">
+        <div class="t">12사도 (Twelve Apostles)</div>
+        <div class="s">비지터센터 주차(무료) → 도로 밑 터널 → 전망대. 35분. 오후 햇빛이 바위 정면이라 사진 시간대 좋음</div>
+        <div class="row"><span class="tag ok">무료</span><span class="tag info">헬기 15분 $165 (선택)</span></div>
+      </div></div>
+      <div class="tl"><div class="time">16:05</div><div class="dot"></div><div class="body">
+        <div class="t">로크 아드 고지</div>
+        <div class="s">12사도에서 차로 3분. 협곡 사이 해변까지 계단 내려가기. 25분. 시간 밀리면 여기 스킵 → 18:45 도착</div>
+      </div></div>
+      <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚗 16:30 출발 · C164 Cobden → A1 Princes Hwy (Colac·Geelong) → M1 · 2시간 50분 · 해안도로 되돌아가면 1시간 더 걸림</div></div></div>
+      <div class="tl"><div class="time">19:20</div><div class="dot"></div><div class="body">
+        <div class="t">사우스멜버른 복귀 · 저녁</div>
+        <div class="s">차는 23:30까지라 저녁 먼저. SIXT 걸어서 5분 Lamaro's Hotel(아래 밥집 5번) 또는 시티. 성재는 운전이라 술 X</div>
+      </div></div>
+      <div class="tl"><div class="time">~22:30</div><div class="dot"></div><div class="body">
+        <div class="t">SIXT 반납</div>
+        <div class="s">24시간 무인 반납. 기름 가득 채워서(근처 주유소), 반납 전 차 상태·주유 게이지 사진. 보증금은 며칠 내 해제</div>
+        <div class="row"><span class="tag info">23:30까지</span></div>
+      </div></div>
+    </div>
+
+    <div class="section-title">운전 팁</div>
+    <div class="note">
+      · 운전은 성재만 (추가 운전자 미등록 → 다른 사람이 몰다 사고 나면 보험 안 됨)<br>
+      · 해안도로 제한속도 80, 마을 50. 카메라 많고 벌금 셈. 뒤에 차 붙으면 추월 구간에서 비켜주기<br>
+      · 바다는 가는 길 기준 왼쪽. 경치 보려면 왼쪽 뒷자리<br>
+      · 오트웨이~12사도 구간 휴대폰 신호 거의 없음. 구글맵 오프라인 지도(멜버른~포트캠벨) 미리 다운<br>
+      · 해 지는 시간 18:15. 어두워지면 시골길에 캥거루 나오니 16:30엔 내륙으로 빠지기<br>
+      · 12사도 → 멜버른은 해안도로로 되돌아가지 말고 내륙 A1. 1시간 빠름
+    </div>
+
+    <div class="section-title">근처 후보 <small>가는 길 · 아폴로베이 · 복귀 저녁</small></div>
+    <div class="cand-tabs">
+      <button class="pub on" data-cat="pub">🍺 펍</button>
+      <button class="food" data-cat="food">🍴 밥집</button>
+    </div>
+    <div class="cand-group pub on" data-cat="pub"></div>
+    <div class="cand-group food" data-cat="food"></div>
+  </section>
+
+  <section class="panel" id="m21">
+    <div class="panel-head">
+      <h2>필립 아일랜드 펭귄 · 종모 성훈</h2>
+      <p>오후 조이투어 출발 → 브라이튼 비치 → 펭귄 퍼레이드 → 밤 복귀</p>
+      <div class="who"><span>종모</span><span>성훈</span></div>
+    </div>
+    <div class="empty">
+      <b>예약하면 여기 채움</b>
+      조이투어 필립아일랜드 2명. 집결 시간·장소는 예약 후 표시.<br>낮에는 둘이 시티 (호시어 레인 · 퀸 빅토리아 마켓 · 야라강) 돌다가 집결.<br>예약 링크는 예약·체크 탭 멜버른행에 있음.
+    </div>
+  </section>
+
+  <section class="panel" id="m22">
+    <div class="panel-head">
+      <h2>멜버른 22~23일</h2>
       <p>아직 비어 있음</p>
       <div class="who"><span>성재</span><span>종모</span><span>성훈</span></div>
     </div>
     <div class="empty">
       <b>여기 채우자</b>
-      그레이트오션로드 · 필립아일랜드 · 페닌슐라 온천 중 뭘 언제 갈지 정하면 됨.<br>예약 링크는 예약·체크 탭 멜버른행에 있음.
+      페닌슐라 온천 · 시티 · 브라이튼 비치 박스 · 세인트킬다 중 골라서.<br>예약 링크는 예약·체크 탭 멜버른행에 있음.
     </div>
   </section>
 
-  <section class="panel on" id="m24">
+  <section class="panel" id="m24">
     <div class="panel-head">
       <h2>엘우드에서 고기, 그리고 성훈 귀국</h2>
       <p>세인트킬다 옆 엘우드 해변 공용 바비큐 → 저녁 → 공항</p>
@@ -1249,10 +1360,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
       </div>
     </div>
     <div class="info">
-      <h3>✈️ 시드니 → 멜버른 (19일) <span class="tag wait">누가 언제</span></h3>
+      <h3>✈️ 시드니 → 멜버른 (19일) <span class="tag need">셋 다 예매 필요</span></h3>
       <dl class="kv">
-        <dt>성재</dt><dd>19일 저녁</dd>
-        <dt>종모·성훈</dt><dd>19일 같이 or 20일</dd>
+        <dt>성재·종모·성훈</dt><dd>19일 저녁 같이. 20일 08:00 렌트카 픽업이라 19일 이동 확정</dd>
       </dl>
     </div>
 
@@ -1399,17 +1509,31 @@ svg.leaflet-image-layer.leaflet-interactive path {
     </div>
 
     <div class="info">
-      <h3>🌊 그레이트 오션 로드 · 조이투어 <span class="tag wait">날짜 미정</span></h3>
+      <h3>🚗 렌트카 · SIXT 사우스멜버른 <span class="tag ok">확정</span></h3>
       <dl class="kv">
-        <dt>시간</dt><dd>매일 07:00 집결 → 19:30 · 12사도·그로또·아폴로베이</dd>
-        <dt>집결</dt><dd>325 Russell St (Old Melbourne Gaol 옆)</dd>
+        <dt>예약번호</dt><dd>9738967878</dd>
+        <dt>차량</dt><dd>Subaru Crosstrek 또는 동급 SUV (IGAR)</dd>
+        <dt>픽업</dt><dd>9/20 일 08:00 · 101-109 Thistlethwaite St, South Melbourne</dd>
+        <dt>반납</dt><dd>9/20 일 23:30까지 같은 곳 · 24시간 반납 가능</dd>
+        <dt>결제</dt><dd>AU$175.92 완료 · 픽업 때 보증금 A$300 카드 홀드 (반납 후 며칠 내 해제)</dd>
+        <dt>챙길 것</dt><dd>성재 운전면허증 · 결제한 카드. 추가 운전자 없음</dd>
       </dl>
-      <div class="links"><a href="https://www.myrealtrip.com/offers/27350" target="_blank">조이투어 예약 (마이리얼트립)</a></div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=SIXT+Car+%26+Truck+Rental+South+Melbourne" target="_blank">지점 구글맵</a></div>
     </div>
 
     <div class="info">
-      <h3>🐧 필립 아일랜드 펭귄 · 조이투어 <span class="tag wait">날짜 미정</span></h3>
+      <h3>🌊 그레이트 오션 로드 <span class="tag ok">20일 일 · 렌트카</span></h3>
       <dl class="kv">
+        <dt>방식</dt><dd>조이투어 대신 렌트카로 직접. 코스·시간은 멜버른 탭 20일</dd>
+        <dt>비용</dt><dd>12사도·깁슨스텝스·로크아드 전부 무료 · 기름 약 $80 (600km)</dd>
+      </dl>
+      <div class="links"><a class="sub" href="https://www.myrealtrip.com/offers/27350" target="_blank">조이투어 (백업용)</a></div>
+    </div>
+
+    <div class="info">
+      <h3>🐧 필립 아일랜드 펭귄 · 조이투어 <span class="tag need">21일 월 · 2명 예약</span></h3>
+      <dl class="kv">
+        <dt>인원</dt><dd>종모·성훈 2명 (성재 불참)</dd>
         <dt>시간</dt><dd>오후 출발 → 밤 복귀 · 브라이튼비치 + 펭귄 퍼레이드</dd>
         <dt>콤보</dt><dd>퍼핑빌리+필립 하루에 묶는 상품도 있음</dd>
       </dl>
@@ -1451,9 +1575,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <label><input type="checkbox"><span>[시드니] 성재·종모 젯스타 체크인<small>9/15 06:00 오픈 · JQ500 · 좌석 선택</small></span></label>
       <label><input type="checkbox"><span>[시드니] 숙소 예약<small>위 15개 중 골라서</small></span></label>
       <label><input type="checkbox"><span>[시드니] 시닉월드 18일 예약<small>4명</small></span></label>
-      <label><input type="checkbox"><span>[시드니] 19일 멜버른 이동 정하기<small>종모·성훈 하루 더?</small></span></label>
+      <label><input type="checkbox"><span>[시드니] 셋 다 19일 멜버른행 예매<small>20일 08:00 렌트카라 19일 이동 필수</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 종모·성훈 숙소<small>2명</small></span></label>
-      <label><input type="checkbox"><span>[멜버른] 투어 날짜 정하기<small>그레이트오션 / 필립 / 온천</small></span></label>
+      <label><input type="checkbox"><span>[멜버른] 20일 렌트카 픽업 08:00<small>성재 면허증 · 카드 (보증금 $300) · 오프라인 지도</small></span></label>
+      <label><input type="checkbox"><span>[멜버른] 종모·성훈 필립아일랜드 21일 예약<small>조이투어 2명</small></span></label>
+      <label><input type="checkbox"><span>[멜버른] 22~23일 뭐 할지<small>온천 / 시티 / 브라이튼</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 성훈 24일 시드니행 막차<small>21시 이후</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 성훈 시드니 공항 근처 하룻밤<small>25일 07:55</small></span></label>
       <label><input type="checkbox"><span>오팔카드(시드니) · myki(멜버른)<small>컨택리스 카드도 됨</small></span></label>
@@ -1536,6 +1662,40 @@ const DATA = {
        g:'에코포인트에서 역 올라가는 중간. 시닉월드 끝나고 오기 좋은 위치. 샥슈카·오므라이스 등 메뉴 다양. 15시 마감이라 시간 체크.'},
       {area:'시드니 저녁', n:'Peter\'s Sydney Fish Market', lat:-33.8745, lng:151.1912, pid:'ChIJwVkrLDKuEmsRbmDmqpvXr5o', r:'3.9', h:'금 6:30–20시',
        g:'성훈이가 찍은 곳. 튀김 모둠 세트 하나 + 사시미·굴 따로 사서 밖 테이블에서. 튀김옷 두껍다는 평 많으니 회 위주가 나음.'},
+    ]
+  },
+  m20: {
+    route: [
+      {n:'SIXT South Melbourne', lat:-37.8335, lng:144.9585, s:'08:00 픽업 · 반납 23:30까지', far:true},
+      {n:'Bells Beach', lat:-38.3689, lng:144.2818, s:'서핑 성지 전망대'},
+      {n:'Great Ocean Road Chocolaterie', lat:-38.3573, lng:144.2262, s:'아침 커피 · 초콜릿 시식'},
+      {n:'Great Ocean Road Memorial Arch', lat:-38.4457, lng:144.0625, s:'아치 표지판 사진'},
+      {n:'Lorne', lat:-38.5403, lng:143.9755, s:'잠깐 정차'},
+      {n:'Kennett River Koala Walk', lat:-38.6670, lng:143.8560, s:'야생 코알라'},
+      {n:'Apollo Bay', lat:-38.7548, lng:143.6708, s:'점심 · 주유'},
+      {n:'Gibson Steps', lat:-38.6689, lng:143.1148, s:'절벽 계단 → 해변'},
+      {n:'Twelve Apostles', lat:-38.6625, lng:143.1050, s:'비지터센터 주차'},
+      {n:'Loch Ard Gorge', lat:-38.6455, lng:143.0644, s:'협곡 해변 · 여기서 복귀'},
+    ],
+    pub: [
+      {area:'론', n:'Lorne Hotel', lat:-38.5410, lng:143.9770, r:'4.0', h:'일 11:30–늦게',
+       g:'바다 보이는 발코니 펍. 운전자 빼고 종모·성훈만 한 잔. 점심을 여기서 해도 되지만 아폴로베이 피시앤칩스가 더 나음.'},
+      {area:'아폴로베이', n:'Great Ocean Road Brewhouse', lat:-38.7536, lng:143.6714, r:'4.3', h:'일 11–21시',
+       g:'오트웨이 로컬 브루어리(Prickly Moses) 직영. 맥주 샘플러. 피자·버거도 있어서 점심 대체 가능. 운전자용 논알콜 있음.'},
+      {area:'멜버른 복귀', n:"Lamaro's Hotel", lat:-37.8321, lng:144.9598, r:'4.3', h:'일 12–22시',
+       g:'SIXT에서 걸어서 5분 사우스멜버른 동네 펍. 스테이크·피시앤칩스 무난. 차 반납 전 저녁+한 잔(성재 빼고).'},
+    ],
+    food: [
+      {area:'가는 길', n:'Great Ocean Road Chocolaterie & Ice Creamery', lat:-38.3573, lng:144.2262, r:'4.5', h:'매일 09–17시',
+       g:'벨브레. 초콜릿 무료 시식대가 있어서 그냥 들어가서 집어먹으면 됨. 핫초코·아이스크림. 주차 넉넉. 아침 커피 겸 첫 스탑.'},
+      {area:'아폴로베이 점심', n:"Apollo Bay Fishermen's Co-op", lat:-38.7523, lng:143.6748, r:'4.4', h:'매일 11–16시쯤',
+       g:'항구 안 어부 조합 직영. 피시앤칩스 + 크레이피시(바닷가재) 반 마리 시켜서 셋이 나눠먹기. 야외 벤치에서 항구 보면서. 이 동네 온 이유.'},
+      {area:'아폴로베이 점심', n:'Apollo Bay Bakery', lat:-38.7554, lng:143.6706, r:'4.4', h:'매일 07–16시',
+       g:'스캘럽(관자) 파이가 GOR 명물. 줄 서지만 금방 빠짐. 점심 후 하나씩 들고 차에서. 미트파이도 괜찮음.'},
+      {area:'12사도 근처', n:'12 Rocks Beach Bar Cafe', lat:-38.6197, lng:142.9948, r:'4.2', h:'매일 08–16시',
+       g:'포트캠벨. 12사도에서 차 10분. 시간 밀렸을 때 커피·화장실 대안. 굴 안주가 싼 편. 일정대로면 안 가도 됨.'},
+      {area:'멜버른 복귀 저녁', n:"Lamaro's Hotel", lat:-37.8321, lng:144.9598, r:'4.3', h:'일 12–22시',
+       g:'SIXT 걸어서 5분. 복귀 후 저녁 1순위. 펍 음식이지만 수준 있음. 여기서 먹고 차 반납하면 딱.'},
     ]
   },
   m24: {
@@ -1690,7 +1850,7 @@ document.querySelectorAll('.city-tabs button').forEach(b=>{
     b.classList.add('on');
     ['syd','mel','info'].forEach(c=>document.getElementById('city-'+c).style.display = c===b.dataset.city?'':'none');
     window.scrollTo({top:0});
-    if(b.dataset.city==='mel'){ if(!maps.m24) buildMap('m24'); setTimeout(()=>{ maps.m24.map.invalidateSize(); maps.m24.map.fitBounds(DATA.m24.route.filter(p=>!p.far).map(p=>[p.lat,p.lng]),{padding:[28,28]}); },60); }
+    if(b.dataset.city==='mel'){ const cur=document.querySelector('#melDays button.on').dataset.day; if(DATA[cur]){ if(!maps[cur]) buildMap(cur); setTimeout(()=>{ maps[cur].map.invalidateSize(); maps[cur].map.fitBounds(DATA[cur].route.filter(p=>!p.far).map(p=>[p.lat,p.lng]),{padding:[28,28]}); },60); } }
   });
 });
 document.querySelectorAll('#sydDays button').forEach(b=>{
@@ -1704,7 +1864,7 @@ document.querySelectorAll('#sydDays button').forEach(b=>{
   });
 });
 
-['d17','d18','d19','m24'].forEach(id=>{ buildCards(id); });
+['d17','d18','d19','m20','m24'].forEach(id=>{ buildCards(id); });
 document.querySelectorAll('#melDays button').forEach(b=>{
   b.addEventListener('click',()=>{
     document.querySelectorAll('#melDays button').forEach(x=>x.classList.remove('on'));
