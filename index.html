@@ -1417,7 +1417,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <dl class="kv">
         <dt>예약번호</dt><dd>QP67HW</dd>
         <dt>가는 편</dt><dd>9/17 목 JQ500 · MEL T4 06:00 → SYD T2 07:30 (1시간 30분 · A321)</dd>
-        <dt>요금</dt><dd>스타터 · 2명 AU$198.95 ≈ 197,000원 (성재 결제) → 종모 몫 절반</dd>
+        <dt>요금</dt><dd>스타터 · 2명 AU$198.95 · 성재·종모 정산 완료 (N빵 제외)</dd>
         <dt>체크인</dt><dd>9/15 화 06:00부터 앱·웹에서 · 출발 40분 전 마감 (좌석 미선택 상태)</dd>
         <dt>수하물</dt><dd>1인 기내 7kg만 포함 · 위탁 0kg</dd>
         <dt>공항</dt><dd>06:00 출발이라 멜버른 T4에 05:00쯤 도착 권장</dd>
@@ -1443,8 +1443,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <dt>시설</dt><dd>주방 풀옵션(가스·오븐·네스프레소) · 세탁기+건조기 · 스마트TV(넷플릭스) · 수영장(비가열)·헬스장은 점검으로 닫힐 수 있음</dd>
         <dt>규칙</dt><dd>파티 금지 · 21시 이후 소음 금지 (소음 감지기 + 24시간 경비) · 등록한 게스트만 숙박</dd>
         <dt>주의</dt><dd>엘리베이터 공사로 1대만 운행 · 환불 불가(엄격) 정책 · 공항까지 우버 $50~60</dd>
-        <dt>요금</dt><dd>총 660,000원 (성재 결제) → 4명 N빵 165,000원/인</dd>
-        <dt>예약</dt><dd>성재가 진행 중 · 예약번호·주소·입장 방법은 예약 후 여기에 추가</dd>
+        <dt>요금</dt><dd>총 660,000원 (성훈 결제) → 4명 N빵 165,000원/인</dd>
+        <dt>예약</dt><dd>예약 진행 중 · 예약번호·주소·입장 방법은 예약 후 여기에 추가</dd>
       </dl>
       <div class="links">
         <a class="sub" href="https://www.google.com/maps/search/?api=1&query=Darling+Harbour+Cockle+Bay+Sydney" target="_blank">위치 (대략) 구글맵</a>
@@ -1899,9 +1899,8 @@ function buildCards(dayId){
 /* ---------- N빵 ---------- */
 const RATE = 990; // KRW per AUD (근사)
 const SPLIT = [
-  {it:'시드니 숙소 · 에어비앤비 달링하버', sub:'9/17→19 · 2박', payer:'성재', krw:660000, people:['성재','종모','윤혁','성훈']},
+  {it:'시드니 숙소 · 에어비앤비 달링하버', sub:'9/17→19 · 2박', payer:'성훈', krw:660000, people:['성재','종모','윤혁','성훈']},
   {it:'시닉월드 입장권 4명', sub:'클룩 · AU$256', payer:'성훈', krw:253423, people:['성재','종모','윤혁','성훈']},
-  {it:'젯스타 JQ500 멜버른→시드니', sub:'AU$198.95 · 2명 티켓', payer:'성재', aud:198.95, people:['성재','종모']},
   {it:'렌트카 SIXT 20일', sub:'AU$175.92 · 주유는 나중에 추가', payer:'성재', aud:175.92, people:['성재','종모','성훈']},
   {it:'그레이트오션 주유·간식', sub:'20일 · 영수증 나오면', payer:'?', people:['성재','종모','성훈']},
   {it:'멜버른 숙소 (종모·성훈)', sub:'9/19→24', payer:'?', people:['종모','성훈']},
