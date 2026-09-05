@@ -892,6 +892,28 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .todo label{display:flex;gap:10px;align-items:flex-start;font-size:14px;padding:10px 12px;background:var(--card);border-radius:10px;border:1px solid var(--line)}
   .todo input{margin-top:3px;width:18px;height:18px;accent-color:var(--ok)}
   .todo label span small{display:block;color:var(--ink-3);font-size:12px;margin-top:1px}
+  /* ===== N빵 ===== */
+  .split table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
+  .split th{font-size:11px;font-weight:600;color:var(--ink-3);text-align:left;padding:4px 4px;border-bottom:1px solid var(--line)}
+  .split td{padding:8px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+  .split td.r,.split th.r{text-align:right;white-space:nowrap}
+  .split td .it{font-weight:600;color:var(--ink)}
+  .split td .sub{display:block;font-size:11.5px;color:var(--ink-3);margin-top:1px;font-weight:400}
+  .split td.r b{color:var(--ink)}
+  .split td.r small{display:block;font-size:11px;color:var(--ink-3);font-weight:400}
+  .split tr.pending td{color:var(--ink-3)}
+  .split tr.pending td .it{color:var(--ink-2)}
+  .split .total{display:flex;justify-content:space-between;font-size:13px;padding:10px 4px 2px;font-weight:600}
+  .settle{margin-top:12px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+  .settle .card2{background:var(--bg);border-radius:10px;padding:10px 12px}
+  .settle .card2 b{display:block;font-size:14px}
+  .settle .card2 .ln{font-size:12px;color:var(--ink-3);display:flex;justify-content:space-between;margin-top:3px}
+  .settle .card2 .net{margin-top:6px;font-size:13px;font-weight:700}
+  .settle .card2 .net.plus{color:var(--ok)}
+  .settle .card2 .net.minus{color:var(--need)}
+  .pay-list{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+  .pay-list div{background:var(--ok-soft);color:var(--ink);border-radius:10px;padding:9px 12px;font-size:13.5px;font-weight:600}
+  .pay-list div b{color:var(--ok)}
   .empty{background:var(--card);border-radius:var(--r);border:1px dashed var(--ink-3);padding:36px 18px;text-align:center;color:var(--ink-2)}
   .empty b{display:block;font-size:17px;color:var(--ink);margin-bottom:6px}
   .foot{color:var(--ink-3);font-size:12px;text-align:center;margin-top:28px}
@@ -1394,7 +1416,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <dl class="kv">
         <dt>예약번호</dt><dd>QP67HW</dd>
         <dt>가는 편</dt><dd>9/17 목 JQ500 · MEL T4 06:00 → SYD T2 07:30 (1시간 30분 · A321)</dd>
-        <dt>요금</dt><dd>스타터 · 2명 AU$198.95 결제 완료</dd>
+        <dt>요금</dt><dd>스타터 · 2명 AU$198.95 ≈ 197,000원 (성재 결제) → 종모 몫 절반</dd>
         <dt>체크인</dt><dd>9/15 화 06:00부터 앱·웹에서 · 출발 40분 전 마감 (좌석 미선택 상태)</dd>
         <dt>수하물</dt><dd>1인 기내 7kg만 포함 · 위탁 0kg</dd>
         <dt>공항</dt><dd>06:00 출발이라 멜버른 T4에 05:00쯤 도착 권장</dd>
@@ -1420,6 +1442,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <dt>시설</dt><dd>주방 풀옵션(가스·오븐·네스프레소) · 세탁기+건조기 · 스마트TV(넷플릭스) · 수영장(비가열)·헬스장은 점검으로 닫힐 수 있음</dd>
         <dt>규칙</dt><dd>파티 금지 · 21시 이후 소음 금지 (소음 감지기 + 24시간 경비) · 등록한 게스트만 숙박</dd>
         <dt>주의</dt><dd>엘리베이터 공사로 1대만 운행 · 환불 불가(엄격) 정책 · 공항까지 우버 $50~60</dd>
+        <dt>요금</dt><dd>총 660,000원 (성재 결제) → 4명 N빵 165,000원/인</dd>
         <dt>예약</dt><dd>성재가 진행 중 · 예약번호·주소·입장 방법은 예약 후 여기에 추가</dd>
       </dl>
       <div class="links">
@@ -1433,6 +1456,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <dl class="kv">
         <dt>예약번호</dt><dd>HYE955774 · 바우처 번호 539754 · 클룩(Klook)</dd>
         <dt>티켓</dt><dd>일반 입장권 · 성인 4 · 대표 예약자 KIM SEONG HUN</dd>
+        <dt>결제</dt><dd>253,423원 (AU$256 · 성훈 카드 · 9/5) → 4명 N빵 63,356원/인</dd>
         <dt>포함</dt><dd>스카이웨이 왕복 · 레일웨이 하행 · 워크웨이 10분 산책 · 케이블웨이 상행</dd>
         <dt>날짜</dt><dd>9/18 금 · 운영 10:00–16:00 · 기구는 폐장 10분 전 마감. 다 타려면 14:45 전에 입장</dd>
         <dt>사용</dt><dd>아래 PDF의 QR을 입구에서 보여주면 됨 · 18일만 유효 · 성훈 클룩 앱에서도 열림</dd>
@@ -1486,7 +1510,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <dt>차량</dt><dd>Subaru Crosstrek 또는 동급 SUV (IGAR)</dd>
         <dt>픽업</dt><dd>9/20 일 08:00 · 101-109 Thistlethwaite St, South Melbourne</dd>
         <dt>반납</dt><dd>9/20 일 23:30까지 같은 곳 · 24시간 반납 가능</dd>
-        <dt>결제</dt><dd>AU$175.92 완료 · 픽업 때 보증금 A$300 카드 홀드 (반납 후 며칠 내 해제)</dd>
+        <dt>결제</dt><dd>AU$175.92 ≈ 174,000원 (성재 결제) → 3명 N빵 · 픽업 때 보증금 A$300 카드 홀드 (반납 후 해제)</dd>
         <dt>운전자</dt><dd>성재 + 추가 운전자 2명 (종모·성훈) 등록 완료 · 셋 다 면허증 지참</dd>
         <dt>챙길 것</dt><dd>결제한 카드 (보증금 홀드용)</dd>
       </dl>
@@ -1543,6 +1567,20 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="note">시드니 도착 밤 늦으니 공항 근처 숙소 하나 or 공항에서 밤새기. 국제선 07:55면 05:30엔 공항</div>
     </div>
 
+    <div class="section-title">N빵 정산 <small>결제한 사람 기준 · 원화</small></div>
+    <div class="info split" id="split">
+      <table>
+        <thead><tr><th>항목</th><th>결제</th><th class="r">금액</th><th class="r">1인</th></tr></thead>
+        <tbody id="splitRows"></tbody>
+      </table>
+      <div class="total" id="splitTotal"></div>
+      <div class="note">AU$ 항목은 1AUD ≈ 990원(시닉월드 실결제 환율)으로 환산한 근사치. 실제 카드 청구액 나오면 숫자 바꿔줌. 회색 줄은 아직 금액 미정</div>
+      <div class="section-title" style="margin-top:14px">사람별</div>
+      <div class="settle" id="splitPeople"></div>
+      <div class="section-title" style="margin-top:14px">이렇게 보내면 끝</div>
+      <div class="pay-list" id="splitPay"></div>
+    </div>
+
     <div class="section-title">할 일</div>
     <div class="todo">
       <label><input type="checkbox"><span>[시드니] 성재·종모 젯스타 체크인<small>9/15 06:00 오픈 · JQ500 · 좌석 선택</small></span></label>
@@ -1553,6 +1591,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <label><input type="checkbox"><span>[멜버른] 20일 렌트카 픽업 08:00<small>셋 다 면허증 · 카드 (보증금 $300) · 오프라인 지도</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 종모·성훈 필립아일랜드 21일 예약<small>조이투어 2명</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 성재·성훈 페닌슐라 온천 조이투어 23일 예약<small>아침 출발 · 2명</small></span></label>
+      <label><input type="checkbox"><span>[정산] N빵 표 미정 금액 채우기<small>멜버른 숙소 · 필립 · 온천 · 주유</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 성훈 24일 시드니행 막차<small>21시 이후</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 성훈 시드니 공항 근처 하룻밤<small>25일 07:55</small></span></label>
       <label><input type="checkbox"><span>오팔카드(시드니) · myki(멜버른)<small>컨택리스 카드도 됨</small></span></label>
@@ -1855,6 +1894,67 @@ function buildCards(dayId){
     });
   });
 }
+
+/* ---------- N빵 ---------- */
+const RATE = 990; // KRW per AUD (근사)
+const SPLIT = [
+  {it:'시드니 숙소 · 에어비앤비 달링하버', sub:'9/17→19 · 2박', payer:'성재', krw:660000, people:['성재','종모','윤혁','성훈']},
+  {it:'시닉월드 입장권 4명', sub:'클룩 · AU$256', payer:'성훈', krw:253423, people:['성재','종모','윤혁','성훈']},
+  {it:'젯스타 JQ500 멜버른→시드니', sub:'AU$198.95 · 2명 티켓', payer:'성재', aud:198.95, people:['성재','종모']},
+  {it:'렌트카 SIXT 20일', sub:'AU$175.92 · 주유는 나중에 추가', payer:'성재', aud:175.92, people:['성재','종모','성훈']},
+  {it:'그레이트오션 주유·간식', sub:'20일 · 영수증 나오면', payer:'?', people:['성재','종모','성훈']},
+  {it:'멜버른 숙소 (종모·성훈)', sub:'9/19→24', payer:'?', people:['종모','성훈']},
+  {it:'필립아일랜드 조이투어 2명', sub:'21일', payer:'?', people:['종모','성훈']},
+  {it:'페닌슐라 온천 조이투어 2명', sub:'23일', payer:'?', people:['성재','성훈']},
+];
+const won = n => Math.round(n).toLocaleString('ko-KR') + '원';
+function renderSplit(){
+  const rows = document.getElementById('splitRows'); if(!rows) return;
+  const people = {};
+  const ensure = n => people[n] || (people[n] = {paid:0, owe:0});
+  let total = 0, html = '';
+  SPLIT.forEach(x => {
+    const krw = x.krw != null ? x.krw : (x.aud != null ? x.aud * RATE : null);
+    const pending = krw == null;
+    const per = pending ? null : krw / x.people.length;
+    if(!pending){
+      total += krw;
+      ensure(x.payer).paid += krw;
+      x.people.forEach(p => ensure(p).owe += per);
+    }
+    html += `<tr class="${pending?'pending':''}">
+      <td><span class="it">${x.it}</span><span class="sub">${x.sub} · ${x.people.length}명 (${x.people.join('·')})</span></td>
+      <td>${x.payer}</td>
+      <td class="r">${pending ? '미정' : `<b>${won(krw)}</b>${x.aud!=null ? `<small>≈ AU$${x.aud}</small>` : ''}`}</td>
+      <td class="r">${pending ? '–' : won(per)}</td>
+    </tr>`;
+  });
+  rows.innerHTML = html;
+  document.getElementById('splitTotal').innerHTML = `<span>확정된 것 합계</span><span>${won(total)}</span>`;
+  const order = ['성재','종모','윤혁','성훈'];
+  document.getElementById('splitPeople').innerHTML = order.filter(n=>people[n]).map(n => {
+    const p = people[n], net = p.paid - p.owe;
+    return `<div class="card2"><b>${n}</b>
+      <div class="ln"><span>내 몫</span><span>${won(p.owe)}</span></div>
+      <div class="ln"><span>결제한 돈</span><span>${won(p.paid)}</span></div>
+      <div class="net ${net>=0?'plus':'minus'}">${net>=0 ? '받을 돈 ' : '보낼 돈 '}${won(Math.abs(net))}</div></div>`;
+  }).join('');
+  // greedy settle
+  const debt = order.filter(n=>people[n]).map(n => ({n, v: people[n].paid - people[n].owe}));
+  const pays = debt.filter(d=>d.v<-1).map(d=>({...d, v:-d.v})).sort((a,b)=>b.v-a.v);
+  const gets = debt.filter(d=>d.v>1).sort((a,b)=>b.v-a.v);
+  const out = [];
+  let i=0,j=0;
+  while(i<pays.length && j<gets.length){
+    const amt = Math.min(pays[i].v, gets[j].v);
+    out.push(`${pays[i].n} → <b>${gets[j].n}</b> ${won(amt)}`);
+    pays[i].v -= amt; gets[j].v -= amt;
+    if(pays[i].v < 1) i++;
+    if(gets[j].v < 1) j++;
+  }
+  document.getElementById('splitPay').innerHTML = out.map(t=>`<div>${t}</div>`).join('') || '<div>정산할 게 없음</div>';
+}
+renderSplit();
 
 /* ---------- tabs ---------- */
 document.querySelectorAll('.city-tabs button').forEach(b=>{
