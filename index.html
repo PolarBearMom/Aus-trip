@@ -884,6 +884,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .pass-card .pass-title small{font-size:12px;color:var(--ink-3)}
   .barcode-wrap{background:#fff;border:1px dashed var(--line);border-radius:10px;padding:10px 8px}
   .barcode-svg{display:block;width:100%;max-width:430px;margin:0 auto;height:auto}
+  .pass-qr{display:block;width:240px;max-width:100%;height:auto;margin:0 auto}
   .barcode-num{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:700;font-size:15px;letter-spacing:.5px;margin-top:6px}
   .pass-card .hint{font-size:12px;color:var(--ink-3);margin-top:7px;text-align:left}
   .stay{border-top:1px dashed var(--line);padding:10px 0 2px;margin-top:10px}
@@ -1590,11 +1591,22 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <dt>결제</dt><dd>253,423원 (AU$256 · 성훈 카드 · 9/5) → 4명 N빵 63,356원/인</dd>
         <dt>포함</dt><dd>스카이웨이 왕복 · 레일웨이 하행 · 워크웨이 10분 산책 · 케이블웨이 상행</dd>
         <dt>날짜</dt><dd>9/18 금 · 운영 10:00–16:00 · 기구는 폐장 10분 전 마감. 다 타려면 14:45 전에 입장</dd>
-        <dt>사용</dt><dd>아래 PDF의 QR을 입구에서 보여주면 됨 · 18일만 유효 · 성훈 클룩 앱에서도 열림</dd>
+        <dt>사용</dt><dd>아래 입장 QR 또는 PDF의 QR을 입구에서 보여주면 됨 · 18일만 유효 · 성훈 클룩 앱에서도 열림</dd>
       </dl>
       <div class="links">
         <a href="vouchers/scenic-world-HYE955774.pdf" target="_blank">🎫 바우처 PDF 열기</a>
         <a class="sub" href="https://transportnsw.info/trip" target="_blank">기차 시간표</a>
+      </div>
+      <div class="pass-card" id="scenic-world-pass">
+        <div class="pass-title">
+          <b>입장 QR</b>
+          <small>9/18 · 성인 4명</small>
+        </div>
+        <div class="barcode-wrap">
+          <img class="pass-qr" src="vouchers/scenic-world-HYE955774-qr.png" width="400" height="400" alt="시닉월드 입장 QR · 바우처 번호 539754">
+          <div class="barcode-num">539754</div>
+        </div>
+        <div class="hint">입구에서 화면 밝기를 높여 이 QR을 보여주기.</div>
       </div>
     </div>
 
