@@ -878,6 +878,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .links{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
   .links a{font-size:12.5px;font-weight:600;padding:7px 11px;border-radius:9px;background:var(--sea);color:#fff}
   .links a.sub{background:var(--sea-soft);color:var(--sea)}
+  .pass-card{margin-top:12px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:12px;text-align:center}
+  .pass-card .pass-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;text-align:left}
+  .pass-card .pass-title b{font-size:14px}
+  .pass-card .pass-title small{font-size:12px;color:var(--ink-3)}
+  .barcode-wrap{background:#fff;border:1px dashed var(--line);border-radius:10px;padding:10px 8px}
+  .barcode-svg{display:block;width:100%;max-width:430px;margin:0 auto;height:auto}
+  .barcode-num{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:700;font-size:15px;letter-spacing:.5px;margin-top:6px}
+  .pass-card .hint{font-size:12px;color:var(--ink-3);margin-top:7px;text-align:left}
   .stay{border-top:1px dashed var(--line);padding:10px 0 2px;margin-top:10px}
   .stay .sn{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
   .stay .sn b{font-size:14px}
@@ -1417,7 +1425,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="tl"><div class="time">10:30~10:45</div><div class="dot"></div><div class="body">
         <div class="t">Peninsula Hot Springs 도착</div>
         <div class="s">수건·수영복·갈아입을 옷 챙기기. 예약번호 #5873907, 성재 결제 완료</div>
-        <div class="row"><a class="tag info" href="https://www.peninsulahotsprings.com/" target="_blank">온천 공식</a><span class="tag ok">예약 확정</span></div>
+        <div class="row"><a class="tag info" href="#peninsula-pass">입장 바코드</a><a class="tag info" href="https://www.peninsulahotsprings.com/" target="_blank">온천 공식</a><span class="tag ok">예약 확정</span></div>
       </div></div>
       <div class="tl"><div class="time">11:00</div><div class="dot"></div><div class="body">
         <div class="t">Bath House 입장</div>
@@ -1677,6 +1685,23 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="links">
         <a href="https://www.peninsulahotsprings.com/" target="_blank">온천 공식 예약</a>
         <a class="sub" href="https://www.ptv.vic.gov.au/journey" target="_blank">PTV Journey Planner</a>
+      </div>
+      <div class="pass-card" id="peninsula-pass">
+        <div class="pass-title">
+          <b>입장 바코드</b>
+          <small>Booking #5873907</small>
+        </div>
+        <div class="barcode-wrap">
+          <svg class="barcode-svg" viewBox="0 0 374 132" role="img" aria-label="Peninsula Hot Springs barcode 020005873907" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="#fff"/>
+            <g fill="#000">
+              <rect x="20" y="18" width="4" height="86"/><rect x="26" y="18" width="2" height="86"/><rect x="32" y="18" width="2" height="86"/><rect x="42" y="18" width="2" height="86"/><rect x="48" y="18" width="6" height="86"/><rect x="56" y="18" width="4" height="86"/><rect x="64" y="18" width="4" height="86"/><rect x="72" y="18" width="6" height="86"/><rect x="82" y="18" width="2" height="86"/><rect x="86" y="18" width="2" height="86"/><rect x="92" y="18" width="6" height="86"/><rect x="100" y="18" width="4" height="86"/><rect x="108" y="18" width="2" height="86"/><rect x="114" y="18" width="6" height="86"/><rect x="122" y="18" width="4" height="86"/><rect x="130" y="18" width="2" height="86"/><rect x="136" y="18" width="6" height="86"/><rect x="144" y="18" width="4" height="86"/><rect x="152" y="18" width="4" height="86"/><rect x="158" y="18" width="6" height="86"/><rect x="168" y="18" width="2" height="86"/><rect x="174" y="18" width="6" height="86"/><rect x="182" y="18" width="2" height="86"/><rect x="188" y="18" width="4" height="86"/><rect x="196" y="18" width="6" height="86"/><rect x="204" y="18" width="4" height="86"/><rect x="210" y="18" width="6" height="86"/><rect x="218" y="18" width="4" height="86"/><rect x="226" y="18" width="2" height="86"/><rect x="230" y="18" width="6" height="86"/><rect x="240" y="18" width="6" height="86"/><rect x="250" y="18" width="2" height="86"/><rect x="254" y="18" width="4" height="86"/><rect x="262" y="18" width="2" height="86"/><rect x="268" y="18" width="6" height="86"/><rect x="276" y="18" width="4" height="86"/><rect x="284" y="18" width="6" height="86"/><rect x="292" y="18" width="4" height="86"/><rect x="298" y="18" width="6" height="86"/><rect x="306" y="18" width="4" height="86"/><rect x="312" y="18" width="6" height="86"/><rect x="320" y="18" width="2" height="86"/><rect x="328" y="18" width="4" height="86"/><rect x="338" y="18" width="6" height="86"/><rect x="346" y="18" width="2" height="86"/><rect x="350" y="18" width="4" height="86"/>
+            </g>
+            <text x="50%" y="122" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" fill="#111">020005873907</text>
+          </svg>
+          <div class="barcode-num">020005873907</div>
+        </div>
+        <div class="hint">현장에서는 이 박스를 화면 밝기 높여서 보여주기. 원본 PDF의 바코드 번호 기준으로 생성한 스캔용 바코드입니다.</div>
       </div>
       <div class="note">9/23 일정 탭에 숙소 기준 세부 동선 정리 완료. 맛집은 19:00 채영 합류 후 현지에서 결정</div>
     </div>
