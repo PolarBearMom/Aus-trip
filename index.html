@@ -807,14 +807,15 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .section-title{font-size:15px;font-weight:700;margin:20px 4px 10px;display:flex;align-items:center;gap:8px}
   .section-title small{font-weight:500;color:var(--ink-3);font-size:12px}
   .timeline{background:var(--card);border-radius:var(--r);border:1px solid var(--line);padding:6px 0}
-  .tl{display:grid;grid-template-columns:56px 22px 1fr;padding:11px 12px 11px 8px;position:relative}
+  .tl{display:grid;grid-template-columns:minmax(72px,auto) 22px minmax(0,1fr);padding:13px 12px 13px 10px;position:relative;column-gap:4px}
   .tl + .tl{border-top:1px dashed var(--line)}
-  .tl .time{font-weight:700;font-size:14px;color:var(--ink);padding-top:1px;text-align:right;padding-right:6px}
+  .tl .time{font-weight:700;font-size:14px;color:var(--ink);padding-top:1px;text-align:right;padding-right:8px;line-height:1.25;white-space:normal}
   .tl .time.soft{color:var(--ink-3);font-weight:500;font-size:12px}
   .tl .dot{position:relative}
   .tl .dot::before{content:"";position:absolute;left:6px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--sun);border:2px solid #fff;box-shadow:0 0 0 1.5px var(--sun)}
   .tl.move .dot::before{background:#fff;box-shadow:0 0 0 1.5px var(--ink-3);width:7px;height:7px;left:7.5px;top:8px}
-  .tl .body .t{font-weight:600;font-size:15px}
+  .tl .body{min-width:0}
+  .tl .body .t{font-weight:600;font-size:15px;line-height:1.35;word-break:keep-all}
   .tl .body .s{font-size:13px;color:var(--ink-2);margin-top:2px}
   .tl.move .body .t{font-weight:500;font-size:13px;color:var(--ink-2)}
   .tl .body .row{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center}
@@ -971,17 +972,18 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <div class="timeline">
       <div class="tl"><div class="time">06:20</div><div class="dot"></div><div class="body">
         <div class="t">성훈 시드니 도착 · KE401</div>
-        <div class="s">공항철도 15분 → Town Hall역. 짐 맡기는 건 10:30부터라 바로 숙소 가지 말고 달링하버 쪽에서 먼저 아침 먹기</div>
-        <div class="row"><span class="tag ok">항공 확정</span><span class="tag ok">숙소 확정 · 달링하버</span></div>
+        <div class="s">국제선 T1 도착 후 입국수속. 성재·종모가 도착하는 국내선 T2 쪽으로 이동해서 합류</div>
+        <div class="row"><span class="tag ok">항공 확정</span><span class="tag info">T2로 이동</span></div>
       </div></div>
       <div class="tl"><div class="time">07:30</div><div class="dot"></div><div class="body">
         <div class="t">성재·종모 시드니 도착 · JQ500</div>
-        <div class="s">멜버른 T4 06:00 출발 → 시드니 국내선 T2 07:30. 공항철도(T1·T2 같은 라인) 15분 → Town Hall역 → 성훈이랑 합류</div>
-        <div class="row"><span class="tag ok">항공 확정</span><span class="tag need">9/15 06:00 체크인 오픈</span></div>
+        <div class="s">멜버른 T4 06:00 출발 → 시드니 국내선 T2 07:30. 성훈과 T2에서 만나서 3명이 같이 이동</div>
+        <div class="row"><span class="tag ok">항공 확정</span><span class="tag info">좌석 34A · 34B</span></div>
       </div></div>
+      <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚕 T2 → 달링하버/숙소 근처 · 3명 택시 이동</div></div></div>
       <div class="tl"><div class="time">08:20</div><div class="dot"></div><div class="body">
-        <div class="t">숙소 근처 아침 · 달링하버</div>
-        <div class="s">339 Sussex St 주변에서 커피랑 가벼운 아침. 짐 맡기는 시간 맞춰 10:30 숙소 도착하는 흐름</div>
+        <div class="t">숙소 근처 아침 · Darling Square</div>
+        <div class="s">짐 보관 전까지 아침. 숙소에서 가까운 유명 브런치 후보는 아래 ‘밥집’ 탭에 정리</div>
         <div class="row"><span class="tag info">짐 보관 10:30부터</span></div>
       </div></div>
       <div class="tl"><div class="time">09:40</div><div class="dot"></div><div class="body">
@@ -1309,12 +1311,47 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <section class="panel" id="m21">
     <div class="panel-head">
       <h2>필립 아일랜드 펭귄 · 종모 성훈</h2>
-      <p>오후 조이투어 출발 → 브라이튼 비치 → 펭귄 퍼레이드 → 밤 복귀</p>
+      <p>조이투어 집결 → 퍼핑빌리/사사프라스 → 필립 아일랜드 → 펭귄 퍼레이드 → 밤 복귀</p>
       <div class="who"><span>종모</span><span>성훈</span></div>
     </div>
-    <div class="empty">
-      <b>예약하면 여기 채움</b>
-      조이투어 필립아일랜드 2명. 집결 시간·장소는 예약 후 표시.<br>낮에는 둘이 시티 (호시어 레인 · 퀸 빅토리아 마켓 · 야라강) 돌다가 집결.<br>예약 링크는 예약·체크 탭 멜버른행에 있음.
+
+    <div class="map-wrap">
+      <div class="map-filter">
+        <span class="lbl">지도</span>
+        <button class="chip route on" data-cat="route">일정</button>
+        <button class="chip home on" data-cat="home">🏠 숙소</button>
+      </div>
+      <div class="map" id="map-m21"></div>
+      <div class="map-hint">상품 링크 기준 주요 코스 · 실제 집결/귀환 시간은 예약 안내문 기준</div>
+    </div>
+
+    <div class="section-title">일정</div>
+    <div class="timeline">
+      <div class="tl"><div class="time">오전</div><div class="dot"></div><div class="body">
+        <div class="t">Space Hotel 출발 · 집결지 이동</div>
+        <div class="s">집결지: 471 Little Bourke St, Melbourne. 출발 시간은 예약 안내문으로 최종 확인</div>
+        <div class="row"><span class="tag ok">성훈 결제 244,800원</span><span class="tag info">종모·성훈 N빵</span></div>
+      </div></div>
+      <div class="tl"><div class="time">투어</div><div class="dot"></div><div class="body">
+        <div class="t">퍼핑빌리 증기기관차 · Grants Picnic Ground</div>
+        <div class="s">단데농 숲 코스. 상품명 기준 퍼핑기차+필립 펭귄 콤보</div>
+      </div></div>
+      <div class="tl"><div class="time">낮</div><div class="dot"></div><div class="body">
+        <div class="t">사사프라스 마을 · 마루 동물원 옵션</div>
+        <div class="s">마을 산책 후 선택 관광. 현장 옵션 여부는 예약 안내 확인</div>
+      </div></div>
+      <div class="tl"><div class="time">오후</div><div class="dot"></div><div class="body">
+        <div class="t">San Remo · 필립 아일랜드 이동</div>
+        <div class="s">10~3월 시즌에는 초콜릿 팩토리 코스가 포함될 수 있음</div>
+      </div></div>
+      <div class="tl"><div class="time">저녁</div><div class="dot"></div><div class="body">
+        <div class="t">피라미드 락 · 왈라비 사파리 · 펭귄 퍼레이드</div>
+        <div class="s">해 질 무렵 펭귄 퍼레이드 관람 후 멜버른 CBD로 복귀</div>
+      </div></div>
+      <div class="tl"><div class="time">밤</div><div class="dot"></div><div class="body">
+        <div class="t">Melbourne CBD 복귀</div>
+        <div class="s">복귀 후 Space Hotel로 이동. 늦게 끝나는 일정이라 다음날은 무리하지 않기</div>
+      </div></div>
     </div>
   </section>
 
@@ -1615,7 +1652,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <dl class="kv">
         <dt>인원</dt><dd>종모·성훈 2명 (성재 불참)</dd>
         <dt>시간</dt><dd>오후 출발 → 밤 복귀 · 브라이튼비치 + 펭귄 퍼레이드</dd>
-        <dt>정산</dt><dd>성훈이 결제한 금액을 종모·성훈 2명이 N빵. 정확한 총액은 다시 확인 후 입력</dd>
+        <dt>정산</dt><dd>성훈 결제 244,800원 → 종모·성훈 2명 N빵 (1인 122,400원)</dd>
         <dt>콤보</dt><dd>퍼핑빌리+필립 하루에 묶는 상품도 있음</dd>
       </dl>
       <div class="links">
@@ -1675,7 +1712,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <label><input type="checkbox"><span>[시드니] 젯스타 JQ527 온라인 체크인<small>9/17 17:55 오픈 · 성재·종모 YL1GQI · 성훈 따로</small></span></label>
       <label><input type="checkbox"><span>[멜버른] Space Hotel 성훈 숙소 확인<small>9/19 14:00 → 9/23 10:00 · 예약번호 1774273845</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 20일 렌트카 픽업 08:00<small>셋 다 면허증 · 카드 (보증금 $300) · 오프라인 지도</small></span></label>
-      <label><input type="checkbox"><span>[멜버른] 필립아일랜드 정산 금액 확인<small>성훈 결제 · 종모/성훈 2명 N빵 예정</small></span></label>
+      <label><input type="checkbox"><span>[멜버른] 필립아일랜드 정산<small>성훈 결제 244,800원 · 종모가 122,400원 보내면 끝</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 성재·성훈 페닌슐라 온천 조이투어 23일 예약<small>아침 출발 · 2명</small></span></label>
       <label><input type="checkbox"><span>[정산] N빵 표 미정 금액 채우기<small>필립 총액 · Crown 가격 · 온천 · 주유</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 성훈 시드니 공항 근처 하룻밤<small>25일 07:55</small></span></label>
@@ -1723,6 +1760,12 @@ const DATA = {
        g:'서큘러키 끝 물 위에 있는 브루어리 펍. 오페라하우스·브릿지 둘 다 보임. 자체 맥주(James Squire). 크루즈선 들어오면 뷰 가림.'},
     ],
     food: [
+      {area:'숙소 근처 아침', n:'Edition Roasters Darling Square', lat:-33.8767, lng:151.2027, r:'인기 브런치', h:'아침~오후',
+       g:'339 Sussex St에서 가장 가까운 유명 브런치 후보. 일본식 감성 브런치·커피. 택시로 도착해서 짐 맡기기 전 시간 보내기 좋음.'},
+      {area:'숙소 근처 아침', n:'Auvers Cafe Darling Square', lat:-33.8766, lng:151.2030, r:'인기 브런치', h:'아침~오후',
+       g:'Darling Square 안쪽. 플레이팅 예쁘고 메뉴가 다양해서 3명이 가볍게 아침 먹기 좋음. 숙소까지 걸어서 가까움.'},
+      {area:'숙소 근처 아침', n:'Cafe Alma Sydney', lat:-33.8764, lng:151.2031, r:'카페', h:'아침~오후',
+       g:'Darling Square 가까운 카페 후보. 커피+가벼운 식사로 빠르게 먹고 10:30 숙소 이동하기 좋음.'},
       {area:'서큘러키 점심', n:'Grana', lat:-33.8625, lng:151.2109, pid:'ChIJvyZ8WvCvEmsRTqM2KE94_aw', r:'4.5', h:'11:30–23시',
        g:'서큘러키 역 뒤 이탈리안. 파스타 직접 뽑음. 4명이면 파스타 3개 + 양고기 하나 나눠먹기. 예약 권장.'},
       {area:'서큘러키 점심', n:"Bouillon L'Entrecôte", lat:-33.8625, lng:151.2106, pid:'ChIJAdgvpTSvEmsRG2zKBNpxNTo', r:'4.7', h:'11:30–22시',
@@ -1798,6 +1841,21 @@ const DATA = {
       {area:'멜버른 복귀 저녁', n:"Lamaro's Hotel", lat:-37.8321, lng:144.9598, r:'4.3', h:'일 12–22시',
        g:'SIXT 걸어서 5분. 복귀 후 저녁 1순위. 펍 음식이지만 수준 있음. 여기서 먹고 차 반납하면 딱.'},
     ]
+  },
+  m21: {
+    route: [
+      {n:'Space Hotel Melbourne', lat:-37.8086, lng:144.9675, s:'숙소 · 집결지 이동 시작'},
+      {n:'471 Little Bourke St Melbourne', lat:-37.8142, lng:144.9587, s:'조이투어 집결지 · 시간은 예약 안내문 확인'},
+      {n:'Puffing Billy Railway', lat:-37.9085, lng:145.3552, s:'퍼핑빌리 증기기관차'},
+      {n:'Grants Picnic Ground', lat:-37.8914, lng:145.3562, s:'단데농 숲 코스'},
+      {n:'Sassafras', lat:-37.8627, lng:145.3536, s:'사사프라스 마을'},
+      {n:'San Remo', lat:-38.5201, lng:145.3730, s:'필립 아일랜드 입구'},
+      {n:'Pyramid Rock Lookout', lat:-38.5173, lng:145.2251, s:'피라미드 락'},
+      {n:'Phillip Island Penguin Parade', lat:-38.5071, lng:145.1503, s:'펭귄 퍼레이드 관람'},
+      {n:'Melbourne CBD', lat:-37.8136, lng:144.9631, s:'밤 복귀'},
+    ],
+    pub: [],
+    food: []
   },
   m23: {
     route: [
@@ -2027,7 +2085,7 @@ const SPLIT = [
   {it:'그레이트오션 주유·간식', sub:'20일 · 영수증 나오면', payer:'?', people:['성재','종모','성훈']},
   {it:'성훈 Space Hotel', sub:'9/19→23 · 성훈 단독', payer:'성훈', krw:164368, people:['성훈']},
   {it:'Crown Promenade Melbourne', sub:'9/23→24 · 성훈 단독 · 가격 추후', payer:'성훈', people:['성훈']},
-  {it:'필립아일랜드 조이투어', sub:'21일 · 성훈 결제 · 총액 재확인', payer:'성훈', people:['종모','성훈']},
+  {it:'필립아일랜드 조이투어', sub:'21일 · 성훈 결제 · 2명', payer:'성훈', krw:244800, people:['종모','성훈']},
   {it:'페닌슐라 온천', sub:'23일 · 성재·성훈', payer:'?', people:['성재','성훈']},
 ];
 const won = n => Math.round(n).toLocaleString('ko-KR') + '원';
