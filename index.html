@@ -1416,8 +1416,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
       </div></div>
       <div class="tl"><div class="time">10:30~10:45</div><div class="dot"></div><div class="body">
         <div class="t">Peninsula Hot Springs 도착</div>
-        <div class="s">수건·수영복·갈아입을 옷 챙기기. 당일 예약은 프리미엄이 붙을 수 있으니 미리 예약</div>
-        <div class="row"><a class="tag info" href="https://www.peninsulahotsprings.com/" target="_blank">온천 예약</a></div>
+        <div class="s">수건·수영복·갈아입을 옷 챙기기. 예약번호 #5873907, 성재 결제 완료</div>
+        <div class="row"><a class="tag info" href="https://www.peninsulahotsprings.com/" target="_blank">온천 공식</a><span class="tag ok">예약 확정</span></div>
       </div></div>
       <div class="tl"><div class="time">11:00</div><div class="dot"></div><div class="body">
         <div class="t">Bath House 입장</div>
@@ -1663,12 +1663,16 @@ svg.leaflet-image-layer.leaflet-interactive path {
     </div>
 
     <div class="info">
-      <h3>♨️ 페닌슐라 온천 <span class="tag need">23일 수 · 예약 필요</span></h3>
+      <h3>♨️ 페닌슐라 온천 <span class="tag ok">23일 수 · 예약 확정</span></h3>
       <dl class="kv">
+        <dt>예약번호</dt><dd>#5873907 · Peninsula Hot Springs</dd>
         <dt>인원</dt><dd>성재·성훈 2명</dd>
-        <dt>목표</dt><dd>9/23 수 11:00 Bath House 입장 · 14:30쯤 나와서 17:00 숙소 복귀 목표</dd>
+        <dt>상품</dt><dd>revitalise Bath House bathing · Adult 2</dd>
+        <dt>일정</dt><dd>9/23 수 11:00 Bath House 입장 · 14:30쯤 나와서 17:00 숙소 복귀 목표</dd>
         <dt>교통</dt><dd>Melbourne CBD → Frankston Line → 788번 → Rye → Uber/Taxi → Peninsula Hot Springs</dd>
-        <dt>주의</dt><dd>Frankston Line/788 시간은 출발 전 PTV에서 재확인. 당일 예약은 프리미엄이 붙을 수 있어 미리 예약</dd>
+        <dt>결제</dt><dd>A$162.40 · 성재 결제 · Transaction Reference 942530224</dd>
+        <dt>정산</dt><dd>성재·성훈 2명 N빵 → 1인 A$81.20 (약 80,388원). 성훈이 성재에게 보내면 완료</dd>
+        <dt>주의</dt><dd>Frankston Line/788 시간은 출발 전 PTV에서 재확인</dd>
       </dl>
       <div class="links">
         <a href="https://www.peninsulahotsprings.com/" target="_blank">온천 공식 예약</a>
@@ -1697,7 +1701,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <tbody id="splitRows"></tbody>
       </table>
       <div class="total" id="splitTotal"></div>
-      <div class="note">필립아일랜드는 성훈 결제 244,800원 확정 → 종모·성훈 2명 N빵 122,400원/인. AU$ 항목은 1AUD ≈ 990원 근사치, 회색 줄은 아직 금액 미정</div>
+      <div class="note">필립아일랜드는 성훈 결제 244,800원 → 종모 122,400원. 페닌슐라 온천은 성재 결제 A$162.40 → 성훈 약 80,388원. AU$ 항목은 1AUD ≈ 990원 근사치</div>
       <div class="section-title" style="margin-top:14px">사람별</div>
       <div class="settle" id="splitPeople"></div>
       <div class="section-title" style="margin-top:14px">이렇게 보내면 끝</div>
@@ -1715,8 +1719,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <label><input type="checkbox"><span>[멜버른] Space Hotel 성훈 숙소 확인<small>9/19 14:00 → 9/23 10:00 · 예약번호 1774273845</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 20일 렌트카 픽업 08:00<small>셋 다 면허증 · 카드 (보증금 $300) · 오프라인 지도</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 필립아일랜드 정산<small>성훈 결제 244,800원 · 종모가 122,400원 보내면 끝</small></span></label>
-      <label><input type="checkbox"><span>[멜버른] 성재·성훈 페닌슐라 온천 예약<small>11:00 Bath House · PTV/788 시간 출발 전 확인</small></span></label>
-      <label><input type="checkbox"><span>[정산] N빵 표 미정 금액 채우기<small>Crown 가격 · 온천 · 주유</small></span></label>
+      <label><input type="checkbox"><span>[멜버른] 성재·성훈 페닌슐라 온천<small>예약 #5873907 · 11:00 Bath House · 성재 결제 A$162.40</small></span></label>
+      <label><input type="checkbox"><span>[정산] N빵 표 미정 금액 채우기<small>Crown 가격 · 주유</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 성훈 시드니 공항 근처 하룻밤<small>25일 07:55</small></span></label>
       <label><input type="checkbox"><span>오팔카드(시드니) · myki(멜버른)<small>컨택리스 카드도 됨</small></span></label>
     </div>
@@ -2088,7 +2092,7 @@ const SPLIT = [
   {it:'성훈 Space Hotel', sub:'9/19→23 · 성훈 단독', payer:'성훈', krw:164368, people:['성훈']},
   {it:'Crown Promenade Melbourne', sub:'9/23→24 · 성훈 단독 · 가격 추후', payer:'성훈', people:['성훈']},
   {it:'필립아일랜드 조이투어', sub:'21일 · 성훈 결제 · 2명', payer:'성훈', krw:244800, people:['종모','성훈']},
-  {it:'페닌슐라 온천', sub:'23일 · 성재·성훈', payer:'?', people:['성재','성훈']},
+  {it:'페닌슐라 온천', sub:'23일 · 예약 #5873907 · A$162.40', payer:'성재', aud:162.40, people:['성재','성훈']},
 ];
 const won = n => Math.round(n).toLocaleString('ko-KR') + '원';
 function renderSplit(){
