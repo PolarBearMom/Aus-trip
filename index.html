@@ -1343,12 +1343,66 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <section class="panel" id="m23">
     <div class="panel-head">
       <h2>페닌슐라 온천 · 성재 성훈</h2>
-      <p>조이투어 아침 출발 → 모닝턴 페닌슐라 온천 → 오후 복귀</p>
-      <div class="who"><span>성재</span><span>성훈</span></div>
+      <p>Space Hotel 출발 → Frankston/Rye → 11:00 Bath House → 숙소 복귀 → 채영 저녁</p>
+      <div class="who"><span>성재</span><span>성훈</span><span>채영 19:00~</span></div>
     </div>
-    <div class="empty">
-      <b>예약하면 여기 채움</b>
-      조이투어 페닌슐라 온천 2명, 아침 출발. 집결 시간·장소는 예약 후 표시. 수건·수영복 챙기기.<br>예약 링크는 예약·체크 탭 멜버른행에 있음.
+
+    <div class="map-wrap">
+      <div class="map-filter">
+        <span class="lbl">지도</span>
+        <button class="chip route on" data-cat="route">일정</button>
+        <button class="chip home on" data-cat="home">🏠 숙소</button>
+      </div>
+      <div class="map" id="map-m23"></div>
+      <div class="map-hint">숙소 기준 동선 · Frankston Line/788 시간은 출발 전 PTV에서 다시 확인</div>
+    </div>
+
+    <div class="section-title">일정</div>
+    <div class="timeline">
+      <div class="tl"><div class="time">07:30</div><div class="dot"></div><div class="body">
+        <div class="t">Space Hotel 출발</div>
+        <div class="s">Melbourne CBD 기준. 정확한 열차 출발 시각은 당일 PTV Journey Planner에서 재확인</div>
+        <div class="row"><span class="tag info">예상</span><span class="tag ok">성재·성훈</span></div>
+      </div></div>
+      <div class="tl"><div class="time">07:30~08:45</div><div class="dot"></div><div class="body">
+        <div class="t">Frankston Line → Frankston Station</div>
+        <div class="s">CBD에서 Frankston까지 이동. 평일 시간표 기준이라 실제 9/23 운행은 출발 전에 확인</div>
+      </div></div>
+      <div class="tl"><div class="time">09:03 전후</div><div class="dot"></div><div class="body">
+        <div class="t">788번 버스 · Frankston → Rye 방향</div>
+        <div class="s">Frankston에서 환승. 버스 시간은 변경될 수 있으니 ‘전후’로 봐두기</div>
+        <div class="row"><a class="tag info" href="https://www.ptv.vic.gov.au/journey" target="_blank">PTV 확인</a></div>
+      </div></div>
+      <div class="tl"><div class="time">10:15~10:30</div><div class="dot"></div><div class="body">
+        <div class="t">Rye 도착 예상</div>
+        <div class="s">Rye에서 바로 Uber/Taxi 호출해서 Peninsula Hot Springs로 이동</div>
+      </div></div>
+      <div class="tl"><div class="time">10:30~10:45</div><div class="dot"></div><div class="body">
+        <div class="t">Peninsula Hot Springs 도착</div>
+        <div class="s">수건·수영복·갈아입을 옷 챙기기. 당일 예약은 프리미엄이 붙을 수 있으니 미리 예약</div>
+        <div class="row"><a class="tag info" href="https://www.peninsulahotsprings.com/" target="_blank">온천 예약</a></div>
+      </div></div>
+      <div class="tl"><div class="time">11:00</div><div class="dot"></div><div class="body">
+        <div class="t">Bath House 입장</div>
+        <div class="s">목표 입장 시간 11:00</div>
+      </div></div>
+      <div class="tl"><div class="time">11:00~14:30</div><div class="dot"></div><div class="body">
+        <div class="t">온천</div>
+        <div class="s">넉넉히 즐기고 14:30쯤 나가는 기준으로 잡기</div>
+      </div></div>
+      <div class="tl"><div class="time">14:30 이후</div><div class="dot"></div><div class="body">
+        <div class="t">복귀 · Uber → Rye → 788 → Frankston → Melbourne CBD</div>
+        <div class="s">돌아오는 교통편도 현장 시간표 보고 유동적으로. 17:00 숙소 복귀 목표</div>
+      </div></div>
+      <div class="tl"><div class="time">17:00</div><div class="dot"></div><div class="body">
+        <div class="t">숙소 복귀 · 휴식</div>
+        <div class="s">Space Hotel 또는 Crown 체크인 흐름에 맞춰 쉬기</div>
+      </div></div>
+      <div class="tl"><div class="time">19:00</div><div class="dot"></div><div class="body">
+        <div class="t">채영 합류 · 저녁</div>
+        <div class="s">성재·채영·성훈 저녁. 맛집은 현지에서 정하기</div>
+        <div class="row"><span class="tag info">장소 미정</span></div>
+      </div></div>
     </div>
   </section>
 
@@ -1507,7 +1561,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <h3>🏠 멜버른 숙소 · Space Hotel <span class="tag ok">성훈 단독 확정</span></h3>
       <dl class="kv">
         <dt>예약번호</dt><dd>1774273845 · Agoda</dd>
-        <dt>일정</dt><dd>9/19 토 14:00 체크인 → 9/23 수 10:00 체크아웃 (4박)</dd>
+        <dt>일정</dt><dd>9/19 토 14:00 체크인 → 9/23 수 10:00 체크아웃 (토~수 · 4박)</dd>
         <dt>인원</dt><dd>성훈 1명 · Bed in 6-Bed Mixed Dorm</dd>
         <dt>금액</dt><dd>164,368원 · 성훈 결제 완료</dd>
         <dt>연락처</dt><dd>+61 3 9662 3888</dd>
@@ -1518,7 +1572,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       </div>
       <div class="stay">
         <div class="sn"><b>Crown Promenade Melbourne</b><span>9/23 수 15:00 → 9/24 목 11:00</span></div>
-        <p>스샷 기준 멜버른/멜번 일정의 마지막 1박. 1 x Standard King Room, 성인 2명, 예약 ID 1775064969</p>
+        <p>수~목 마지막 1박. 성훈 단독 계산으로 정리, 가격은 나중에 추가. 1 x Standard King Room, 예약 ID 1775064969</p>
         <a class="go2" href="https://www.google.com/maps/search/?api=1&query=Crown+Promenade+Melbourne" target="_blank">지도</a>
       </div>
     </div>
@@ -1561,8 +1615,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <dl class="kv">
         <dt>인원</dt><dd>종모·성훈 2명 (성재 불참)</dd>
         <dt>시간</dt><dd>오후 출발 → 밤 복귀 · 브라이튼비치 + 펭귄 퍼레이드</dd>
-        <dt>확정분</dt><dd>성훈 1명 · 129,794원 · 환불 가능 기간 지남</dd>
-        <dt>남은 것</dt><dd>종모 1명 같은 상품으로 예약 필요</dd>
+        <dt>정산</dt><dd>성훈이 결제한 금액을 종모·성훈 2명이 N빵. 정확한 총액은 다시 확인 후 입력</dd>
         <dt>콤보</dt><dd>퍼핑빌리+필립 하루에 묶는 상품도 있음</dd>
       </dl>
       <div class="links">
@@ -1622,9 +1675,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <label><input type="checkbox"><span>[시드니] 젯스타 JQ527 온라인 체크인<small>9/17 17:55 오픈 · 성재·종모 YL1GQI · 성훈 따로</small></span></label>
       <label><input type="checkbox"><span>[멜버른] Space Hotel 성훈 숙소 확인<small>9/19 14:00 → 9/23 10:00 · 예약번호 1774273845</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 20일 렌트카 픽업 08:00<small>셋 다 면허증 · 카드 (보증금 $300) · 오프라인 지도</small></span></label>
-      <label><input type="checkbox"><span>[멜버른] 종모 필립아일랜드 21일 추가 예약<small>성훈 1명은 129,794원 결제 완료</small></span></label>
+      <label><input type="checkbox"><span>[멜버른] 필립아일랜드 정산 금액 확인<small>성훈 결제 · 종모/성훈 2명 N빵 예정</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 성재·성훈 페닌슐라 온천 조이투어 23일 예약<small>아침 출발 · 2명</small></span></label>
-      <label><input type="checkbox"><span>[정산] N빵 표 미정 금액 채우기<small>종모 필립 · 온천 · 주유</small></span></label>
+      <label><input type="checkbox"><span>[정산] N빵 표 미정 금액 채우기<small>필립 총액 · Crown 가격 · 온천 · 주유</small></span></label>
       <label><input type="checkbox"><span>[멜버른] 성훈 시드니 공항 근처 하룻밤<small>25일 07:55</small></span></label>
       <label><input type="checkbox"><span>오팔카드(시드니) · myki(멜버른)<small>컨택리스 카드도 됨</small></span></label>
     </div>
@@ -1746,6 +1799,18 @@ const DATA = {
        g:'SIXT 걸어서 5분. 복귀 후 저녁 1순위. 펍 음식이지만 수준 있음. 여기서 먹고 차 반납하면 딱.'},
     ]
   },
+  m23: {
+    route: [
+      {n:'Space Hotel Melbourne', lat:-37.8086, lng:144.9675, s:'07:30 출발 · 성훈 숙소 기준'},
+      {n:'Frankston Station', lat:-38.1426, lng:145.1260, s:'Frankston Line 도착 · 788번 환승'},
+      {n:'Rye', lat:-38.3715, lng:144.8247, s:'10:15~10:30 도착 예상 · Uber/Taxi'},
+      {n:'Peninsula Hot Springs', lat:-38.4075, lng:144.8553, s:'10:30~10:45 도착 · 11:00 Bath House 입장'},
+      {n:'Space Hotel Melbourne', lat:-37.8086, lng:144.9675, s:'17:00 복귀 목표'},
+      {n:'Melbourne CBD', lat:-37.8136, lng:144.9631, s:'19:00 채영 합류 · 저녁 장소는 당일 결정'},
+    ],
+    pub: [],
+    food: []
+  },
   m24: {
     route: [
       {n:'Woolworths St Kilda', lat:-37.8674, lng:144.9808, s:'장보기'},
@@ -1795,13 +1860,31 @@ const DATA = {
   }
 };
 
-/* ---------- stay (시드니 숙소) ---------- */
+/* ---------- stay (숙소) ---------- */
 const STAY = {
   n:'에어비앤비 · 339 Sussex St', lat:-33.8762, lng:151.2040,
   s:'339 Sussex Street, Sydney NSW 2000 · Town Hall역 5분 · 달링하버 100m · 9/17→19',
   q:'339 Sussex Street Sydney NSW 2000'
 };
 const SYD_DAYS = ['d17','d18','d19'];
+const MEL_STAYS = {
+  m20: [
+    {n:'Space Hotel', lat:-37.8086, lng:144.9675, s:'9/19 토 → 9/23 수 · 성훈 단독', q:'Space Hotel Melbourne'}
+  ],
+  m21: [
+    {n:'Space Hotel', lat:-37.8086, lng:144.9675, s:'9/19 토 → 9/23 수 · 성훈 단독', q:'Space Hotel Melbourne'}
+  ],
+  m22: [
+    {n:'Space Hotel', lat:-37.8086, lng:144.9675, s:'9/19 토 → 9/23 수 · 성훈 단독', q:'Space Hotel Melbourne'}
+  ],
+  m23: [
+    {n:'Space Hotel', lat:-37.8086, lng:144.9675, s:'9/19 토 → 9/23 수 10:00 · 성훈 단독', q:'Space Hotel Melbourne'},
+    {n:'Crown Promenade Melbourne', lat:-37.8239, lng:144.9581, s:'9/23 수 15:00 → 9/24 목 11:00 · 성훈 단독 정산 · 가격 추후', q:'Crown Promenade Melbourne'}
+  ],
+  m24: [
+    {n:'Crown Promenade Melbourne', lat:-37.8239, lng:144.9581, s:'9/23 수 → 9/24 목 · 성훈 단독 정산 · 가격 추후', q:'Crown Promenade Melbourne'}
+  ]
+};
 function stayBar(dayId){
   const head = document.querySelector(`#${dayId} .panel-head`);
   if(!head || head.nextElementSibling.classList.contains('stay-bar')) return;
@@ -1827,10 +1910,11 @@ function makePin(cls, label){
   return L.divIcon({className:'', html:`<div class="pin ${cls}"><span>${label}</span></div>`, iconSize:[28,28], iconAnchor:[14,28], popupAnchor:[0,-26]});
 }
 function fitPts(dayId, pts){
-  if(!SYD_DAYS.includes(dayId)) return pts;
+  const homes = SYD_DAYS.includes(dayId) ? [STAY] : (MEL_STAYS[dayId] || []);
+  if(!homes.length) return pts;
   const m = maps[dayId];
   if(m && !m.map.hasLayer(m.layers.home)) return pts;
-  return pts.concat([[STAY.lat,STAY.lng]]);
+  return pts.concat(homes.map(p=>[p.lat,p.lng]));
 }
 function buildMap(dayId){
   const d = DATA[dayId];
@@ -1843,12 +1927,15 @@ function buildMap(dayId){
   setTimeout(()=>{ if(!tileOk) document.getElementById('map-'+dayId).classList.add('notile'); },4000);
 
   const layers = {route:L.layerGroup(), pub:L.layerGroup(), food:L.layerGroup()};
-  const hasStay = SYD_DAYS.includes(dayId);
+  const homes = SYD_DAYS.includes(dayId) ? [STAY] : (MEL_STAYS[dayId] || []);
+  const hasStay = homes.length > 0;
   if(hasStay){
     layers.home = L.layerGroup();
-    L.marker([STAY.lat,STAY.lng],{icon:makePin('home','🏠'), zIndexOffset:1000})
-      .bindPopup(`<b>🏠 ${STAY.n}</b>${STAY.s}<br><a class="go" href="${gmap(STAY.q)}" target="_blank">구글맵 열기</a>`)
-      .addTo(layers.home);
+    homes.forEach(p=>{
+      L.marker([p.lat,p.lng],{icon:makePin('home','🏠'), zIndexOffset:1000})
+        .bindPopup(`<b>🏠 ${p.n}</b>${p.s}<br><a class="go" href="${gmap(p.q)}" target="_blank">구글맵 열기</a>`)
+        .addTo(layers.home);
+    });
   }
   d.route.forEach((p,i)=>{
     L.marker([p.lat,p.lng],{icon:makePin('route', i+1)})
@@ -1876,7 +1963,7 @@ function buildMap(dayId){
       if(btn.classList.contains('on')) layers[cat].addTo(map); else map.removeLayer(layers[cat]);
       // refit to visible
       const pts=[];
-      Object.keys(layers).forEach(k=>{ if(map.hasLayer(layers[k])) (k==='route'?d.route:(k==='home'?[STAY]:d[k])).forEach(p=>{ if(!p.far) pts.push([p.lat,p.lng]); }); });
+      Object.keys(layers).forEach(k=>{ if(map.hasLayer(layers[k])) (k==='route'?d.route:(k==='home'?homes:d[k])).forEach(p=>{ if(!p.far) pts.push([p.lat,p.lng]); }); });
       if(pts.length) map.fitBounds(pts,{padding:[28,28]});
     });
   });
@@ -1939,9 +2026,9 @@ const SPLIT = [
   {it:'렌트카 SIXT 20일', sub:'AU$175.92 · 주유는 나중에 추가', payer:'성재', aud:175.92, people:['성재','종모','성훈']},
   {it:'그레이트오션 주유·간식', sub:'20일 · 영수증 나오면', payer:'?', people:['성재','종모','성훈']},
   {it:'성훈 Space Hotel', sub:'9/19→23 · 성훈 단독', payer:'성훈', krw:164368, people:['성훈']},
-  {it:'필립아일랜드 조이투어 · 성훈', sub:'21일 · 1명 확정', payer:'성훈', krw:129794, people:['성훈']},
-  {it:'필립아일랜드 조이투어 · 종모', sub:'21일 · 추가 예약 필요', payer:'?', people:['종모']},
-  {it:'페닌슐라 온천 조이투어 2명', sub:'23일', payer:'?', people:['성재','성훈']},
+  {it:'Crown Promenade Melbourne', sub:'9/23→24 · 성훈 단독 · 가격 추후', payer:'성훈', people:['성훈']},
+  {it:'필립아일랜드 조이투어', sub:'21일 · 성훈 결제 · 총액 재확인', payer:'성훈', people:['종모','성훈']},
+  {it:'페닌슐라 온천', sub:'23일 · 성재·성훈', payer:'?', people:['성재','성훈']},
 ];
 const won = n => Math.round(n).toLocaleString('ko-KR') + '원';
 function renderSplit(){
