@@ -898,10 +898,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .big small{font-size:12px;font-weight:500;color:var(--ink-3)}
   .big + p{color:var(--ink-2);font-size:13px;margin:0 4px 12px}
   .stay .n2{font-size:11px;font-weight:600;color:var(--ink-3);margin-right:6px}
-  .todo{display:flex;flex-direction:column;gap:8px}
-  .todo label{display:flex;gap:10px;align-items:flex-start;font-size:14px;padding:10px 12px;background:var(--card);border-radius:10px;border:1px solid var(--line)}
-  .todo input{margin-top:3px;width:18px;height:18px;accent-color:var(--ok)}
-  .todo label span small{display:block;color:var(--ink-3);font-size:12px;margin-top:1px}
   /* ===== N빵 ===== */
   .split table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
   .split th{font-size:11px;font-weight:600;color:var(--ink-3);text-align:left;padding:4px 4px;border-bottom:1px solid var(--line)}
@@ -922,8 +918,69 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .settle .card2 .net{margin-top:6px;font-size:13px;font-weight:700}
   .settle .card2 .net.plus{color:var(--ok)}
   .settle .card2 .net.minus{color:var(--need)}
+  .settle .person-card{width:100%;text-align:left;position:relative;border:1px solid transparent;transition:border-color .15s,background .15s}
+  .settle .person-card:hover,.settle .person-card:focus-visible{border-color:var(--sea);background:#fff;outline:none}
+  .settle .person-card::after{content:'내역 보기 ↓';position:absolute;right:10px;top:10px;font-size:10px;color:var(--sea);font-weight:700}
+  .settle .person-card.open::after{content:'접기 ↑'}
+  .person-breakdown{display:none;margin-top:10px;border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}
+  .person-breakdown.open{display:block}
+  .person-breakdown-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 12px;background:var(--sea-soft);border-bottom:1px solid var(--line)}
+  .person-breakdown-head b{font-size:14px;color:var(--sea)}
+  .person-breakdown-head span{font-size:11px;color:var(--ink-2)}
+  .person-breakdown-list{max-height:420px;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .person-line{padding:10px 12px;border-bottom:1px dashed var(--line)}
+  .person-line:last-child{border-bottom:0}
+  .person-line-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+  .person-line-name{font-size:13px;font-weight:700;line-height:1.35}
+  .person-line-share{font-size:13px;font-weight:700;color:var(--sea);white-space:nowrap}
+  .person-line-meta{margin-top:4px;font-size:11.5px;color:var(--ink-3)}
   .pay-list{margin-top:10px;display:flex;flex-direction:column;gap:6px}
   .pay-list div{background:var(--ok-soft);color:var(--ink);border-radius:10px;padding:9px 12px;font-size:13.5px;font-weight:600}
+  .split-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:12px}
+  .split-summary .sum-card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 12px}
+  .split-summary .sum-card small{display:block;color:var(--ink-3);font-size:11px;font-weight:600}
+  .split-summary .sum-card b{display:block;margin-top:3px;font-size:17px}
+  .split-summary .sum-card span{display:block;margin-top:2px;color:var(--ink-2);font-size:11px}
+  .rate-setting{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--sea-soft);border:1px solid #B9DDEA;border-radius:12px;padding:10px 12px;margin-bottom:12px}
+  .rate-setting label{font-size:12px;font-weight:700;color:var(--sea)}
+  .rate-setting .rate-input{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;white-space:nowrap}
+  .rate-setting input{width:78px;padding:7px 8px;border:1px solid #9CCCDD;border-radius:8px;background:#fff;text-align:right;font:inherit;font-weight:700;color:var(--ink)}
+  .prior-bookings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:14px}
+  .prior-booking{border:1px solid var(--line);border-radius:11px;padding:10px 11px;background:#fff}
+  .prior-booking .booking-name{font-size:13px;font-weight:700;line-height:1.35}
+  .prior-booking .booking-meta{margin-top:4px;font-size:11.5px;color:var(--ink-2);line-height:1.45}
+  .prior-booking .booking-amount{margin-top:5px;font-size:13px;font-weight:700;color:var(--sea)}
+  .split-filters{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 10px}
+  .split-filters::-webkit-scrollbar{display:none}
+  .split-filter{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--ink-2);padding:6px 11px;border-radius:99px;font-size:12px;font-weight:600}
+  .split-filter.on{background:var(--ink);border-color:var(--ink);color:#fff}
+  .split-log{max-height:520px;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:#fff}
+  .split-day{border-bottom:1px solid var(--line)}
+  .split-day:last-child{border-bottom:0}
+  .split-day-head{position:sticky;top:0;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:10px 11px;background:#F6F8FA;border-bottom:1px solid var(--line)}
+  .split-day-head b{font-size:14px}
+  .split-day-head span{text-align:right;font-size:11.5px;color:var(--ink-2);font-weight:600;line-height:1.45}
+  .split-entry{padding:11px;border-bottom:1px dashed var(--line)}
+  .split-entry:last-child{border-bottom:0}
+  .split-entry-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .split-entry .entry-name{font-size:13.5px;font-weight:700;line-height:1.35;min-width:0}
+  .split-entry .entry-amount{font-size:13.5px;font-weight:700;white-space:nowrap;text-align:right}
+  .split-entry .entry-meta{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+  .split-entry .entry-meta span{font-size:11px;padding:2px 7px;border-radius:7px;background:#EEF1F4;color:var(--ink-2)}
+  .split-entry .entry-meta .payer{background:var(--sea-soft);color:var(--sea);font-weight:700}
+  .split-entry .per{margin-top:6px;font-size:12px;color:var(--ink-2)}
+  .split-entry details{margin-top:6px;font-size:11.5px;color:var(--ink-3)}
+  .split-entry summary{cursor:pointer;color:var(--sea);font-weight:600}
+  .split-entry .approx{color:#9A6D00}
+  .currency-settle{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+  .currency-settle h4{font-size:13px;margin-bottom:7px}
+  .currency-settle .settle{margin-top:0}
+  @media(max-width:480px){
+    .split-summary,.prior-bookings,.settle{grid-template-columns:1fr}
+    .rate-setting{align-items:flex-start;flex-direction:column}
+    .split-log{max-height:62vh}
+    .split-day-head{top:-1px}
+  }
   .pay-list div b{color:var(--ok)}
   .empty{background:var(--card);border-radius:var(--r);border:1px dashed var(--ink-3);padding:36px 18px;text-align:center;color:var(--ink-2)}
   .empty b{display:block;font-size:17px;color:var(--ink);margin-bottom:6px}
@@ -1736,36 +1793,21 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="note">시드니 도착 밤 늦으니 공항 근처 숙소 하나 or 공항에서 밤새기. 국제선 07:55면 05:30엔 공항</div>
     </div>
 
-    <div class="section-title">N빵 정산 <small>결제한 사람 기준 · 원화</small></div>
+    <div class="section-title">정산 결제 로그 <small>기존 내역 유지 · 원본 통화별 추가</small></div>
     <div class="info split" id="split">
-      <table>
-        <thead><tr><th>항목</th><th>결제</th><th class="r">금액</th><th class="r">1인</th></tr></thead>
-        <tbody id="splitRows"></tbody>
-      </table>
-      <div class="total" id="splitTotal"></div>
-      <div class="note">필립아일랜드는 성훈 결제 244,800원 → 종모 122,400원. 페닌슐라 온천은 성재 결제 A$162.40 → 성훈 약 80,388원. AU$ 항목은 1AUD ≈ 990원 근사치</div>
-      <div class="section-title" style="margin-top:14px">사람별</div>
-      <div class="settle" id="splitPeople"></div>
+      <div class="rate-setting"><label for="audKrwRate">AUD 환산 기준</label><div class="rate-input">1 AUD = <input id="audKrwRate" type="number" min="1" step="1" value="960" inputmode="numeric" aria-label="호주 달러 원화 환율"> 원</div></div>
+      <div class="split-summary" id="splitSummary"></div>
+      <div class="section-title" style="margin:14px 2px 8px">기존 예약·선결제 <small>스크롤 없이 바로 확인</small></div>
+      <div class="prior-bookings" id="priorBookings"></div>
+      <div class="section-title" style="margin:14px 2px 8px">전체 결제 로그 <small>기존+추가 · 날짜별</small></div>
+      <div class="split-filters" id="splitFilters" aria-label="정산 날짜 필터"></div>
+      <div class="split-log" id="splitLog" tabindex="0" aria-label="날짜별 정산 결제 로그"></div>
+      <div class="section-title" style="margin-top:14px">사람별 정산 <small>원화 통합 · 본인 몫 제외 송금액</small></div>
+      <div id="splitPeople"></div>
       <div class="section-title" style="margin-top:14px">이렇게 보내면 끝</div>
       <div class="pay-list" id="splitPay"></div>
     </div>
 
-    <div class="section-title">할 일</div>
-    <div class="todo">
-      <label><input type="checkbox"><span>[시드니] 성재·종모 젯스타 체크인<small>9/15 06:00 오픈 · JQ500 · 좌석 선택</small></span></label>
-      <label><input type="checkbox"><span>[시드니] 9/17 목 10:30 숙소 짐 맡기기<small>그 전엔 숙소 근처에서 아침 · 339 Sussex Street</small></span></label>
-      <label><input type="checkbox"><span>[시드니] 목요일 저녁 숙소 배달<small>Betty's Burgers · Tower A, A1308 · 성재·성훈·윤혁</small></span></label>
-      <label><input type="checkbox"><span>[시드니] 시닉월드 바우처 챙기기<small>예약·체크 탭 PDF 또는 성훈 클룩 앱 · QR 입구에서 스캔</small></span></label>
-      <label><input type="checkbox"><span>[시드니] 올림픽 수영장 후보 확인<small>North Sydney Olympic Pool · Milsons Point · 하버브릿지 아래</small></span></label>
-      <label><input type="checkbox"><span>[시드니] 젯스타 JQ527 온라인 체크인<small>9/17 17:55 오픈 · 성재·종모 YL1GQI · 성훈 따로</small></span></label>
-      <label><input type="checkbox"><span>[멜버른] Space Hotel 성훈 숙소 확인<small>9/19 14:00 → 9/23 10:00 · 예약번호 1774273845</small></span></label>
-      <label><input type="checkbox"><span>[멜버른] 20일 렌트카 픽업 08:00<small>셋 다 면허증 · 카드 (보증금 $300) · 오프라인 지도</small></span></label>
-      <label><input type="checkbox"><span>[멜버른] 필립아일랜드 정산<small>성훈 결제 244,800원 · 종모가 122,400원 보내면 끝</small></span></label>
-      <label><input type="checkbox"><span>[멜버른] 성재·성훈 페닌슐라 온천<small>예약 #5873907 · 11:00 Bath House · 성재 결제 A$162.40</small></span></label>
-      <label><input type="checkbox"><span>[정산] N빵 표 미정 금액 채우기<small>Crown 가격 · 주유</small></span></label>
-      <label><input type="checkbox"><span>[멜버른] 성훈 시드니 공항 근처 하룻밤<small>25일 07:55</small></span></label>
-      <label><input type="checkbox"><span>오팔카드(시드니) · myki(멜버른)<small>컨택리스 카드도 됨</small></span></label>
-    </div>
   </section>
 </div>
 
@@ -2124,84 +2166,131 @@ function buildCards(dayId){
   });
 }
 
-/* ---------- N빵 ---------- */
-const RATE = 990; // KRW per AUD (근사)
-const SPLIT = [
-  {it:'시드니 숙소 · 에어비앤비 달링하버', sub:'9/17→19 · 2박', payer:'성훈', krw:677062, people:['성재','종모','윤혁','성훈']},
-  {it:'시닉월드 입장권 4명', sub:'클룩 · AU$256', payer:'성훈', krw:253423, people:['성재','종모','윤혁','성훈']},
-  {it:'렌트카 SIXT 20일', sub:'AU$175.92 · 주유는 나중에 추가', payer:'성재', aud:175.92, people:['성재','종모','성훈']},
-  {it:'그레이트오션 주유·간식', sub:'20일 · 영수증 나오면', payer:'?', people:['성재','종모','성훈']},
-  {it:'성훈 Space Hotel', sub:'9/19→23 · 성훈 단독', payer:'성훈', krw:164368, people:['성훈']},
-  {it:'Crown Promenade Melbourne', sub:'9/23→24 · 성훈 단독 · 가격 추후', payer:'성훈', people:['성훈']},
-  {it:'필립아일랜드 조이투어', sub:'21일 · 성훈 결제 · 2명', payer:'성훈', krw:244800, people:['종모','성훈']},
-  {it:'페닌슐라 온천', sub:'23일 · 예약 #5873907 · A$162.40', payer:'성재', aud:162.40, people:['성재','성훈']},
-  // 주문: Calamari Bucket × 1; Crispy Chicken Combo × 3 (Crispy Chicken, Small Coke No Sugar, Plain Bun); Fries × 1 (Add Tomato Sauce)
-  {it:"Betty's Burgers", sub:'9/17 목 · 숙소 배달 · AU$81.20', payer:'성재', aud:81.20, people:['성재','성훈','윤혁']},
-  {it:'MR LIQUOR SYDNEY', sub:'9/17 목 · A$15.09 · 3명 균등분할', payer:'성훈', aud:15.09, people:['성훈','종모','성재']},
-  {it:'MR LIQUOR SYDNEY', sub:'9/17 목 · 4명이 같이 마신 맥주 · 4명 균등분할', payer:'성훈', krw:37718, people:['성훈','종모','성재','윤혁']},
-  {it:'COLES 0815 MANLY', sub:'2026-09-17 목 · AUD 금액 확인 불가', payer:'성훈', krw:7201, people:['성훈','성재','종모','윤혁']},
-  {it:'NORTH SYDNEY COUNCIL', sub:'2026-09-17 목 · AU$44.00', payer:'성훈', aud:44.00, people:['성훈','성재','종모','윤혁']},
-  {it:'HURRICANES GRILL', sub:'2026-09-17 목 · AU$199.96', payer:'성훈', aud:199.96, people:['성훈','성재','종모','윤혁']},
-  {it:'WOOLWORTHS 1248 SYDNEY', sub:'2026-09-17 목 · AU$77.80', payer:'성훈', aud:77.80, people:['성훈','성재','종모','윤혁']},
-  {it:'LIQUORLAND 3617 SYDNEY', sub:'2026-09-17 목 · AU$140.00', payer:'성훈', aud:140.00, people:['성훈','성재','종모','윤혁']},
-  {it:'HAIHA HOUSE COFFEE', sub:'2026-09-18 금 · AU$86.00', payer:'성훈', aud:86.00, people:['성훈','성재','종모','윤혁']},
-  {it:'SUBWAY KATOOMBA', sub:'2026-09-18 금 · AU$41.00', payer:'성훈', aud:41.00, people:['성훈','성재','종모','윤혁']},
-  {it:'NICHOLAS SEAFOOD PYRMONT', sub:'2026-09-18 금 · AU$50.78', payer:'성훈', aud:50.78, people:['성훈','성재','종모','윤혁']},
-  {it:'MUSUMECI SEAFOODS PYRMONT', sub:'2026-09-18 금 · AU$20.00', payer:'성훈', aud:20.00, people:['성훈','성재','종모','윤혁']},
-  {it:'FISH MARKET CAFE GLEBE', sub:'2026-09-18 금 · AU$22.31', payer:'성훈', aud:22.31, people:['성훈','성재','종모','윤혁']},
-  {it:'YO-CHI FISH MARKET GLEBE', sub:'2026-09-18 금 · AUD 금액 확인 불가', payer:'성훈', krw:40183, people:['성훈','성재','종모','윤혁']},
-  {it:'COLES 0710 SYDNEY', sub:'2026-09-18 금 · AU$73.15', payer:'성훈', aud:73.15, people:['성훈','성재','종모','윤혁']},
-  {it:'LIQUORLAND 3617 SYDNEY', sub:'2026-09-18 금 · AUD 금액 확인 불가', payer:'성훈', krw:40839, people:['성훈','성재','종모','윤혁']},
-  {it:"FISHERMAN'S FINE WINES (SYDNEY FISH MARKET)", sub:'2026-09-18 금 · 19:36 · AU$45.65', payer:'성재', aud:45.65, people:['성훈','성재','종모','윤혁']},
+/* ---------- 정산 결제 로그 ---------- */
+const PRIOR_SPLIT = [
+  {date:'9/17',it:'시드니 숙소 · 에어비앤비 달링하버',payer:'성훈',currency:'KRW',amount:677062,people:['성재','종모','윤혁','성훈'],source:'prior',note:'9/17→19 · 2박'},
+  {date:'9/18',it:'시닉월드 입장권 4명',payer:'성훈',currency:'KRW',amount:253423,people:['성재','종모','윤혁','성훈'],source:'prior',note:'클룩 · 기존 원화 기록'},
+  {date:'9/20',it:'렌트카 SIXT',payer:'성재',currency:'AUD',amount:175.92,people:['성재','종모','성훈'],source:'prior',note:'주유비 별도'},
+  {date:'9/19',it:'성훈 Space Hotel',payer:'성훈',currency:'KRW',amount:164368,people:['성훈'],source:'prior',note:'9/19→23 · 성훈 단독'},
+  {date:'9/21',it:'필립아일랜드 조이투어',payer:'성훈',currency:'KRW',amount:244800,people:['종모','성훈'],source:'prior'},
+  {date:'9/23',it:'페닌슐라 온천 예약',payer:'성재',currency:'AUD',amount:162.40,people:['성재','성훈'],source:'prior',note:'예약 #5873907'},
+  {date:'9/17',it:"Betty's Burgers",payer:'성재',currency:'AUD',amount:81.20,people:['성재','성훈','윤혁'],source:'prior',note:'숙소 배달'},
+  {date:'9/17',it:'MR LIQUOR SYDNEY · 3명',payer:'성훈',currency:'AUD',amount:15.09,people:['성훈','종모','성재'],source:'prior'},
+  {date:'9/17',it:'MR LIQUOR SYDNEY · 맥주',payer:'성훈',currency:'KRW',amount:37718,people:['성훈','종모','성재','윤혁'],source:'prior'},
+  {date:'9/17',it:'COLES 0815 MANLY',payer:'성훈',currency:'KRW',amount:7201,people:['성훈','성재','종모','윤혁'],source:'prior',note:'AUD 원금 확인 불가'},
+  {date:'9/17',it:'HURRICANES GRILL',payer:'성훈',currency:'AUD',amount:199.96,people:['성훈','성재','종모','윤혁'],source:'prior'},
+  {date:'9/17',it:'WOOLWORTHS 1248 SYDNEY',payer:'성훈',currency:'AUD',amount:77.80,people:['성훈','성재','종모','윤혁'],source:'prior'},
+  {date:'9/17',it:'LIQUORLAND 3617 SYDNEY',payer:'성훈',currency:'AUD',amount:140.00,people:['성훈','성재','종모','윤혁'],source:'prior'},
+  {date:'9/18',it:'HAIHA HOUSE COFFEE',payer:'성훈',currency:'AUD',amount:86.00,people:['성훈','성재','종모','윤혁'],source:'prior'},
+  {date:'9/18',it:'SUBWAY KATOOMBA',payer:'성훈',currency:'AUD',amount:41.00,people:['성훈','성재','종모','윤혁'],source:'prior'},
+  {date:'9/18',it:'NICHOLAS SEAFOOD PYRMONT',payer:'성훈',currency:'AUD',amount:50.78,people:['성훈','성재','종모','윤혁'],source:'prior'},
+  {date:'9/18',it:'MUSUMECI SEAFOODS PYRMONT',payer:'성훈',currency:'AUD',amount:20.00,people:['성훈','성재','종모','윤혁'],source:'prior'},
+  {date:'9/18',it:'FISH MARKET CAFE GLEBE',payer:'성훈',currency:'AUD',amount:22.31,people:['성훈','성재','종모','윤혁'],source:'prior'},
+  {date:'9/18',it:'YO-CHI FISH MARKET GLEBE',payer:'성훈',currency:'KRW',amount:40183,people:['성훈','성재','종모','윤혁'],source:'prior',note:'AUD 원금 확인 불가'},
+  {date:'9/18',it:'COLES 0710 SYDNEY',payer:'성훈',currency:'AUD',amount:73.15,people:['성훈','성재','종모','윤혁'],source:'prior'},
+  {date:'9/18',it:'LIQUORLAND 3617 SYDNEY',payer:'성훈',currency:'KRW',amount:40839,people:['성훈','성재','종모','윤혁'],source:'prior',note:'AUD 원금 확인 불가'},
 ];
-const won = n => Math.round(n).toLocaleString('ko-KR') + '원';
-function renderSplit(){
-  const rows = document.getElementById('splitRows'); if(!rows) return;
-  const people = {};
-  const ensure = n => people[n] || (people[n] = {paid:0, owe:0});
-  let total = 0, html = '';
-  SPLIT.forEach(x => {
-    const krw = x.krw != null ? x.krw : (x.aud != null ? x.aud * RATE : null);
-    const pending = krw == null;
-    const per = pending ? null : krw / x.people.length;
-    if(!pending){
-      total += krw;
-      ensure(x.payer).paid += krw;
-      x.people.forEach(p => ensure(p).owe += per);
-    }
-    html += `<tr class="${pending?'pending':''}">
-      <td><span class="it">${x.it}</span><span class="sub">${x.sub} · ${x.people.length}명 (${x.people.join('·')})</span></td>
-      <td>${x.payer}</td>
-      <td class="r">${pending ? '미정' : `<b>${won(krw)}</b>${x.aud!=null ? `<small>≈ AU$${x.aud}</small>` : ''}`}</td>
-      <td class="r">${pending ? '–' : won(per)}</td>
-    </tr>`;
-  });
-  rows.innerHTML = html;
-  document.getElementById('splitTotal').innerHTML = `<span>확정된 것 합계</span><span>${won(total)}</span>`;
-  const order = ['성재','종모','윤혁','성훈'];
-  document.getElementById('splitPeople').innerHTML = order.filter(n=>people[n]).map(n => {
-    const p = people[n], net = p.paid - p.owe;
-    return `<div class="card2"><b>${n}</b>
-      <div class="ln"><span>내 몫</span><span>${won(p.owe)}</span></div>
-      <div class="ln"><span>결제한 돈</span><span>${won(p.paid)}</span></div>
-      <div class="net ${net>=0?'plus':'minus'}">${net>=0 ? '받을 돈 ' : '보낼 돈 '}${won(Math.abs(net))}</div></div>`;
+const REQUEST_SPLIT = [
+  {date:'9/18',it:'Fisherman’s Fine Wines',payer:'성재',currency:'AUD',amount:45.65,people:['성재','성훈','종모','윤혁'],deduped:true},
+  {date:'9/20',it:'Apollo Bay Seafood Cafe',payer:'성재',currency:'AUD',amount:78,people:['성재','성훈','종모']},
+  {date:'9/20',it:'렌터카 유료도로비 Linkt',payer:'성재',currency:'AUD',amount:11.73,parts:[7.52,4.21],people:['성재','성훈','종모']},
+  {date:'9/20',it:'채영님과 함께한 저녁',payer:'성재',currency:'AUD',amount:45,people:['성재','성훈','종모'],approx:true},
+  {date:'9/21',it:'Hong Dae',payer:'성재',currency:'AUD',amount:219.35,people:['성훈','종모']},
+  {date:'9/23',it:'Peninsula Hot Springs',payer:'성재',currency:'AUD',amount:64.96,people:['성재','성훈']},
+  {date:'9/19',it:'Five Star Kebab',payer:'성훈',currency:'KRW',amount:113426,parts:[32766,80660],people:['성재','성훈','종모','윤혁']},
+  {date:'9/19',it:'Ivy',payer:'성훈',currency:'KRW',amount:96428,parts:[11279,11279,73870],people:['성재','성훈','종모','윤혁']},
+  {date:'9/19',it:'클럽 입장료 WE ARE ONE',payer:'성훈',currency:'KRW',amount:155715,people:['성재','성훈','종모','윤혁']},
+  {date:'9/19',it:'North Sydney Council 수영장',payer:'성훈',currency:'KRW',amount:43836,people:['성재','성훈','종모','윤혁'],corrected:true},
+  {date:'9/19',it:'Sydney Mart',payer:'성훈',currency:'KRW',amount:2495,people:['성재','성훈','종모','윤혁']},
+  {date:'9/19',it:'Red Bottle 와인',payer:'성훈',currency:'KRW',amount:38845,people:['성재','성훈','종모','윤혁']},
+  {date:'9/19',it:'Big W',payer:'성훈',currency:'KRW',amount:10262,people:['성재','성훈','종모','윤혁']},
+  {date:'9/19',it:'Viet Earth 쌀국수',payer:'성훈',currency:'KRW',amount:119352,people:['성재','성훈','종모','윤혁']},
+  {date:'9/20',it:'K-Pop Coin Karaoke',payer:'성훈',currency:'KRW',amount:42594,parts:[5061,7166,30367],people:['성재','성훈','종모']},
+  {date:'9/20',it:'그레이트 오션로드 주유비',payer:'성훈',currency:'KRW',amount:71848,people:['성재','성훈','종모']},
+  {date:'9/20',it:'George’s Restaurant 식비',payer:'성훈',currency:'KRW',amount:25247,people:['성재','성훈','종모']},
+  {date:'9/20',it:'Apollo Bay IGA 맥주',payer:'성훈',currency:'KRW',amount:20895,people:['성재','성훈','종모']},
+  {date:'9/21',it:'CREATE CATERING 맥주',payer:'성훈',currency:'KRW',amount:24358,people:['성훈','종모']},
+  {date:'9/22',it:'7-Eleven 담배',payer:'성훈',currency:'KRW',amount:72964,people:['성재','성훈','종모']},
+  {date:'9/22',it:'Mrs Zans Kitchen 마라탕',payer:'성훈',currency:'KRW',amount:66076,parts:[4106,61970],people:['성재','성훈']},
+  {date:'9/22',it:'Chemist Warehouse 안약',payer:'성훈',currency:'KRW',amount:11889,people:['종모']},
+  {date:'9/22',it:'Left Bank Melbourne 피자',payer:'성훈',currency:'KRW',amount:135470,parts:[89971,45499],people:['성훈','종모']},
+  {date:'9/23',it:'Hanaro Melbourne 장보기',payer:'성훈',currency:'KRW',amount:18960,people:['성훈','종모']},
+  {date:'9/23',it:'BWS 술',payer:'성훈',currency:'KRW',amount:27254,people:['성재','성훈','종모']},
+  {date:'9/23',it:'Liquorland 술',payer:'성훈',currency:'KRW',amount:60347,people:['성훈','종모']},
+  {date:'9/23',it:'Coles 장보기',payer:'성훈',currency:'KRW',amount:20829,people:['성훈','종모']},
+  {date:'9/23',it:'David Malatang Russell 마라탕',payer:'성훈',currency:'KRW',amount:51944,parts:[4938,47006],people:['성훈','종모']},
+  {date:'9/23',it:'호텔비',payer:'성훈',currency:'KRW',amount:211587,people:['성훈','종모'],note:'실제 결제일 9/16 · 정산 표시일 9/23'},
+  {date:'9/24',it:'The Drunken Poet 기네스',payer:'성훈',currency:'KRW',amount:57292,parts:[14323,42969],people:['성재','성훈','종모']},
+  {date:'9/24',it:'Market Lane Coffee',payer:'성훈',currency:'KRW',amount:18565,people:['성재','성훈','종모']},
+];
+const SPLIT = [...PRIOR_SPLIT,...REQUEST_SPLIT];
+const BOOKING_SPLIT = PRIOR_SPLIT.slice(0,6);
+const personOrder = ['성재','성훈','종모','윤혁'];
+const dates = [...new Set(SPLIT.map(x=>x.date))].sort((a,b)=>Number(a.split('/')[1])-Number(b.split('/')[1]));
+let audKrwRate = 960;
+try{ audKrwRate = Number(localStorage.getItem('audKrwRate')) || 960; }catch(e){}
+const toKrw = (amount,currency) => currency==='AUD' ? amount*audKrwRate : amount;
+const money = (n,approx=false) => `${approx?'약 ':''}${Math.round(n).toLocaleString('ko-KR')}원`;
+const requestTotal = payer => REQUEST_SPLIT.filter(x=>x.payer===payer&&x.amount!=null).reduce((s,x)=>s+toKrw(x.amount,x.currency),0);
+let splitDate = 'all';
+function renderSplitLog(){
+  const filters=document.getElementById('splitFilters'); if(!filters) return;
+  filters.innerHTML=['all',...dates].map(d=>`<button class="split-filter ${splitDate===d?'on':''}" data-date="${d}">${d==='all'?'전체':d}</button>`).join('');
+  filters.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{splitDate=b.dataset.date;renderSplitLog();}));
+  const shown=splitDate==='all'?dates:[splitDate];
+  document.getElementById('splitLog').innerHTML=shown.map(date=>{
+    const items=SPLIT.filter(x=>x.date===date);
+    const priced=items.filter(x=>x.amount!=null);
+    const dayTotals=priced.length?money(priced.reduce((s,x)=>s+toKrw(x.amount,x.currency),0),priced.some(x=>x.approx)):'';
+    return `<section class="split-day"><div class="split-day-head"><b>${date}</b><span>${dayTotals}</span></div>${items.map(x=>{
+      const labels=[`결제 ${x.payer}`,`대상 ${x.people.join('·')}`,`${x.people.length}명`];
+      if(x.source==='prior') labels.push('기존 정산');
+      if(x.deduped) labels.push('기존 거래 통합');
+      if(x.corrected) labels.push('기존 AUD 후보 교정');
+      const details=x.parts?`<details><summary>${x.parts.length}건 상세</summary>${x.parts.map(v=>money(toKrw(v,x.currency))).join(' + ')}</details>`:'';
+      const pending=x.amount==null;
+      return `<article class="split-entry"><div class="split-entry-top"><div class="entry-name">${x.it}</div><div class="entry-amount ${x.approx?'approx':''}">${pending?'금액 확인 필요':money(toKrw(x.amount,x.currency),x.approx)}</div></div><div class="entry-meta">${labels.map((v,i)=>`<span class="${i===0?'payer':''}">${v}</span>`).join('')}</div><div class="per">${pending?'1인 몫 계산 대기':`1인 몫 ${money(toKrw(x.amount,x.currency)/x.people.length,x.approx)}`}${x.note?` · ${x.note}`:''}</div>${details}</article>`;
+    }).join('')}</section>`;
   }).join('');
-  // greedy settle
-  const debt = order.filter(n=>people[n]).map(n => ({n, v: people[n].paid - people[n].owe}));
-  const pays = debt.filter(d=>d.v<-1).map(d=>({...d, v:-d.v})).sort((a,b)=>b.v-a.v);
-  const gets = debt.filter(d=>d.v>1).sort((a,b)=>b.v-a.v);
-  const out = [];
-  let i=0,j=0;
-  while(i<pays.length && j<gets.length){
-    const amt = Math.min(pays[i].v, gets[j].v);
-    out.push(`${pays[i].n} → <b>${gets[j].n}</b> ${won(amt)}`);
-    pays[i].v -= amt; gets[j].v -= amt;
-    if(pays[i].v < 1) i++;
-    if(gets[j].v < 1) j++;
-  }
-  document.getElementById('splitPay').innerHTML = out.map(t=>`<div>${t}</div>`).join('') || '<div>정산할 게 없음</div>';
+}
+function settleAll(){
+  const people={}; const ensure=n=>people[n]||(people[n]={paid:0,owe:0});
+  SPLIT.filter(x=>x.amount!=null&&x.payer!=='?').forEach(x=>{const amount=toKrw(x.amount,x.currency);ensure(x.payer).paid+=amount;const per=amount/x.people.length;x.people.forEach(p=>ensure(p).owe+=per);});
+  const hasApprox=REQUEST_SPLIT.some(x=>x.approx);
+  const cards=personOrder.filter(n=>people[n]).map(n=>{const p=people[n],net=p.paid-p.owe;return `<button type="button" class="card2 person-card" data-person="${n}" aria-expanded="false"><b>${n}</b><div class="ln"><span>내 몫</span><span>${money(p.owe,hasApprox)}</span></div><div class="ln"><span>결제한 돈</span><span>${money(p.paid,hasApprox)}</span></div><div class="net ${net>=0?'plus':'minus'}">${net>=0?'받을 돈 ':'보낼 돈 '}${money(Math.abs(net),hasApprox)}</div></button>`;}).join('');
+  const debt=personOrder.filter(n=>people[n]).map(n=>({n,v:people[n].paid-people[n].owe}));
+  const pays=debt.filter(d=>d.v<-.001).map(d=>({...d,v:-d.v})).sort((a,b)=>b.v-a.v), gets=debt.filter(d=>d.v>.001).sort((a,b)=>b.v-a.v), out=[];
+  let i=0,j=0; while(i<pays.length&&j<gets.length){const amount=Math.min(pays[i].v,gets[j].v);out.push(`${pays[i].n} → <b>${gets[j].n}</b> ${money(amount,hasApprox)}`);pays[i].v-=amount;gets[j].v-=amount;if(pays[i].v<.001)i++;if(gets[j].v<.001)j++;}
+  return {cards,out};
+}
+let openPerson = null;
+function renderPersonBreakdown(name){
+  const panel=document.getElementById('personBreakdown');
+  document.querySelectorAll('.person-card').forEach(b=>{const on=b.dataset.person===name;b.classList.toggle('open',on);b.setAttribute('aria-expanded',String(on));});
+  if(!name){panel.className='person-breakdown';panel.innerHTML='';return;}
+  const items=SPLIT.filter(x=>x.people.includes(name));
+  panel.className='person-breakdown open';
+  panel.innerHTML=`<div class="person-breakdown-head"><b>${name} 포함 내역</b><span>${items.length}개</span></div><div class="person-breakdown-list">${items.map(x=>{
+    const pending=x.amount==null, share=pending?null:toKrw(x.amount,x.currency)/x.people.length;
+    return `<article class="person-line"><div class="person-line-top"><div class="person-line-name">${x.it}</div><div class="person-line-share">${pending?'계산 대기':money(share,x.approx)}</div></div><div class="person-line-meta">${x.date} · 결제 ${x.payer}${x.payer===name?' · 내가 결제':''} · 전체 ${pending?'금액 미정':money(toKrw(x.amount,x.currency),x.approx)} · ${x.people.length}명 분담</div></article>`;
+  }).join('')}</div>`;
+}
+function renderSplit(){
+  const rateInput=document.getElementById('audKrwRate'); rateInput.value=audKrwRate;
+  document.getElementById('splitSummary').innerHTML=`<div class="sum-card"><small>이번 추가 · 성재 · 6개</small><b>${money(requestTotal('성재'),true)}</b><span>미확정 저녁 포함 · 환율 ${audKrwRate.toLocaleString('ko-KR')}원</span></div><div class="sum-card"><small>이번 추가 · 성훈 · 25개</small><b>${money(requestTotal('성훈'))}</b><span>기존 정산 21개도 아래에 유지</span></div>`;
+  document.getElementById('priorBookings').innerHTML=BOOKING_SPLIT.map(x=>`<article class="prior-booking"><div class="booking-name">${x.it}</div><div class="booking-meta">${x.date} · 결제 ${x.payer} · 대상 ${x.people.join('·')}${x.note?`<br>${x.note}`:''}</div><div class="booking-amount">${x.amount==null?'금액 확인 필요':money(toKrw(x.amount,x.currency))}</div></article>`).join('');
+  renderSplitLog();
+  const settled=settleAll();
+  document.getElementById('splitPeople').innerHTML=`<div class="currency-settle"><h4>원화 통합 정산 · 카드를 눌러 포함 내역 보기</h4><div class="settle">${settled.cards}</div><div class="person-breakdown" id="personBreakdown"></div></div>`;
+  document.querySelectorAll('.person-card').forEach(b=>b.addEventListener('click',()=>{openPerson=openPerson===b.dataset.person?null:b.dataset.person;renderPersonBreakdown(openPerson);}));
+  if(openPerson) renderPersonBreakdown(openPerson);
+  document.getElementById('splitPay').innerHTML=settled.out.map(t=>`<div>${t}</div>`).join('');
 }
 renderSplit();
+document.getElementById('audKrwRate').addEventListener('change',e=>{
+  const next=Math.max(1,Math.round(Number(e.target.value)||960));
+  audKrwRate=next; try{ localStorage.setItem('audKrwRate',String(next)); }catch(err){} renderSplit();
+});
 
 /* ---------- tabs ---------- */
 document.querySelectorAll('.city-tabs button').forEach(b=>{
