@@ -986,6 +986,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .empty b{display:block;font-size:17px;color:var(--ink);margin-bottom:6px}
   .foot{color:var(--ink-3);font-size:12px;text-align:center;margin-top:28px}
   .map{height:380px}
+  .card.stay .num{background:var(--home)}
+  .stay-tip{margin-bottom:8px}
+  .card .detail .acts{flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -1679,6 +1682,120 @@ function buildCards(dayId){
   });
 }
 
+/* ---------- 그날 숙소 후보 ---------- */
+const abnb = (place, ci, co) => `https://www.airbnb.com.au/s/${encodeURIComponent(place)}/homes?checkin=${ci}&checkout=${co}&adults=2&currency=AUD&price_max=300&room_types%5B%5D=Entire%20home%2Fapt`;
+const bkg  = (place, ci, co) => `https://www.booking.com/searchresults.ko.html?ss=${encodeURIComponent(place)}&checkin=${ci}&checkout=${co}&group_adults=2&no_rooms=1&selected_currency=AUD`;
+const STAY_LIST = {
+  p17: {
+    title:'11/17 화 1박 · 프리맨틀',
+    tip:'기준: 다음 날 07:00 배 타는 B Shed까지 걸어서 15분 이내 · 22시쯤 도착이라 <b>늦은 체크인 되는지</b>가 제일 중요. 에어비앤비는 <b>셀프 체크인(키박스·도어락)</b> 필터 꼭 켜기',
+    links:[
+      {t:'에어비앤비 · 프리맨틀 (집 전체·A$300↓)', u:abnb('Fremantle, WA','2026-11-17','2026-11-18')},
+      {t:'Booking.com · 프리맨틀', u:bkg('Fremantle','2026-11-17','2026-11-18'), sub:true},
+    ],
+    items:[
+      {area:'호텔 · 1순위', n:'Hougoumont Hotel', lat:-32.0554, lng:115.7464, pid:'ChIJodtXoXqhMioRNo1ovC3-jSc', r:'4.5', h:'약 A$190 · B Shed 도보 10분',
+       g:'평점 9.2(후기 1,000+). 배 선실 콘셉트 작은 부티크. 조식·저녁 와인&치즈 아워. 방은 작은 편. <b>리셉션 18:30 마감 → 늦은 체크인 미리 요청.</b>', site:'https://www.hougoumonthotel.com'},
+      {area:'호텔 · 늦게 도착해도 걱정 없는 곳', n:'Esplanade Hotel Fremantle by Rydges', lat:-32.0573, lng:115.7463, pid:'ChIJKRK8mnChMioRsLnxGLbwBA8', r:'4.0', h:'약 A$170 · 24시간 리셉션',
+       g:'큰 4.5성 호텔, 수영장. 24시간 프런트라 22시 도착도 그냥 체크인. 바다 쪽 공원 앞, B Shed까지 걸어서 15분.'},
+      {area:'호텔 · 분위기', n:'Garde Hotel (구 Warders Hotel)', lat:-32.0552, lng:115.7504, pid:'ChIJaYQsAlehMioRWe820gn_8RE', r:'4.7', h:'약 A$170 · 1850년대 교도관 숙소 개조',
+       g:'평점 9.6. 오래된 석조 건물을 감성 있게 고친 부티크라 커플 후기 많음. 선착장까지 도보 15분. 늦은 체크인 방법 확인.'},
+      {area:'아파트형', n:'Quest Apartments Fremantle', lat:-32.0536, lng:115.7446, pid:'ChIJBxek7m-hMioRwdhPWlAi42A', r:'4.4', h:'약 A$180 · 선착장 제일 가까움',
+       g:'B Shed까지 걸어서 5분으로 후보 중 제일 가까움. 주방 있는 레지던스. 무료 주차. 늦은 체크인은 키 안내 받기.'},
+      {area:'펍 위 객실 · 저렴', n:'The National Hotel', lat:-32.0544, lng:115.7463, pid:'ChIJ5w_brHqhMioRxl0ks9CO-J0', r:'4.3', h:'가격 날짜로 확인 · 시내 한복판',
+       g:'1층은 펍, 위층이 리모델링된 부티크 객실. 금요일·주말엔 아래가 시끄러울 수 있지만 화요일이라 무난. 선착장 도보 10분.'},
+      {area:'펍 위 객실 · 저렴', n:'The Norfolk Hotel', lat:-32.0571, lng:115.7494, pid:'ChIJhcUFsHuhMioRvOqKG7AF5nc', r:'4.4', h:'가격 날짜로 확인 · 카푸치노 거리',
+       g:'유명한 비어가든 펍 위층 객실. 분위기 좋고 가격 착한 편. 펍이 자정까지라 늦게 도착해도 사람 있음. 선착장 도보 15분.'},
+      {area:'신축 부티크', n:'Owston Hotel', lat:-32.0556, lng:115.7430, pid:'ChIJ57fBLXChMioRxJDrvZ9NyjY', r:'5.0', h:'가격 날짜로 확인 · 후기 적음(32)',
+       g:'새로 생긴 곳이라 평점은 높지만 후기가 아직 적음. West End 위치라 선착장 도보 7분.'},
+      {area:'조금 떨어짐', n:'Pier 21 Apartment Hotel', lat:-32.0331, lng:115.7595, pid:'ChIJ1VRjTuKjMioRADMAVXSsSl8', r:'4.2', h:'약 A$250 · 강변',
+       g:'스완강 강변 아파트형. 선착장까지 걸으면 30분이라 아침에 택시 필요. 넓고 조용함.'},
+    ]
+  },
+  p18: {
+    title:'11/18 수 1박 · 로트네스트 섬',
+    tip:'섬에는 <b>에어비앤비가 사실상 없어요</b>. 섬 안 숙소는 공식 기관(Stay Rottnest) 독채 + 리조트 2곳이 전부. 위치는 <b>Thomson Bay(선착장)·Bathurst(Pinky Beach)</b>가 동선상 정답',
+    links:[
+      {t:'Stay Rottnest 공식 예약 (11/18)', u:'https://bookings.stayrottnest.com/search-rates'},
+      {t:'Booking.com · 로트네스트', u:bkg('Rottnest Island','2026-11-18','2026-11-19'), sub:true},
+    ],
+    items:[
+      {area:'공식 독채 · 1순위', n:'Stay Rottnest · Bathurst 유닛 (Premium)', lat:-31.9912, lng:115.5418, r:'공식', h:'날짜로 확인 · A$300↓ 고르기',
+       g:'Pinky Beach·등대·Basin이 걸어서 몇 분. 문 잠기는 독채, 개인 욕실, 주방, 침구 포함. 침실 1개는 킹베드. 4인 이상 구성이라 둘이면 넓게 씀.', site:'https://bookings.stayrottnest.com/search-rates'},
+      {area:'공식 독채', n:'Stay Rottnest · North Thomson (Premium)', lat:-31.9930, lng:115.5410, r:'공식', h:'날짜로 확인 · 선착장 바로 옆',
+       g:'선착장·빵집·식당가가 제일 가까운 위치. 짐 옮기기 편하고 밤 산책하기 좋음. Bathurst 마감이면 여기.'},
+      {area:'공식 독채', n:'Stay Rottnest · Chalet (Thomson Bay)', lat:-31.9945, lng:115.5418, r:'공식', h:'날짜로 확인 · 2침실',
+       g:'2침실 소형 독채라 둘이 쓰기 딱 좋은 크기. 주방·거실 완비.'},
+      {area:'공식 독채 · 조용', n:'Stay Rottnest · Longreach Bay (리노베이션)', lat:-31.9862, lng:115.5255, r:'공식', h:'날짜로 확인 · 새로 고친 유닛',
+       g:'최근 리모델링해서 제일 깔끔. 대신 선착장에서 자전거 10분 거리라 저녁 먹으러 나갈 때 자전거 필요.'},
+      {area:'글램핑 · 낭만', n:'Discovery Resorts Rottnest Island', lat:-31.9907, lng:115.5376, pid:'ChIJOzsFP-5bLSoR79PH3bRkGJ0', r:'4.2', h:'약 A$190~300 · Pinky Beach 바로 뒤',
+       g:'텐트 데크로 쿼카가 바로 올라오는 곳. 개인 욕실·킹베드 있는 고급 텐트. 대신 문이 지퍼라 잠금 약하고 에어컨 없음. 1박 예약 되는지 확인(시기별 최소 2박).', site:'https://www.discoveryholidayparks.com.au/resorts/rottnest-island'},
+      {area:'예산 초과 · 참고', n:'Samphire Rottnest', lat:-31.9990, lng:115.5427, pid:'ChIJCQ3uz2JbLSoRraKgUjaknxM', r:'4.3', h:'약 A$370~620 · 30만원 초과',
+       g:'섬 유일 제대로 된 호텔. 에어컨·수영장·24시간 보안. 예산 넘지만 특가 뜨면 고려.', site:'https://samphirerottnest.com.au'},
+      {area:'비추천', n:'Kingstown Barracks 호스텔 (가족실)', lat:-32.0130, lng:115.5530, r:'공식', h:'제일 저렴 · 공용 욕실',
+       g:'군 막사 개조 호스텔. 정착지에서 1.8km라 밤에 Pinky\'s·쿼카 산책 동선이 멀고 욕실 공용. 이번 여행엔 안 맞음.'},
+    ]
+  },
+  p19: {
+    title:'11/19 목 1박 · Cervantes (피너클스)',
+    tip:'작은 마을이라 숙소 수가 적어요. <b>체크인 마감 시간</b> 꼭 확인 (리조트는 19시까지). 에어비앤비·Stayz 홀리데이 하우스는 집 전체라 둘이 쓰기 좋고 바다 앞 집이 많음',
+    links:[
+      {t:'에어비앤비 · Cervantes (집 전체·A$300↓)', u:abnb('Cervantes, WA','2026-11-19','2026-11-20')},
+      {t:'Booking.com · Cervantes', u:bkg('Cervantes, Western Australia','2026-11-19','2026-11-20'), sub:true},
+      {t:'Stayz · Cervantes', u:'https://www.stayz.com.au/search?destination=Cervantes%2C%20Western%20Australia&startDate=2026-11-19&endDate=2026-11-20&adults=2', sub:true},
+    ],
+    items:[
+      {area:'리조트 · 1순위', n:'Pinnacles Edge Resort', lat:-30.5007, lng:115.0700, pid:'ChIJi9jM7LWH0SsRLf_b7XMsWnM', r:'4.0', h:'스튜디오 약 ₩24만 · 체크인 19시까지',
+       g:'마을에서 제일 제대로 된 곳. 수영장 2개, 레스토랑(저녁 17:30–20:00), 에어컨. 디럭스 1베드룸은 스파배스. 수영장 쪽 2층 요청.', site:'https://www.pinnaclesedgeresort.com.au/'},
+      {area:'B&B · 커플 감성', n:'Cervantes Windbreak B&B', lat:-30.5043, lng:115.0684, pid:'ChIJlcXZbraH0SsROER127kFR1c', r:'5.0', h:'가격 날짜로 확인 · 후기 65개 만점',
+       g:'주인이 직접 운영하는 소규모 B&B. 평점 5.0 만점이라 확실함. 조식 포함 여부·늦은 체크인 확인.'},
+      {area:'바닷가 캐빈', n:'RAC Cervantes Holiday Park', lat:-30.4979, lng:115.0669, pid:'ChIJp7VnwrjnCQERlJjmCUBddIE', r:'4.2', h:'가격 날짜로 확인 · 해변 바로 앞',
+       g:'해변 몇 걸음. 개인 욕실 있는 신형 캐빈·글램핑 텐트. 온수 수영장. Lobster Shack·Seashells Cafe 걸어서 1분.'},
+      {area:'롯지', n:'Cervantes Lodge', lat:-30.5068, lng:115.0626, pid:'ChIJA0YaF7GH0SsRce_EjRsOylQ', r:'4.3', h:'가격 날짜로 확인 · 해변 앞',
+       g:'Thirsty Point 쪽 바다 앞 롯지. 개인 욕실 더블룸. 조용하고 일출·바다 뷰.'},
+      {area:'모텔 · 저렴', n:'Cervantes Pinnacles Motel', lat:-30.5008, lng:115.0700, pid:'ChIJi9jM7LWH0SsRmuhAGY_y2HM', r:'3.8', h:'가격 날짜로 확인 · 리조트와 같은 단지',
+       g:'Pinnacles Edge와 같은 부지의 모텔동. 낡은 편이지만 리조트 수영장·레스토랑 같이 씀. 리조트가 마감이면 대안.'},
+      {area:'농장 스테이 · 이색', n:'Nambung Station Stay', lat:-30.5752, lng:115.2233, pid:'ChIJpYp0_wwh0isRqdNZCTZDh9M', r:'4.6', h:'가격 날짜로 확인 · 피너클스 동쪽 농장',
+       g:'피너클스 근처 실제 농장 숙소. 별이 마을보다 훨씬 잘 보임. 대신 비포장 진입로 + 밤 운전이라 늦게 도착하면 비추.'},
+    ]
+  }
+};
+function buildStayList(dayId){
+  const L0 = STAY_LIST[dayId]; if(!L0) return;
+  const panel = document.getElementById(dayId);
+  const sec = document.createElement('div');
+  sec.innerHTML = `<div class="section-title">🏠 그날 숙소 후보 <small>${L0.title}</small></div>
+    <div class="info stay-tip"><div style="font-size:13px">${L0.tip}</div>
+      <div class="links">${L0.links.map(l=>`<a class="${l.sub?'sub':''}" href="${l.u}" target="_blank">${l.t}</a>`).join('')}</div></div>
+    <div class="cand-group stay on" data-cat="stay"></div>`;
+  panel.appendChild(sec);
+  const wrap = sec.querySelector('.cand-group.stay');
+  let last=null, html='';
+  L0.items.forEach((p,i)=>{
+    if(p.area!==last){ html+=`<div class="area-lbl">${p.area}</div>`; last=p.area; }
+    html+=`<div class="card stay">
+      <button class="head"><div class="num">${i+1}</div><div class="name">${p.n}<small>★ ${p.r} · ${p.h}</small></div>${caret}</button>
+      <div class="detail"><p>${p.g}</p><div class="acts">
+        <a class="go" href="${gmap(p.n, p.pid)}" target="_blank">구글맵</a>
+        ${p.site?`<a class="go" style="background:var(--home)" href="${p.site}" target="_blank">예약 사이트</a>`:''}
+        <button class="locate" data-i="${i}">지도에서</button></div></div></div>`;
+  });
+  wrap.innerHTML = html;
+  wrap.querySelectorAll('.head').forEach(h=>h.addEventListener('click',()=>h.parentElement.classList.toggle('open')));
+  wrap.querySelectorAll('.locate').forEach(b=>b.addEventListener('click',()=>{
+    const p=L0.items[+b.dataset.i];
+    if(!maps[dayId]) buildMap(dayId);
+    const {map}=maps[dayId];
+    if(!maps[dayId].stayLayer) maps[dayId].stayLayer=L.layerGroup().addTo(map);
+    maps[dayId].stayLayer.clearLayers();
+    L.marker([p.lat,p.lng],{icon:makePin('home','🛏'), zIndexOffset:2000})
+      .bindPopup(`<b>${p.n}</b>${p.h}<br><a class="go" href="${gmap(p.n,p.pid)}" target="_blank">구글맵 열기</a>`)
+      .addTo(maps[dayId].stayLayer).openPopup();
+    document.querySelector(`#${dayId} .map-wrap`).scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(()=>map.setView([p.lat,p.lng],15),350);
+  }));
+}
+
 /* ---------- tabs ---------- */
 document.querySelectorAll('.city-tabs button').forEach(b=>{
   b.addEventListener('click',()=>{
@@ -1701,7 +1818,7 @@ document.querySelectorAll('#perDays button').forEach(b=>{
   });
 });
 
-DAYS.forEach(id=>{ buildCards(id); stayBar(id); });
+DAYS.forEach(id=>{ buildCards(id); stayBar(id); buildStayList(id); });
 buildMap('p17');
 window.addEventListener('load',()=>{ setTimeout(()=>fit('p17'),100); });
 </script>
