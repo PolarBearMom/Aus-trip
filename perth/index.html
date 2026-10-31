@@ -985,6 +985,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .empty{background:var(--card);border-radius:var(--r);border:1px dashed var(--ink-3);padding:36px 18px;text-align:center;color:var(--ink-2)}
   .empty b{display:block;font-size:17px;color:var(--ink);margin-bottom:6px}
   .foot{color:var(--ink-3);font-size:12px;text-align:center;margin-top:28px}
+  .map{height:380px}
 </style>
 </head>
 <body>
@@ -1027,10 +1028,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <button class="chip route on" data-cat="route">일정</button>
         <button class="chip pub" data-cat="pub">스팟</button>
         <button class="chip food" data-cat="food">맛집</button>
-        <button class="chip home on" data-cat="home">🏠 숙소</button>
+        <button class="chip home" data-cat="home">🏠 숙소</button>
       </div>
       <div class="map" id="map-p17"></div>
-      <div class="map-hint">핀을 누르면 구글맵으로 바로 열려요</div>
+      <div class="map-hint">공항 → 킹스파크 → 프리맨틀 숙소 · 핀 누르면 구글맵</div>
     </div>
 
     <div class="section-title">일정</div>
@@ -1088,7 +1089,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <button class="chip home on" data-cat="home">🏠 숙소</button>
       </div>
       <div class="map" id="map-p18"></div>
-      <div class="map-hint">섬 안은 자전거로 다 다님 · 섬에는 자동차 없음</div>
+      <div class="map-hint">섬 안만 확대 · 섬은 자전거로 다 다님 (차 없음)</div>
     </div>
 
     <div class="section-title">일정</div>
@@ -1172,10 +1173,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <button class="chip route on" data-cat="route">일정</button>
         <button class="chip pub" data-cat="pub">스팟</button>
         <button class="chip food" data-cat="food">맛집</button>
-        <button class="chip home on" data-cat="home">🏠 숙소</button>
+        <button class="chip home" data-cat="home">🏠 숙소</button>
       </div>
       <div class="map" id="map-p19"></div>
-      <div class="map-hint">섬 → 프리맨틀 → Cervantes (약 220km)</div>
+      <div class="map-hint">섬 → 프리맨틀 → Cervantes 전체 이동 (약 220km) · 두 손가락으로 확대</div>
     </div>
 
     <div class="section-title">일정</div>
@@ -1259,7 +1260,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <button class="chip food" data-cat="food">맛집</button>
       </div>
       <div class="map" id="map-p20"></div>
-      <div class="map-hint">Cervantes → 퍼스 공항 약 2시간 40분</div>
+      <div class="map-hint">Cervantes → Moore River → 공항 · 맛집 탭 "지도에서" 누르면 확대</div>
     </div>
 
     <div class="section-title">일정</div>
@@ -1452,10 +1453,9 @@ const STAYS = {
 const DATA = {
   p17: {
     route: [
-      {n:'Perth Airport', lat:-31.9403, lng:115.9669, s:'18:40 도착', far:true},
-      {n:'State War Memorial · Kings Park', lat:-31.9609, lng:115.8447, s:'19:30 블루아워 야경', pid:'ChIJW-0WXdakMioRYV2218qX564'},
-      {n:"Fraser's Restaurant", lat:-31.9596, lng:115.8437, s:'20:00 저녁', pid:'ChIJTdDwMCmlMioRrT9XWVJo-98'},
-      {n:'Hougoumont Hotel', lat:-32.0554, lng:115.7464, s:'21:45 체크인', pid:'ChIJodtXoXqhMioRNo1ovC3-jSc'},
+      {n:'Perth Airport', lat:-31.9403, lng:115.9669, s:'18:40 도착'},
+      {n:'킹스파크 전망대 + Fraser\'s', lat:-31.9605, lng:115.8443, s:'19:30 야경 · 20:00 저녁 (바로 옆)', pid:'ChIJW-0WXdakMioRYV2218qX564'},
+      {n:'🏠 Hougoumont Hotel', lat:-32.0554, lng:115.7464, s:'21:45 체크인 · 다음 날 아침 배 선착장 걸어서 10분', pid:'ChIJodtXoXqhMioRNo1ovC3-jSc'},
     ],
     food: [
       {area:'킹스파크 저녁', n:"Fraser's Restaurant", lat:-31.9596, lng:115.8437, pid:'ChIJTdDwMCmlMioRrT9XWVJo-98', r:'4.3', h:'화 11:30–23시',
@@ -1472,13 +1472,12 @@ const DATA = {
   },
   p18: {
     route: [
-      {n:'B Shed 페리 터미널 · Fremantle', lat:-32.0526, lng:115.7431, s:'07:00 SeaLink', pid:'ChIJLynORG6hMioRPjemQILMCSY', far:true},
+      {n:'B Shed 페리 터미널 · Fremantle', lat:-32.0526, lng:115.7431, s:'07:00 SeaLink → 섬 30분', pid:'ChIJLynORG6hMioRPjemQILMCSY', far:true},
       {n:'Rottnest Island Visitor Centre', lat:-31.9956, lng:115.5414, s:'07:30 도착 · 14:30 키 수령', pid:'ChIJAdUoVmxaLSoR7FYF8FxFFew'},
       {n:'The Basin', lat:-31.9896, lng:115.5354, s:'09:30 수영', pid:'ChIJ0SkY33BaLSoRIAY6vwNweLw'},
       {n:'Hotel Rottnest', lat:-31.9984, lng:115.5424, s:'12:00 점심', pid:'ChIJ02ZLcWtaLSoR64OflDTHgMM'},
       {n:'Little Salmon Bay', lat:-32.0246, lng:115.5251, s:'13:00 스노클링', pid:'ChIJ_W-ZQlRaLSoR-JCblKDPMpA'},
-      {n:"Pinky's Rottnest Island", lat:-31.9896, lng:115.5391, s:'17:00 해피아워 · 18:00 저녁', pid:'ChIJF0ySL29bLSoRImjO55Z7EYA'},
-      {n:'Bathurst Lighthouse', lat:-31.9893, lng:115.5407, s:'19:00 일몰', pid:'ChIJS-WWGrpbLSoRrObM_ipFizw'},
+      {n:"Pinky's + Bathurst 등대", lat:-31.9896, lng:115.5391, s:'17:00 해피아워 · 18:00 저녁 · 19:00 등대 일몰', pid:'ChIJF0ySL29bLSoRImjO55Z7EYA'},
     ],
     food: [
       {area:'아침', n:'Rottnest Bakery', lat:-31.9957, lng:115.5404, pid:'ChIJq9MJTGxaLSoR8djDyBAwtIc', r:'4.1', h:'수 7–17시',
@@ -1503,11 +1502,9 @@ const DATA = {
   },
   p19: {
     route: [
-      {n:"Pinky's Rottnest Island", lat:-31.9896, lng:115.5391, s:'07:30 아침', pid:'ChIJF0ySL29bLSoRImjO55Z7EYA', far:true},
-      {n:'B Shed 페리 터미널 · Fremantle', lat:-32.0526, lng:115.7431, s:'12:00 도착', pid:'ChIJLynORG6hMioRPjemQILMCSY', far:true},
-      {n:'Little Creatures · Fremantle', lat:-32.0593, lng:115.7444, s:'12:20 점심', pid:'ChIJM98fsHChMioR-hU1t6dz3hk', far:true},
-      {n:'No Birds Car Hire Fremantle', lat:-32.0491, lng:115.7506, s:'13:30 렌트카 픽업', pid:'ChIJoWnZE2ShMioRJFiJXvKZNQM', far:true},
-      {n:'Pinnacles Edge Resort', lat:-30.5007, lng:115.0700, s:'16:30 체크인 · 17:30 저녁', pid:'ChIJi9jM7LWH0SsRLf_b7XMsWnM'},
+      {n:'로트네스트 섬', lat:-31.9956, lng:115.5414, s:'아침 쿼카·수영 → 11:30 배'},
+      {n:'프리맨틀', lat:-32.0526, lng:115.7431, s:'12:00 배 도착 · 12:20 Little Creatures 점심 · 13:30 No Birds 렌트카', pid:'ChIJLynORG6hMioRPjemQILMCSY'},
+      {n:'Pinnacles Edge Resort', lat:-30.5007, lng:115.0700, s:'🏠 16:30 체크인 · 17:30 저녁', pid:'ChIJi9jM7LWH0SsRLf_b7XMsWnM'},
       {n:'The Pinnacles Desert', lat:-30.5913, lng:115.1582, s:'18:40 일몰 · 별', pid:'ChIJVVJhIJMm0isRGCL6h2V0xCA'},
     ],
     food: [
@@ -1527,10 +1524,7 @@ const DATA = {
   },
   p20: {
     route: [
-      {n:'Pinnacles Edge Resort', lat:-30.5007, lng:115.0700, s:'출발'},
-      {n:'Seashells Cafe', lat:-30.4971, lng:115.0665, s:'08:00 아침', pid:'ChIJi9jM7LWH0SsRJu8nIeaQdpA'},
-      {n:'Lake Thetis', lat:-30.5072, lng:115.0806, s:'09:30 산책', pid:'ChIJo96FacWH0SsRIYAWtqAhkIk'},
-      {n:'Lobster Shack Cervantes', lat:-30.4936, lng:115.0689, s:'11:00 오픈런', pid:'ChIJZcnPN0qG0SsRX4WngeOTS8Q'},
+      {n:'Cervantes', lat:-30.4990, lng:115.0700, s:'08:00 Seashells 아침 · 09:30 Lake Thetis · 11:00 Lobster Shack (맛집·스팟 탭에서 각각 보기)', pid:'ChIJZcnPN0qG0SsRX4WngeOTS8Q'},
       {n:'Moore River Estuary', lat:-31.3515, lng:115.5008, s:'14:10 잠깐 (선택)', pid:'ChIJr0V1Xl-a0isRGD37UMHAd4g'},
       {n:'Perth Airport', lat:-31.9403, lng:115.9669, s:'15:50 반납 · 17:45 출발'},
     ],
@@ -1599,7 +1593,8 @@ function buildMap(dayId){
   });
   layers.route.addLayer(L.polyline(d.route.map(p=>[p.lat,p.lng]),{color:'#FF7A1A',weight:3,opacity:.55,dashArray:'6 8'}));
   layers.route.addTo(map);
-  if(layers.home) layers.home.addTo(map);
+  const homeChip=document.querySelector(`#${dayId} .map-filter .chip.home`);
+  if(layers.home && homeChip && homeChip.classList.contains('on')) layers.home.addTo(map);
   maps[dayId] = {map, layers};
   fit(dayId);
 
