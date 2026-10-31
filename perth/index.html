@@ -987,6 +987,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .foot{color:var(--ink-3);font-size:12px;text-align:center;margin-top:28px}
   .map{height:380px}
   .card.stay .num{background:var(--home)}
+  .pin.quokka{background:#9A6B3F;border-radius:50%;transform:none;width:24px;height:24px}
+  .pin.quokka span{transform:none;font-size:11px}
+  .card.quokka .num{background:#9A6B3F}
+  .chip.quokka.on{background:#9A6B3F;border-color:#9A6B3F;color:#fff}
+  .map-filter{flex-wrap:wrap}
+  .cand-group.quokka{display:flex;flex-direction:column;gap:8px}
   .stay-tip{margin-bottom:8px}
   .card .detail .acts{flex-wrap:wrap}
 </style>
@@ -1079,134 +1085,136 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <!-- ---------- 18 수 ---------- -->
   <section class="panel" id="p18">
     <div class="panel-head">
-      <h2>쿼카섬 하루 종일</h2>
-      <p>첫 배 → 아침 쿼카 → Basin 수영 → 스노클링 → 등대 일몰 → 밤 쿼카 산책. 섬에서 1박</p>
+      <h2>쿼카섬 하루 · 걷고 버스 타고</h2>
+      <p>자전거 없이 걸어서 + 섬 순환버스. 첫 배 → 쿼카 투어 → Basin 수영 → 버스로 섬 한 바퀴 → 등대 일몰 → 밤 쿼카 산책</p>
     </div>
 
     <div class="map-wrap">
       <div class="map-filter">
         <span class="lbl">지도</span>
         <button class="chip route on" data-cat="route">일정</button>
-        <button class="chip pub" data-cat="pub">스팟</button>
+        <button class="chip quokka on" data-cat="quokka">🦘 쿼카</button>
         <button class="chip food" data-cat="food">맛집</button>
-        <button class="chip home on" data-cat="home">🏠 숙소</button>
+        <button class="chip pub" data-cat="pub">스팟</button>
+        <button class="chip home on" data-cat="home">🏠</button>
       </div>
       <div class="map" id="map-p18"></div>
-      <div class="map-hint">섬 안만 확대 · 섬은 자전거로 다 다님 (차 없음)</div>
+      <div class="map-hint">🟠 물방울 핀 = 일정 순서 · 🟤 동그라미 = 쿼카 출몰 스팟 · 정착지 쪽은 확대해서 보기</div>
     </div>
 
     <div class="section-title">일정</div>
     <div class="timeline">
       <div class="tl"><div class="time">06:30</div><div class="dot"></div><div class="body">
         <div class="t">기상 · 체크아웃</div>
-        <div class="s">호텔에서 B Shed 선착장까지 걸어서 10분. 출발 30분 전 도착 권장</div>
+        <div class="s">호텔에서 B Shed 선착장까지 걸어서 10분. 출발 30분 전 도착</div>
       </div></div>
       <div class="tl"><div class="time">07:00</div><div class="dot"></div><div class="body">
-        <div class="t">⛴ SeaLink 첫 배 · 프리맨틀 B Shed → 로트네스트</div>
-        <div class="s">30분이면 도착. 짐은 태그 붙여 맡기면 숙소까지 배달. 자전거는 페리 패키지(당일 반납) 말고 <b>섬 안 Pedal &amp; Flipper 2일 대여</b>로 미리 예약 (아래 08:30)</div>
-        <div class="row"><span class="tag need">페리 예약</span><span class="tag info">대안: Rottnest Express 07:30</span></div>
+        <div class="t">⛴ SeaLink 첫 배 · 프리맨틀 → 로트네스트</div>
+        <div class="s">30분이면 도착. 짐은 페리에서 <b>숙소 태그</b> 붙여 맡기면 Bathurst 숙소로 배달 → 하루 종일 맨몸</div>
+        <div class="row"><span class="tag need">페리 예약</span></div>
       </div></div>
       <div class="tl"><div class="time">07:40</div><div class="dot"></div><div class="body">
-        <div class="t">아침 · Lane Cafe</div>
-        <div class="s">선착장 앞 골목, 6:30 오픈. 섬 커피 1등(★4.7). 랍스터 꼬리 넣은 <b>크레이독</b>이 명물. 빵집(7시 오픈)도 바로 옆</div>
+        <div class="t">아침 · Lane Cafe + 🦘 정착지 쿼카</div>
+        <div class="s">선착장 앞 골목. 섬 커피 1등, 랍스터 롤 <b>크레이독</b>. 먹고 나와서 빵집·Visitor Centre 주변 잔디밭 쿼카 (🦘1·2)</div>
       </div></div>
-      <div class="tl"><div class="time">08:00</div><div class="dot"></div><div class="body">
-        <div class="t">🦘 쿼카 타임 ① · Thomson Bay 정착지</div>
-        <div class="s">데이트립 인파 오기 전 2시간이 사진 골든타임. 쿼카보다 낮게 앉아서 기다리면 먼저 다가옴</div>
-        <div class="row"><span class="tag need">만지기·먹이 금지 (벌금)</span></div>
-      </div></div>
+      <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚶 정착지 서쪽으로 걸어서 5~10분</div></div></div>
       <div class="tl"><div class="time">08:30</div><div class="dot"></div><div class="body">
-        <div class="t">🚲 자전거 픽업 · Pedal &amp; Flipper</div>
-        <div class="s">Hotel Rottnest 뒤 Bedford Ave, 08:30 오픈. <b>수~목 2일 대여</b>로 온라인 예약해두면 줄 안 섬. 전기자전거는 18세 이상 + 보증금 A$200(반납 시 환불). 스노클도 여기서</div>
-        <div class="row"><span class="tag need">온라인 예약</span><span class="tag info">2일 대여</span></div>
+        <div class="t">🦘 Garden Lake 아침 산책</div>
+        <div class="s">호숫가 그늘에 쿼카 무리. 아침이라 활발하고 사람 없음 → 셀카 1차 (🦘4)</div>
       </div></div>
       <div class="tl"><div class="time">09:30</div><div class="dot"></div><div class="body">
         <div class="t">🦘 무료 가이드 워크 'Meet the Quokkas'</div>
-        <div class="s">섬 자원봉사 가이드가 쿼카 있는 곳으로 데려가서 설명해주는 산책. 예약 없이 정착지 <b>Salt Store</b> 앞에 노란 조끼 가이드 찾기. 매일 09:30 · 14:30</div>
-        <div class="row"><span class="tag ok">무료 · 예약 X</span></div>
+        <div class="s">정착지 <b>Salt Store</b> 앞 노란 조끼 가이드. 예약 X · 무료. 쿼카 있는 곳 데려가서 설명해줌. 매일 09:30 · 14:30</div>
+        <div class="row"><span class="tag ok">무료</span></div>
       </div></div>
-      <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚲 자전거 5분</div></div></div>
+      <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚶 골프장·운동장 옆 풀밭 지나 걸어서 15분 (🦘5·6 쿼카 구간)</div></div></div>
       <div class="tl"><div class="time">10:30</div><div class="dot"></div><div class="body">
         <div class="t">🏊 The Basin 수영</div>
-        <div class="s">암초에 둘러싸인 천연 수영장. 파도 약하고 물 엄청 맑음. 샤워·화장실 있음</div>
+        <div class="s">파도 없는 천연 풀. 샤워·화장실 있음. 숙소랑 가까워서 수영복 위에 옷만 걸치고 다니면 됨</div>
         <div class="row"><span class="tag info">수온 20도 안팎 · 래시가드</span></div>
       </div></div>
-      <div class="tl"><div class="time">12:00</div><div class="dot"></div><div class="body">
+      <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚶 정착지로 걸어서 15분</div></div></div>
+      <div class="tl"><div class="time">12:30</div><div class="dot"></div><div class="body">
         <div class="t">점심 · Hotel Rottnest</div>
-        <div class="s">Thomson Bay 바다 보이는 펍. 크랩&랍스터 롤 유명. 쿼카가 테이블 밑까지 옴</div>
+        <div class="s">Thomson Bay 바다 앞 펍 데크. 크랩&랍스터 롤. 테이블 밑 쿼카 (🦘3)</div>
       </div></div>
-      <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚲 자전거 25분 (언덕 좀 있음 · 힘들면 섬 순환버스)</div></div></div>
-      <div class="tl"><div class="time">13:00</div><div class="dot"></div><div class="body">
-        <div class="t">🤿 Little Salmon Bay 스노클링</div>
-        <div class="s">섬 최고 스노클 스팟. 물속에 안내판 달린 스노클 트레일이 있음. 화장실은 근처 Parker Point에만</div>
+      <div class="tl"><div class="time">13:30</div><div class="dot"></div><div class="body">
+        <div class="t">🚌 Island Explorer 버스 · 섬 한 바퀴</div>
+        <div class="s">Main Bus Stop(선착장 앞) 출발. 1일권 A$35, 30분마다 1대, 한 바퀴 약 1시간, 19개 정류장 자유 승하차. 에어컨 버스 + 해설</div>
+        <div class="row"><span class="tag need">버스 패스</span></div>
       </div></div>
-      <div class="tl"><div class="time">14:30</div><div class="dot"></div><div class="body">
-        <div class="t">⛺ 글램핑 체크인 · Discovery Rottnest</div>
-        <div class="s">체크인 14시부터 · 리조트 안 <b>Pinky's</b>에서 체크인. 짐은 페리 태그로 텐트까지 배달돼 있음. 샤워하고 데크에서 낮잠, 리조트 수영장도 OK</div>
-        <div class="row"><span class="tag need">숙소 예약</span><span class="tag info">Deluxe 텐트</span></div>
+      <div class="tl"><div class="time">14:00</div><div class="dot"></div><div class="body">
+        <div class="t">🤿 Little Salmon Bay 하차 (정류장 6)</div>
+        <div class="s">섬 최고 스노클 스팟. 물속 안내판 트레일. 30분~1시간 놀고 다음 버스</div>
       </div></div>
-      <div class="tl"><div class="time">17:00</div><div class="dot"></div><div class="body">
+      <div class="tl"><div class="time">15:00</div><div class="dot"></div><div class="body">
+        <div class="t">🦘 Wadjemup 등대 하차 (정류장 8)</div>
+        <div class="s">섬 한가운데 제일 높은 곳, 360도 뷰. 언덕 아래 티트리 덤불에 쿼카 (🦘8)</div>
+      </div></div>
+      <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚌 버스 그대로 서쪽 끝 West End 돌아서 정착지 복귀 (차창 바다뷰)</div></div></div>
+      <div class="tl"><div class="time">16:30</div><div class="dot"></div><div class="body">
+        <div class="t">🏠 Bathurst 숙소 체크인 · 키는 Visitor Centre</div>
+        <div class="s">선착장 끝 Visitor Centre(17:30까지)에서 예약자 <b>신분증</b> 보여주고 키 받기 → 숙소까지 걸어서 7~10분. 짐은 이미 와 있음. 샤워</div>
+        <div class="row"><span class="tag ok">숙소 확정</span><span class="tag info">신분증 지참</span></div>
+      </div></div>
+      <div class="tl"><div class="time">17:15</div><div class="dot"></div><div class="body">
         <div class="t">Pinky's 해피아워 🍹</div>
-        <div class="s">16~18시 해피아워. Pinky Beach 바로 위 언덕, 등대가 보이는 자리</div>
+        <div class="s">숙소에서 걸어서 5분. 16~18시 해피아워. 등대 보이는 언덕 자리</div>
       </div></div>
       <div class="tl"><div class="time">18:00</div><div class="dot"></div><div class="body">
         <div class="t">저녁 · Pinky's</div>
-        <div class="s">20시 마감이라 18시에 앉기. 해 지는 쪽 바다를 보는 자리라 이날 저녁은 여기가 정답</div>
+        <div class="s">20시 마감이라 18시에 앉기. 노을 쪽 바다 보는 자리</div>
         <div class="row"><span class="tag need">예약 권장</span></div>
       </div></div>
       <div class="tl"><div class="time">19:00</div><div class="dot"></div><div class="body">
         <div class="t">🌅 Bathurst 등대 일몰</div>
-        <div class="s">Pinky's에서 걸어서 3분. 해 19시쯤 짐</div>
+        <div class="s">Pinky's 바로 옆. 해 19시쯤 짐 (🦘7)</div>
       </div></div>
       <div class="tl"><div class="time">20:00</div><div class="dot"></div><div class="body">
-        <div class="t">🦘 쿼카 타임 ② · 밤 산책</div>
-        <div class="s">쿼카는 야행성이라 해 지고 제일 활발. 숙소 주변·정착지만 걸어도 엄청 많음. 플래시 직접 비추지 말기. 밤엔 바닷바람 쌀쌀해서 겉옷</div>
+        <div class="t">🦘 밤 쿼카 산책 · 숙소 마당</div>
+        <div class="s">쿼카는 야행성이라 해 지고 제일 활발. 숙소 마당·바비큐 자리·Pinky Beach 길만 걸어도 많음. 폰 불빛 약하게, 눈에 직접 비추지 않기. 바람 쌀쌀 → 겉옷</div>
       </div></div>
     </div>
 
+    <div class="section-title">🦘 쿼카 출몰 지도 <small>번호 = 지도 갈색 핀</small></div>
+    <div class="cand-group quokka on" data-cat="quokka" id="qk-p18"></div>
 
     <div class="section-title">🦘 쿼카 &amp; 섬 공략</div>
     <div class="info">
-      <h3>⏰ 언제 · 어디서 보나</h3>
-      <dl class="kv">
-        <dt>시간</dt><dd>쿼카는 <b>야행성</b> → 이른 아침(7~9시)·해 질 녘~밤이 제일 활발. 한낮엔 나무 그늘에서 잠</dd>
-        <dt>1. 정착지</dt><dd>Thomson Bay 선착장·빵집·Hotel Rottnest 주변. 도착하자마자 바로 보임</dd>
-        <dt>2. Basin 가는 길</dt><dd>골프장~운동장 사이 풀밭, Discovery 리조트 맞은편 나무 밑</dd>
-        <dt>3. Garden Lake</dt><dd>정착지에서 Digby Dr 따라 조금만 → 그늘에서 자는 쿼카 무리</dd>
-        <dt>4. 등대 아래</dt><dd>Wadjemup 등대 언덕 아래 티트리 덤불</dd>
-        <dt>밤</dt><dd>숙소 주변·Pinky Beach 길. 손전등 대신 휴대폰 불빛 약하게, 눈에 직접 비추지 않기</dd>
-      </dl>
-    </div>
-    <div class="info">
       <h3>📸 쿼카 셀카 잘 찍는 법</h3>
       <dl class="kv">
+        <dt>시간</dt><dd><b>야행성</b> → 아침 7~9시 · 해 질 녘~밤이 제일 활발. 한낮엔 그늘에서 잠</dd>
         <dt>낮게</dt><dd>쪼그려 앉거나 엎드려서 쿼카 눈높이. 그러면 먼저 다가옴</dd>
-        <dt>기다리기</dt><dd>쫓아가지 말고 조용히 가만히. 2~3분이면 옴</dd>
-        <dt>셀카봉</dt><dd>쿼카를 안 건드리고 낮은 각도 잡기 좋음 · 0.5배 광각 모드</dd>
-        <dt>연사</dt><dd>버스트 모드로 둘 다 웃는 순간 건지기</dd>
-        <dt>빛</dt><dd>플래시 금지 · 그늘에서 찍거나 아침·노을 빛. 대낮 직사광선은 눈 찡그림</dd>
+        <dt>기다리기</dt><dd>쫓아가지 말고 조용히 2~3분</dd>
+        <dt>폰</dt><dd>셀카봉 · 0.5배 광각 · 연사. 플래시 금지</dd>
+        <dt>빛</dt><dd>그늘이나 아침·노을 빛. 대낮 직사광선은 눈 찡그림</dd>
       </dl>
-      <div class="note">🚫 <b>만지기·먹이 주기·쫓기 금지</b> — 야생동물이고 벌금 대상. 사람 음식은 쿼카한테 치명적이라 식사할 때 바닥에 흘리지 않기. 셀카는 쿼카가 스스로 다가올 때만</div>
+      <div class="note">🚫 <b>만지기·먹이 주기·쫓기 금지</b> — 벌금 대상. 사람 음식은 쿼카한테 치명적이라 식사할 때 흘리지 않기</div>
     </div>
     <div class="info">
-      <h3>🚲 섬에서 다니는 법</h3>
+      <h3>🚶 자전거 없이 다니는 법</h3>
       <dl class="kv">
-        <dt>자전거</dt><dd>섬 일주 약 22km, 언덕 꽤 있음 → <b>전기자전거</b> 강추. 헬멧·자물쇠 대여에 포함. 펑크 나면 Pedal &amp; Flipper 출동 서비스 9292 5105</dd>
-        <dt>버스</dt><dd>Island Explorer 순환버스 (타고 내리기 자유) · 지칠 때·Little Salmon Bay 갈 때</dd>
-        <dt>차</dt><dd>섬엔 일반 차량 없음 · 숙소 짐은 페리 태그로 배달</dd>
-        <dt>그늘·물</dt><dd>섬에 그늘 거의 없음 · 물병 필수 (정착지·Basin에 물 채우는 곳) · 장 볼 거면 General Store(7~20시)</dd>
+        <dt>걸어서</dt><dd>선착장 ↔ 숙소(Bathurst) 7~10분 · 숙소 ↔ Pinky's·등대 5분 · 숙소 ↔ Basin 10분 · 정착지 ↔ Garden Lake 15분</dd>
+        <dt>버스</dt><dd><b>Island Explorer</b> 1일권 A$35 · 30분 간격 · 섬 한 바퀴 1시간 · 승하차 자유 · Main Bus Stop(선착장 앞)·Visitor Centre·기사에게 구매</dd>
+        <dt>정류장</dt><dd>1 Main Bus Stop → 2 Kingstown → … → 6 Little Salmon Bay → 7 Salmon Bay → 8 Wadjemup 등대 → … → 11 West End → … → 19 Geordie Bay</dd>
+        <dt>짐</dt><dd>페리 태그로 숙소 배달 · 섬엔 일반 차 없음</dd>
+        <dt>그늘·물</dt><dd>그늘 거의 없음 · 물병 · 모자 · 장은 General Store(7~20시)</dd>
       </dl>
+      <div class="links">
+        <a href="https://www.rottnestisland.com/visit/book-your-trip/quokka-coaches-bus-tour" target="_blank">🚌 버스 패스 예약</a>
+        <a class="sub" href="https://rottnestisland.com/visit/getting-around/by-bus" target="_blank">섬 버스 안내</a>
+      </div>
     </div>
     <div class="info">
       <h3>🏊 수영 · 스노클</h3>
       <dl class="kv">
-        <dt>Basin</dt><dd>파도 없는 천연 풀, 초보 OK · 샤워·화장실 있음</dd>
-        <dt>Little Salmon Bay</dt><dd>스노클 트레일(물속 안내판) · 아침에 가야 바람 약함 · 화장실은 근처 Parker Point</dd>
-        <dt>Geordie Bay</dt><dd>북쪽 잔잔한 만 · 카페 있음 · 사람 적음</dd>
-        <dt>장비</dt><dd>스노클·핀은 Pedal &amp; Flipper(08:30~17시)에서 대여 · 11월 수온 20도 안팎이라 래시가드</dd>
-        <dt>주의</dt><dd>갈매기가 음식 낚아챔 · 자외선 엄청 셈 · 드론 금지</dd>
+        <dt>Basin</dt><dd>숙소에서 걸어서 10분 · 파도 없음 · 샤워·화장실</dd>
+        <dt>Little Salmon Bay</dt><dd>버스 정류장 6 · 스노클 트레일 · 화장실은 Parker Point(정류장 5)</dd>
+        <dt>장비</dt><dd>스노클 세트는 정착지 Pedal &amp; Flipper(08:30~)에서 대여 · 래시가드</dd>
+        <dt>주의</dt><dd>갈매기가 음식 낚아챔 · 자외선 셈 · 드론 금지</dd>
       </dl>
     </div>
+
     <div class="section-title">후보 <small>섬 안 맛집 · 스팟</small></div>
     <div class="cand-tabs">
       <button class="food on" data-cat="food">🍴 맛집</button>
@@ -1228,35 +1236,37 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <span class="lbl">지도</span>
         <button class="chip route on" data-cat="route">일정</button>
         <button class="chip pub" data-cat="pub">스팟</button>
+        <button class="chip quokka" data-cat="quokka">🦘</button>
         <button class="chip food" data-cat="food">맛집</button>
         <button class="chip home" data-cat="home">🏠 숙소</button>
       </div>
       <div class="map" id="map-p19"></div>
-      <div class="map-hint">섬 → 프리맨틀 → Cervantes 전체 이동 (약 220km) · 두 손가락으로 확대</div>
+      <div class="map-hint">섬 → 프리맨틀 → Cervantes 전체 이동 (약 220km) · 🦘 버튼 누르면 섬 쿼카 핀</div>
     </div>
 
     <div class="section-title">일정</div>
     <div class="timeline">
       <div class="tl"><div class="time">06:30</div><div class="dot"></div><div class="body">
-        <div class="t">🦘 쿼카 타임 ③ · 새벽 등대길</div>
-        <div class="s">사람 아무도 없는 시간. 해 뜨는 빛에서 찍는 쿼카 사진이 제일 예쁨</div>
+        <div class="t">🦘 새벽 쿼카 산책 · 숙소 → Bathurst 등대 → Pinky Beach</div>
+        <div class="s">사람 아무도 없는 시간. 해 뜨는 빛에서 찍는 쿼카 사진이 제일 예쁨 (🦘7·9)</div>
       </div></div>
       <div class="tl"><div class="time">07:30</div><div class="dot"></div><div class="body">
+        <div class="t">짐 내놓기 · 체크아웃 준비</div>
+        <div class="s">체크아웃 <b>09:00</b>. 10시 이후 배라 <b>짐은 08:00까지</b> 숙소 앞에 페리 태그 붙여 내놓기 → 배까지 옮겨줌</div>
+        <div class="row"><span class="tag need">짐 08:00까지</span><span class="tag info">체크아웃 09:00</span></div>
+      </div></div>
+      <div class="tl"><div class="time">08:00</div><div class="dot"></div><div class="body">
         <div class="t">아침 · Pinky's</div>
-        <div class="s">아침 7:30~10시. 바다 보면서 천천히</div>
+        <div class="s">숙소에서 5분. 아침 7:30~10시. 바다 보면서</div>
       </div></div>
-      <div class="tl"><div class="time">08:30</div><div class="dot"></div><div class="body">
-        <div class="t">짐 정리 · 체크아웃</div>
-        <div class="s">체크아웃 10:00. 짐은 리셉션(Pinky's)에 페리 태그 붙여 맡기면 배까지 옮겨줌 → 몸 가볍게 마지막 수영</div>
-        <div class="row"><span class="tag info">체크아웃 10:00</span></div>
-      </div></div>
-      <div class="tl"><div class="time">09:15</div><div class="dot"></div><div class="body">
+      <div class="tl"><div class="time">09:00</div><div class="dot"></div><div class="body">
         <div class="t">🏊 Basin 마지막 수영</div>
-        <div class="s">자전거 반납 전에 한 번 더</div>
+        <div class="s">Pinky's에서 걸어서 5분. 샤워 있어서 씻고 배 타기 OK. 키는 체크아웃 안내대로 반납</div>
       </div></div>
-      <div class="tl"><div class="time">10:45</div><div class="dot"></div><div class="body">
-        <div class="t">🚲 자전거 반납 · Pedal &amp; Flipper</div>
-        <div class="s">선착장에서 걸어서 3분. 전기자전거 보증금 환불 확인</div>
+      <div class="tl move"><div class="time soft"></div><div class="dot"></div><div class="body"><div class="t">🚶 Basin → 정착지 15분 · 마지막 쿼카 셀카 (🦘5·6·1)</div></div></div>
+      <div class="tl"><div class="time">10:30</div><div class="dot"></div><div class="body">
+        <div class="t">커피 · 기념품</div>
+        <div class="s">Lane Cafe 커피 + 옆집 Simmo's 아이스크림. 쿼카 인형은 General Store·Island Gypsy</div>
       </div></div>
       <div class="tl"><div class="time">11:30</div><div class="dot"></div><div class="body">
         <div class="t">⛴ Rottnest Express · 섬 → 프리맨틀 B Shed</div>
@@ -1409,23 +1419,21 @@ svg.leaflet-image-layer.leaflet-interactive path {
     </div>
 
     <div class="info">
-      <h3>18 수 · ⛺ Discovery Rottnest 글램핑 (섬) <span class="tag need">예약 필요</span></h3>
+      <h3>18 수 · Stay Rottnest · Bathurst Standard (섬) <span class="tag ok">확정</span></h3>
       <dl class="kv">
-        <dt>왜 여기</dt><dd>Pinky Beach 모래언덕 바로 뒤 고급 사파리 텐트. 데크에서 노을이 바로 앞이고 쿼카가 데크로 올라옴. 섬에서 제일 낭만 있는 숙소</dd>
-        <dt>방 고르기</dt><dd>① <b>Deluxe Oceanside</b>(바다 쪽 첫 줄) → ② <b>Deluxe</b> → ③ Superior 순서로 11/18 1박 확인</dd>
-        <dt>텐트 안</dt><dd>킹베드 · 실내 개인 욕실 · 간이주방(냉장고·전자레인지) · 개인 데크 · 침구·수건 포함</dd>
-        <dt>리조트</dt><dd>수영장 · Pinky's 바·레스토랑(아침 7:30~10, 11~20시, 해피아워 16~18시) · 해변 보드워크</dd>
-        <dt>체크인</dt><dd>14:00 · Pinky's에서 · 선착장에서 걸어서 10분 (짐은 페리 태그로 배달)</dd>
-        <dt>체크아웃</dt><dd>10:00</dd>
-        <dt>가격</dt><dd>Superior 약 A$190~300 · Deluxe·Oceanside는 날짜별 확인 (30만원 살짝 넘을 수 있음)</dd>
-        <dt>주의</dt><dd><b>1박 예약 되는지 먼저 확인</b> (시기별 최소 2박) · 문은 지퍼, 에어컨 없음(천장 선풍기) · 밤엔 쌀쌀해서 겉옷</dd>
-        <dt>안 되면</dt><dd>1박이 안 되거나 마감이면 → <b>Samphire Rottnest</b> Poolside 스위트 (호텔, 약 A$370~)</dd>
+        <dt>방</dt><dd>Bathurst Standard - 4 Beds · 침실 2(킹 1 + 싱글 2) · 욕실 1 · 주방 · 거실 · 마당</dd>
+        <dt>요금</dt><dd>A$295 · 1박 · 100% 선결제</dd>
+        <dt>위치</dt><dd>정착지 북쪽 <b>Bathurst Point</b> 근처 · 선착장 걸어서 7~10분 · Pinky's·Bathurst 등대 5분 · Basin 10분</dd>
+        <dt>체크인</dt><dd>14:00부터 · 선착장 끝 <b>Visitor Centre</b>(~17:30)에서 예약자 신분증으로 키 수령</dd>
+        <dt>체크아웃</dt><dd><b>09:00</b> · 10시 이후 배라 <b>짐은 08:00까지</b> 숙소 앞에 내놓기 (페리 태그)</dd>
+        <dt>예약 폼</dt><dd>Travel To Island: Sealink 07:00 · 돌아오는 배: Rottnest Express 11:30</dd>
+        <dt>참고</dt><dd>기본형이라 바다뷰·인테리어 기대 X · 휴지 등 소모품 최소라 General Store에서 보충 · 밤엔 마당에 쿼카</dd>
       </dl>
       <div class="links">
-        <a href="https://www.discoveryholidayparks.com.au/resorts/rottnest-island" target="_blank">⛺ Discovery 글램핑 예약</a>
-        <a class="sub" href="https://samphirerottnest.com.au" target="_blank">대안 · Samphire</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Bathurst+Point+Rottnest+Island" target="_blank">위치 구글맵</a>
+        <a class="sub" href="https://bookings.stayrottnest.com/search-rates" target="_blank">Stay Rottnest 예약 확인</a>
       </div>
-      <div class="note">섬 숙소는 빨리 마감돼요. 이 일정의 핵심이라 제일 먼저 예약</div>
+      <div class="note">✅ 섬 숙소 확정! 다음은 페리 2장 + 버스 패스</div>
     </div>
 
     <div class="info">
@@ -1450,7 +1458,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <dl class="kv">
         <dt>가는 배</dt><dd>11/18 수 07:00 SeaLink · 프리맨틀 B Shed → 섬 30분 (대안 07:30 Rottnest Express)</dd>
         <dt>오는 배</dt><dd>11/19 목 11:30 Rottnest Express · 섬 → 프리맨틀 B Shed 12:00</dd>
-        <dt>예약 방법</dt><dd>회사가 달라서 <b>편도 2장</b>으로 따로 예약. 섬 입장료는 <b>1박(Extended stay)</b>으로 선택 (요금에 포함돼서 같이 결제). 자전거는 페리에 추가하지 말고 아래 Pedal &amp; Flipper로</dd>
+        <dt>예약 방법</dt><dd>회사가 달라서 <b>편도 2장</b>으로 따로 예약. 섬 입장료는 <b>1박(Extended stay)</b>으로 선택 (요금에 포함돼서 같이 결제). 자전거는 안 빌림 (걸어서 + 버스)</dd>
         <dt>한 회사로</dt><dd>귀찮으면 둘 다 Rottnest Express(수 07:30 가는 배)로 왕복 1장도 가능</dd>
         <dt>터미널</dt><dd>둘 다 B Shed · Victoria Quay (Fremantle) · 출발 30분 전 도착</dd>
         <dt>주의</dt><dd>바람 세면 결항 가능 · 전날 운항 공지 확인</dd>
@@ -1462,21 +1470,21 @@ svg.leaflet-image-layer.leaflet-interactive path {
       </div>
     </div>
     <div class="info">
-      <h3>🚲 자전거 · 스노클 대여 <span class="tag need">예약 필요</span></h3>
+      <h3>🚌 섬 이동 · Island Explorer 버스 <span class="tag need">예약</span></h3>
       <dl class="kv">
-        <dt>추천</dt><dd><b>Pedal &amp; Flipper</b> (섬 공식 대여점) · 수 08:30 픽업 → 목 10:45 반납 <b>2일 대여</b></dd>
-        <dt>왜</dt><dd>페리 회사 자전거는 <b>당일 반납용</b>이라 1박 일정엔 안 맞음 (SeaLink는 1일 A$35, Rottnest Express는 A$39부터)</dd>
-        <dt>위치·시간</dt><dd>Bedford Ave (Hotel Rottnest 뒤, 선착장 도보 3분) · 매일 08:30~18:00 (17시로 나오는 곳도 있으니 반납 시간 넉넉히)</dd>
-        <dt>전기자전거</dt><dd>18세 이상 · 보증금 A$200 (반납 시 환불) · 현장 업그레이드도 가능(재고 있을 때)</dd>
-        <dt>할인</dt><dd>Stay Rottnest 숙박객 10% (글램핑은 해당 X)</dd>
-        <dt>스노클</dt><dd>같은 곳에서 마스크·핀 대여 · 현장에서 추가</dd>
-        <dt>챙길 것</dt><dd>예약 확인 메일 + 신분증 + 카드</dd>
+        <dt>왜</dt><dd>자전거 없이 섬 남쪽·서쪽(Little Salmon Bay, Wadjemup 등대, West End)까지 가는 방법</dd>
+        <dt>요금</dt><dd>1일권 A$35 (+ 연료 할증 A$1) · 수요일 하루만 사면 됨</dd>
+        <dt>운행</dt><dd>30분 간격 · 한 바퀴 약 1시간 · 19개 정류장 승하차 자유 · Main Bus Stop(선착장 앞) 출발</dd>
+        <dt>구매</dt><dd>온라인 미리 예약(성수기 마감) · 현장 자판기 · 기사</dd>
+        <dt>나머지</dt><dd>숙소·Pinky's·Basin·정착지는 전부 걸어서 15분 이내</dd>
+        <dt>스노클</dt><dd>정착지 Pedal &amp; Flipper(08:30~)에서 스노클 세트만 대여</dd>
       </dl>
       <div class="links">
-        <a href="https://www.rottnestisland.com/pedalandflipper" target="_blank">🚲 Pedal &amp; Flipper 예약</a>
-        <a class="sub" href="https://www.rottnestisland.com/visit/getting-around/by-bike" target="_blank">섬 자전거 안내</a>
-        <a class="sub" href="https://www.sealink.com.au/rottnest-island/experiences/bike-hire/" target="_blank">SeaLink 자전거(당일)</a>
+        <a href="https://www.rottnestisland.com/visit/book-your-trip/quokka-coaches-bus-tour" target="_blank">🚌 버스 패스 예약</a>
+        <a class="sub" href="https://rottnestisland.com/visit/getting-around/by-bus" target="_blank">섬 버스 안내</a>
+        <a class="sub" href="https://www.rottnestisland.com/pedalandflipper" target="_blank">스노클 대여</a>
       </div>
+    </div>
     </div>
     <div class="info">
       <h3>렌트카 · 목 13:30 → 금 16:00 <span class="tag need">예약 필요</span></h3>
@@ -1506,7 +1514,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <dt>햇볕</dt><dd>선크림 진하게 · 모자 · 선글라스 (서호주 자외선 진짜 셈)</dd>
         <dt>밤</dt><dd>얇은 겉옷 (섬·사막 밤 쌀쌀) · 별 볼 때 담요</dd>
         <dt>쿼카</dt><dd>만지기·먹이 주기 금지, 벌금 있음. 셀카는 쿼카가 다가오게</dd>
-        <dt>자전거</dt><dd>헬멧 필수 (대여 시 포함)</dd>
+        <dt>신발</dt><dd>섬은 걸어 다니니까 편한 샌들 + 아쿠아슈즈</dd>
       </dl>
     </div>
 
@@ -1528,11 +1536,33 @@ const DAYS = ['p17','p18','p19','p20'];
 
 const STAYS = {
   p17: [{n:'Hougoumont Hotel', lat:-32.0554, lng:115.7464, s:'15 Bannister St, Fremantle · 11/17 1박 · B Shed 걸어서 10분', q:'Hougoumont Hotel Fremantle'}],
-  p18: [{n:'⛺ Discovery Rottnest 글램핑', lat:-31.9907, lng:115.5376, s:'11/18 1박 · Deluxe 텐트 · Pinky Beach 바로 뒤 · 체크인 14시 (Pinky\'s)', q:'Discovery Resorts Rottnest Island'}],
+  p18: [{n:'Stay Rottnest · Bathurst Standard (확정)', lat:-31.9914, lng:115.5422, s:'11/18 1박 · Bathurst Point 근처 · 침실 2·욕실 1·마당 · 체크인 14시(키: Visitor Centre) · 체크아웃 09시', q:'Bathurst Point Rottnest Island'}],
   p19: [{n:'Pinnacles Edge Resort', lat:-30.5007, lng:115.0700, s:'7 Aragon St, Cervantes · 11/19 1박 · 체크인 19시까지', q:'Pinnacles Edge Resort Cervantes'}],
   p20: []
 };
 
+const QUOKKA = [
+  {n:'선착장·Visitor Centre 잔디밭', lat:-31.9956, lng:115.5414, r:'🦘🦘🦘', h:'하루 종일 · 도착하자마자',
+   g:'배 내리자마자 보이는 곳. 사람이 많아서 쿼카도 익숙함. 첫 셀카는 여기서.'},
+  {n:'Lane Cafe·빵집 골목', lat:-31.9957, lng:115.5404, r:'🦘🦘🦘', h:'아침·점심',
+   g:'빵집 테이블 밑에 상주. 음식 흘리면 안 되니 다 먹고 나서 찍기.'},
+  {n:'Hotel Rottnest 데크', lat:-31.9984, lng:115.5424, r:'🦘🦘🦘', h:'점심~저녁',
+   g:'펍 테이블 사이로 돌아다님. 피자 훔쳐간다는 후기 있을 정도 😆'},
+  {n:'Garden Lake', lat:-31.9975, lng:115.5365, r:'🦘🦘🦘', h:'아침 · 낮엔 그늘에서 잠',
+   g:'정착지 서쪽 호수. 그늘 밑에 여러 마리가 모여 있음. 공식 쿼카 스팟. (대략 위치)'},
+  {n:'골프장~운동장 사이 풀밭', lat:-31.9932, lng:115.5378, r:'🦘🦘', h:'아침·해 질 녘',
+   g:'정착지에서 Basin 가는 길. 풀 뜯는 쿼카. 공식 쿼카 스팟. (대략 위치)'},
+  {n:'Discovery 리조트 맞은편 나무', lat:-31.9912, lng:115.5385, r:'🦘🦘', h:'아침·저녁',
+   g:'Basin 가는 길 나무 밑 그늘. 공식 쿼카 스팟.'},
+  {n:'Bathurst 등대·Pinky Beach 길', lat:-31.9893, lng:115.5407, r:'🦘🦘🦘', h:'일몰·밤·새벽',
+   g:'숙소에서 5분. 노을 보러 가는 길에 계속 보임. 새벽 산책 코스.'},
+  {n:'Wadjemup 등대 아래 티트리', lat:-32.0072, lng:115.5043, r:'🦘🦘', h:'낮 · 버스 8',
+   g:'언덕 아래 덤불 속. 공식 쿼카 스팟.'},
+  {n:'🏠 우리 숙소 (Bathurst) 마당', lat:-31.9914, lng:115.5422, r:'🦘🦘🦘', h:'저녁·밤',
+   g:'Bathurst 유닛 마당·바비큐 자리로 밤에 놀러 옴. 문 열어두면 들어오니 닫아두기. 음식 밖에 두지 않기.'},
+  {n:'Geordie Bay 카페', lat:-31.9908, lng:115.5254, r:'🦘🦘', h:'낮 · 버스 19',
+   g:'북쪽 조용한 만. 카페 테이블 주변. 버스로 갈 때만.'},
+];
 const DATA = {
   p17: {
     route: [
@@ -1555,13 +1585,17 @@ const DATA = {
   },
   p18: {
     route: [
-      {n:'B Shed 페리 터미널 · Fremantle', lat:-32.0526, lng:115.7431, s:'07:00 SeaLink → 섬 30분', pid:'ChIJLynORG6hMioRPjemQILMCSY', far:true},
-      {n:'Rottnest Island Visitor Centre', lat:-31.9956, lng:115.5414, s:'07:30 도착 · 14:30 키 수령', pid:'ChIJAdUoVmxaLSoR7FYF8FxFFew'},
-      {n:'The Basin', lat:-31.9896, lng:115.5354, s:'09:30 수영', pid:'ChIJ0SkY33BaLSoRIAY6vwNweLw'},
-      {n:'Hotel Rottnest', lat:-31.9984, lng:115.5424, s:'12:00 점심', pid:'ChIJ02ZLcWtaLSoR64OflDTHgMM'},
-      {n:'Little Salmon Bay', lat:-32.0246, lng:115.5251, s:'13:00 스노클링', pid:'ChIJ_W-ZQlRaLSoR-JCblKDPMpA'},
-      {n:"Pinky's + Bathurst 등대", lat:-31.9896, lng:115.5391, s:'17:00 해피아워 · 18:00 저녁 · 19:00 등대 일몰', pid:'ChIJF0ySL29bLSoRImjO55Z7EYA'},
+      {n:'B Shed 페리 터미널 · Fremantle', lat:-32.0526, lng:115.7431, s:'07:00 SeaLink', pid:'ChIJLynORG6hMioRPjemQILMCSY', far:true},
+      {n:'선착장 · Lane Cafe', lat:-31.9956, lng:115.5406, s:'07:30 도착 · 아침'},
+      {n:'Garden Lake', lat:-31.9975, lng:115.5365, s:'08:30 쿼카 산책 (대략 위치)'},
+      {n:'Salt Store · 쿼카 가이드 워크', lat:-31.9961, lng:115.5411, s:'09:30 무료 투어', pid:'ChIJZe7NxglbLSoRSvXFA2U2w5s'},
+      {n:'The Basin', lat:-31.9896, lng:115.5354, s:'10:30 수영', pid:'ChIJ0SkY33BaLSoRIAY6vwNweLw'},
+      {n:'Hotel Rottnest', lat:-31.9984, lng:115.5424, s:'12:30 점심', pid:'ChIJ02ZLcWtaLSoR64OflDTHgMM'},
+      {n:'Little Salmon Bay (버스 6)', lat:-32.0246, lng:115.5251, s:'14:00 스노클', pid:'ChIJ_W-ZQlRaLSoR-JCblKDPMpA'},
+      {n:'Wadjemup 등대 (버스 8)', lat:-32.0072, lng:115.5043, s:'15:00 전망·쿼카', pid:'ChIJzbVzXXJaLSoRzHlJ6jHAjDs'},
+      {n:"Pinky's + Bathurst 등대", lat:-31.9896, lng:115.5391, s:'17:15 해피아워 · 18:00 저녁 · 19:00 일몰', pid:'ChIJF0ySL29bLSoRImjO55Z7EYA'},
     ],
+    quokka: QUOKKA,
     food: [
       {area:'아침', n:'Lane Cafe', lat:-31.9955, lng:115.5406, pid:'ChIJ_Z-vTWxaLSoRM3jyyrd0-RQ', r:'4.7', h:'매일 6:30–16시',
        g:'섬 커피 1등. 서호주 랍스터 꼬리 넣은 토스트 롤 <b>크레이독(CrayDog)</b>이 명물, 에그타르트·바나나브레드도 인기. 옆집 Simmo\'s 아이스크림까지 세트.'},
@@ -1574,7 +1608,7 @@ const DATA = {
       {area:'점심 대안', n:"Frankie's on Rotto", lat:-31.9954, lng:115.5406, pid:'ChIJ7fEjTWxaLSoRTKWp8OclXa4', r:'4.4', h:'수 11–20시',
        g:'정착지 피자·파스타. "섬인데 본토보다 맛있다"는 후기 많고 가격 착함. 쿼카 보면서 먹음. 저녁 대안으로도 OK.'},
       {area:'점심 대안', n:"Geordie's Cafe & Art Gallery", lat:-31.9908, lng:115.5254, pid:'ChIJm2MQoH5aLSoRy_CJNYCTxbE', r:'4.0', h:'수 7:30–20시',
-       g:'북쪽 Geordie Bay 갤러리 카페. 랩·키시·브라우니가 유명. 사람 적은 쪽이라 자전거 투어 중 쉬기 좋음. 바쁘면 음식이 늦음.'},
+       g:'북쪽 Geordie Bay 갤러리 카페. 랩·키시·브라우니가 유명. 버스 19번 정류장 근처라 버스 타고 갈 때. 바쁘면 음식이 늦음.'},
       {area:'피크닉', n:'Rottnest General Store', lat:-31.9958, lng:115.5405, pid:'ChIJ1VEpg8BaLSoRWkav9f_BTvo', r:'4.4', h:'매일 7–20시',
        g:'섬 유일 마트. 술·간식·물·쿼카 인형까지. 해변 피크닉 거리나 밤에 숙소에서 한 잔 할 거 사기.'},
       {area:'저녁 대안', n:'Lontara', lat:-31.9986, lng:115.5424, pid:'ChIJxdahX_1bLSoR3wTT6QYIvNw', r:'4.3', h:'수 17:30–20:30',
@@ -1587,10 +1621,10 @@ const DATA = {
        g:'암초가 막아줘서 파도 없는 천연 풀. 샤워·화장실 있음. 숙소에서 가까워서 아침·저녁 두 번 가기 좋음.'},
       {area:'스노클링', n:'Little Salmon Bay', lat:-32.0246, lng:115.5251, pid:'ChIJ_W-ZQlRaLSoR-JCblKDPMpA', r:'4.8', h:'항상',
        g:'섬 최고 스노클 스팟, 물속 안내판 트레일. 일찍 갈수록 바람 약하고 사람 적음.'},
-      {area:'쿼카 스팟', n:'Garden Lake', lat:-31.9985, lng:115.5370, r:'쿼카', h:'정착지에서 도보 5~10분',
+      {area:'쿼카 스팟', n:'Garden Lake', lat:-31.9975, lng:115.5365, r:'쿼카', h:'정착지에서 도보 5~10분',
        g:'정착지에서 Digby Dr 따라 나가면 나오는 호수. 낮에 그늘에서 자는 쿼카 무리가 있는 곳 (대략 위치).'},
       {area:'쿼카 스팟', n:'Wadjemup Lighthouse', lat:-32.0072, lng:115.5043, pid:'ChIJzbVzXXJaLSoRzHlJ6jHAjDs', r:'4.5', h:'투어 10–15시',
-       g:'섬 한가운데 제일 높은 등대. 언덕 아래 티트리 덤불에 쿼카. 위에 올라가면 섬 360도 뷰 (유료 투어). 언덕길이라 전기자전거로.'},
+       g:'섬 한가운데 제일 높은 등대. 언덕 아래 티트리 덤불에 쿼카. 위에 올라가면 섬 360도 뷰 (유료 투어). 버스 정류장 8.'},
       {area:'수영', n:'Geordie Bay', lat:-31.9908, lng:115.5215, pid:'ChIJ6wwWGn5aLSoRrp_xTQUo0ws', r:'4.7', h:'항상',
        g:'북쪽 잔잔한 만. Basin보다 사람 적고 물색 예쁨. Geordie\'s 카페 바로 옆.'},
       {area:'일몰', n:'Bathurst Lighthouse', lat:-31.9893, lng:115.5407, pid:'ChIJS-WWGrpbLSoRrObM_ipFizw', r:'4.6', h:'항상',
@@ -1604,6 +1638,7 @@ const DATA = {
       {n:'Pinnacles Edge Resort', lat:-30.5007, lng:115.0700, s:'🏠 16:30 체크인 · 17:30 저녁', pid:'ChIJi9jM7LWH0SsRLf_b7XMsWnM'},
       {n:'The Pinnacles Desert', lat:-30.5913, lng:115.1582, s:'18:40 일몰 · 별', pid:'ChIJVVJhIJMm0isRGCL6h2V0xCA'},
     ],
+    quokka: QUOKKA,
     food: [
       {area:'섬 아침', n:"Pinky's", lat:-31.9896, lng:115.5391, pid:'ChIJF0ySL29bLSoRImjO55Z7EYA', r:'3.6', h:'목 7:30–10시',
        g:'숙소에서 걸어서 몇 분. 바다 보면서 마지막 섬 아침.'},
@@ -1651,7 +1686,7 @@ function visiblePts(dayId){
   if(!m){ d.route.forEach(p=>{ if(!p.far) pts.push([p.lat,p.lng]); }); homes.forEach(p=>pts.push([p.lat,p.lng])); return pts; }
   Object.keys(m.layers).forEach(k=>{
     if(!m.map.hasLayer(m.layers[k])) return;
-    (k==='route'?d.route:(k==='home'?homes:d[k])).forEach(p=>{ if(!p.far) pts.push([p.lat,p.lng]); });
+    (k==='route'?d.route:(k==='home'?homes:(d[k]||[]))).forEach(p=>{ if(!p.far) pts.push([p.lat,p.lng]); });
   });
   return pts.length ? pts : d.route.map(p=>[p.lat,p.lng]);
 }
@@ -1666,7 +1701,7 @@ function buildMap(dayId){
   tiles.addTo(map);
   setTimeout(()=>{ if(!tileOk) document.getElementById('map-'+dayId).classList.add('notile'); },4000);
 
-  const layers = {route:L.layerGroup(), pub:L.layerGroup(), food:L.layerGroup()};
+  const layers = {route:L.layerGroup(), pub:L.layerGroup(), food:L.layerGroup(), quokka:L.layerGroup()};
   const homes = STAYS[dayId] || [];
   if(homes.length){
     layers.home = L.layerGroup();
@@ -1688,6 +1723,13 @@ function buildMap(dayId){
         .addTo(layers[cat]);
     });
   });
+  (d.quokka||[]).forEach((p,i)=>{
+    L.marker([p.lat,p.lng],{icon:L.divIcon({className:'', html:`<div class="pin quokka"><span>${i+1}</span></div>`, iconSize:[24,24], iconAnchor:[12,12], popupAnchor:[0,-12]})})
+      .bindPopup(`<b>🦘 ${p.n}</b>${p.r} · ${p.h}<br>${p.g}<br><a class="go" href="${gmap(p.n+' Rottnest Island')}" target="_blank">구글맵 열기</a>`)
+      .addTo(layers.quokka);
+  });
+  const qChip=document.querySelector(`#${dayId} .map-filter .chip.quokka`);
+  if(qChip && qChip.classList.contains('on')) layers.quokka.addTo(map);
   layers.route.addLayer(L.polyline(d.route.map(p=>[p.lat,p.lng]),{color:'#FF7A1A',weight:3,opacity:.55,dashArray:'6 8'}));
   layers.route.addTo(map);
   const homeChip=document.querySelector(`#${dayId} .map-filter .chip.home`);
@@ -1808,14 +1850,16 @@ const STAY_LIST = {
   },
   p18: {
     title:'11/18 수 1박 · 로트네스트 섬',
-    tip:'✅ <b>Discovery 글램핑 Deluxe로 결정</b>. 1박 예약이 안 되면 Samphire 호텔. 참고로 ⛺ <b>글램핑 vs 독채</b>: 글램핑(Discovery)은 텐트 데크로 쿼카가 올라오고 Pinky Beach 노을이 바로 앞이라 낭만은 최고. 대신 문이 지퍼·에어컨 없음·<b>1박 가능 여부 확인</b>(시기별 최소 2박). 잠금·에어컨이 중요하면 독채. 섬에는 <b>에어비앤비가 사실상 없어요</b>. 섬 안 숙소는 공식 기관(Stay Rottnest) 독채 + 리조트 2곳이 전부. 위치는 <b>Thomson Bay(선착장)·Bathurst(Pinky Beach)</b>가 동선상 정답',
+    tip:'✅ <b>Bathurst Standard 확정</b> (A$295). 아래는 참고용 다른 옵션',
     links:[
-      {t:'Stay Rottnest 공식 예약 (11/18)', u:'https://bookings.stayrottnest.com/search-rates'},
+      {t:'✅ Stay Rottnest 예약 확인', u:'https://bookings.stayrottnest.com/search-rates'},
       {t:'⛺ Discovery 글램핑 예약', u:'https://www.discoveryholidayparks.com.au/resorts/rottnest-island'},
       {t:'Booking.com · 로트네스트', u:bkg('Rottnest Island','2026-11-18','2026-11-19'), sub:true},
     ],
     items:[
-      {area:'⛺ 글램핑 · Discovery Resorts (Pinky Beach 바로 뒤)', n:'Discovery · Deluxe / Oceanside 텐트 ★ 확정 후보', lat:-31.9903, lng:115.5372, pid:'ChIJOzsFP-5bLSoR79PH3bRkGJ0', r:'4.2', h:'날짜로 확인 · 30만원 넘을 수 있음',
+      {area:'✅ 확정', n:'Stay Rottnest · Bathurst Standard', lat:-31.9914, lng:115.5422, r:'공식', h:'A$295 · 침실 2 · 확정',
+       g:'Pinky Beach·등대·Basin이 걸어서 몇 분. 문 잠기는 독채, 개인 욕실, 주방, 침구 포함. 침실 1개는 킹베드. 4인 이상 구성이라 둘이면 넓게 씀.', site:'https://bookings.stayrottnest.com/search-rates'},
+      {area:'⛺ 글램핑 · Discovery Resorts (Pinky Beach 바로 뒤)', n:'Discovery · Deluxe / Oceanside 텐트', lat:-31.9903, lng:115.5372, pid:'ChIJOzsFP-5bLSoR79PH3bRkGJ0', r:'4.2', h:'날짜로 확인 · 30만원 넘을 수 있음',
        g:'제일 큰 텐트(최대 6.3m). Oceanside는 바다 쪽 첫 줄이라 텐트에서 바로 Pinky Beach 노을. 예산 안에 뜨면 무조건 이거.', site:'https://www.discoveryholidayparks.com.au/resorts/rottnest-island'},
       {area:'⛺ 글램핑 · Discovery Resorts (Pinky Beach 바로 뒤)', n:'Discovery · Superior 텐트 (3순위)', lat:-31.9907, lng:115.5376, pid:'ChIJOzsFP-5bLSoR79PH3bRkGJ0', r:'4.2', h:'약 A$190~300 · 킹베드 · 커플 추천',
        g:'4.2m 텐트 + 개인 데크. 킹베드, 실내 개인 욕실(벽돌식), 간이주방(냉장고·전자레인지). 데크에서 노을 보다 보면 쿼카가 올라옴. 둘이면 이게 가성비 정답.', site:'https://www.discoveryholidayparks.com.au/resorts/rottnest-island'},
@@ -1823,14 +1867,12 @@ const STAY_LIST = {
        g:'3m 작은 텐트 + 개인 욕실. 자고 씻기만 하면 충분하다면. 시즌에 따라 판매 안 할 때도 있음.', site:'https://www.discoveryholidayparks.com.au/resorts/rottnest-island'},
       {area:'🏨 호텔 대안 · 글램핑 안 되면', n:'Samphire Rottnest', lat:-31.9990, lng:115.5427, pid:'ChIJCQ3uz2JbLSoRraKgUjaknxM', r:'4.3', h:'약 A$370~620 · 30만원 초과',
        g:'섬 유일 제대로 된 호텔. 에어컨·수영장·24시간 보안. 예산 넘지만 특가 뜨면 고려.', site:'https://samphirerottnest.com.au'},
-      {area:'공식 독채 (기본형 · 참고)', n:'Stay Rottnest · Bathurst 유닛 (Premium)', lat:-31.9912, lng:115.5418, r:'공식', h:'날짜로 확인 · A$300↓ 고르기',
-       g:'Pinky Beach·등대·Basin이 걸어서 몇 분. 문 잠기는 독채, 개인 욕실, 주방, 침구 포함. 침실 1개는 킹베드. 4인 이상 구성이라 둘이면 넓게 씀.', site:'https://bookings.stayrottnest.com/search-rates'},
       {area:'공식 독채 (기본형 · 참고)', n:'Stay Rottnest · North Thomson (Premium)', lat:-31.9930, lng:115.5410, r:'공식', h:'날짜로 확인 · 선착장 바로 옆',
        g:'선착장·빵집·식당가가 제일 가까운 위치. 짐 옮기기 편하고 밤 산책하기 좋음. Bathurst 마감이면 여기.'},
       {area:'공식 독채 (기본형 · 참고)', n:'Stay Rottnest · Chalet (Thomson Bay)', lat:-31.9945, lng:115.5418, r:'공식', h:'날짜로 확인 · 2침실',
        g:'2침실 소형 독채라 둘이 쓰기 딱 좋은 크기. 주방·거실 완비.'},
       {area:'공식 독채 (기본형 · 참고)', n:'Stay Rottnest · Longreach Bay (리노베이션)', lat:-31.9862, lng:115.5255, r:'공식', h:'날짜로 확인 · 새로 고친 유닛',
-       g:'최근 리모델링해서 제일 깔끔. 대신 선착장에서 자전거 10분 거리라 저녁 먹으러 나갈 때 자전거 필요.'},
+       g:'최근 리모델링해서 제일 깔끔. 대신 정착지에서 멀어서 저녁 먹으러 나갈 때 버스·자전거 필요.'},
       {area:'비추천', n:'Kingstown Barracks 호스텔 (가족실)', lat:-32.0130, lng:115.5530, r:'공식', h:'제일 저렴 · 공용 욕실',
        g:'군 막사 개조 호스텔. 정착지에서 1.8km라 밤에 Pinky\'s·쿼카 산책 동선이 멀고 욕실 공용. 이번 여행엔 안 맞음.'},
     ]
@@ -1917,7 +1959,21 @@ document.querySelectorAll('#perDays button').forEach(b=>{
   });
 });
 
-DAYS.forEach(id=>{ buildCards(id); stayBar(id); buildStayList(id); });
+function buildQuokka(dayId){
+  const wrap=document.getElementById('qk-'+dayId); if(!wrap) return;
+  wrap.innerHTML=QUOKKA.map((p,i)=>`<div class="card quokka"><button class="head"><div class="num">${i+1}</div><div class="name">${p.n}<small>${p.r} · ${p.h}</small></div>${caret}</button>
+    <div class="detail"><p>${p.g}</p><div class="acts"><button class="locate" data-i="${i}">지도에서</button></div></div></div>`).join('');
+  wrap.querySelectorAll('.head').forEach(h=>h.addEventListener('click',()=>h.parentElement.classList.toggle('open')));
+  wrap.querySelectorAll('.locate').forEach(b=>b.addEventListener('click',()=>{
+    const p=QUOKKA[+b.dataset.i]; if(!maps[dayId]) buildMap(dayId);
+    const {map,layers}=maps[dayId];
+    const chip=document.querySelector(`#${dayId} .map-filter .chip.quokka`);
+    if(chip && !chip.classList.contains('on')){ chip.classList.add('on'); layers.quokka.addTo(map); }
+    document.querySelector(`#${dayId} .map-wrap`).scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(()=>{ map.setView([p.lat,p.lng],16); layers.quokka.eachLayer(m=>{ if(m.getLatLng && m.getLatLng().lat===p.lat) m.openPopup(); }); },350);
+  }));
+}
+DAYS.forEach(id=>{ buildCards(id); stayBar(id); buildStayList(id); buildQuokka(id); });
 buildMap('p17');
 window.addEventListener('load',()=>{ setTimeout(()=>fit('p17'),100); });
 </script>
