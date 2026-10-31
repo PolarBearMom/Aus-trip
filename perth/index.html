@@ -1561,11 +1561,11 @@ function visiblePts(dayId){
 function fit(dayId){ const m=maps[dayId]; m.map.invalidateSize(); m.map.fitBounds(visiblePts(dayId),{padding:[28,28],maxZoom:15}); }
 function buildMap(dayId){
   const d = DATA[dayId];
-  const map = L.map('map-'+dayId, {zoomControl:true, scrollWheelZoom:false, attributionControl:false});
-  const tiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd'});
+  const map = L.map('map-'+dayId, {zoomControl:true, scrollWheelZoom:false, attributionControl:true});
+  const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'});
   let tileOk=false;
   tiles.on('tileload',()=>{ tileOk=true; });
-  tiles.on('tileerror',()=>{ if(!tileOk){ tiles.setUrl('https://tile.openstreetmap.org/{z}/{x}/{y}.png'); } });
+  tiles.on('tileerror',()=>{ if(!tileOk){ tiles.setUrl('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}'); } });
   tiles.addTo(map);
   setTimeout(()=>{ if(!tileOk) document.getElementById('map-'+dayId).classList.add('notile'); },4000);
 
